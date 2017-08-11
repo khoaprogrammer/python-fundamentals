@@ -1,0 +1,108 @@
+1
+00:00:02,000 --> 00:00:08,000
+Hello. My name is Robert Smallshire. Welcome to the ninth module of the Python Fundamentals course where
+
+2
+00:00:08,000 --> 00:00:14,000
+we'll cover reading and writing data from text and binary files and discover how to manage resources such
+
+3
+00:00:14,000 --> 00:00:19,000
+as files elegantly using context managers.
+
+4
+00:00:19,000 --> 00:00:23,000
+To open a file in Python, we call the built-in open() function.
+
+5
+00:00:23,000 --> 00:00:27,000
+This takes a number of arguments, but the most commonly used are:
+
+6
+00:00:27,000 --> 00:00:36,000
+File, the path to the file. This is required. Mode, which specifies read/write/append, and binary or
+
+7
+00:00:36,000 --> 00:00:41,000
+text mode. This is optional, but we always recommend specifying it for clarity.
+
+8
+00:00:41,000 --> 00:00:50,000
+Explicit is better than implicit. Encoding. If the file contains encoded text data, this is the text encoding
+
+9
+00:00:50,000 --> 00:00:57,000
+to use. It's often a good idea to specify this. If you don't specify it, Python will choose a default encoding
+
+10
+00:00:57,000 --> 00:01:01,000
+for you, which may not be what you want.
+
+11
+00:01:01,000 --> 00:01:05,000
+At the file system level, files contain only a series of bytes.
+
+12
+00:01:05,000 --> 00:01:10,000
+Python distinguishes between files opened in binary and text modes even when the underlying operating
+
+13
+00:01:10,000 --> 00:01:14,000
+system doesn't.
+
+14
+00:01:14,000 --> 00:01:20,000
+Files opened in binary mode return and manipulate their contents as bytes objects without any decoding.
+
+15
+00:01:20,000 --> 00:01:25,000
+Binary mode files reflect the raw data in the file.
+
+16
+00:01:25,000 --> 00:01:31,000
+A file opened in text mode treats its contents as if it contains text strings of the str type, the raw bytes
+
+17
+00:01:31,000 --> 00:01:39,000
+having first been decoded using a platform dependent encoding or using the specified encoding if given.
+
+18
+00:01:39,000 --> 00:01:44,000
+By default, text mode also engages support for Python's universal newlines.
+
+19
+00:01:44,000 --> 00:01:50,000
+This causes translation between a single portable newline character in our program strings, /n, and
+
+20
+00:01:50,000 --> 00:01:55,000
+a platform-dependent newline representation in the raw bytes stored in the file system, for example
+
+21
+00:01:55,000 --> 00:02:02,000
+carriage return newline /r/n on Windows.
+
+22
+00:02:02,000 --> 00:02:07,000
+Getting the encoding right is crucial for correctly interpreting the contents of a text file, which is
+
+23
+00:02:07,000 --> 00:02:13,000
+why we label the point. If you don't specify an encoding, Python will use the default from
+
+24
+00:02:13,000 --> 00:02:22,000
+sys.getdefaultencoding. In our case, that's a UTF-8, but there's no guarantee that the default encoding
+
+25
+00:02:22,000 --> 00:02:28,000
+on your system is the same as the default encoding on another system with which you wish to exchange files.
+
+26
+00:02:28,000 --> 00:02:33,000
+Better for all concerned to make a conscious decision about the text bytes encoding.
+
+27
+00:02:33,000 --> 00:59:00,000
+You can get a list of supported text encodings in the Python documentation.
+

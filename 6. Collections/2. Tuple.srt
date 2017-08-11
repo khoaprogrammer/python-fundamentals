@@ -1,0 +1,124 @@
+1
+00:00:01,000 --> 00:00:05,000
+Tuples in Python are immutable sequences of arbitrary objects.
+
+2
+00:00:05,000 --> 00:00:13,000
+Once created, the objects within them cannot be replaced or removed, and new elements cannot be added.
+
+3
+00:00:13,000 --> 00:00:18,000
+Tuples have a similar literal syntax to lists except that they are delimited by parentheses rather than
+
+4
+00:00:18,000 --> 00:00:26,000
+square brackets. Here's a literal tuple containing a string, a float, and an integer.
+
+5
+00:00:26,000 --> 00:00:33,000
+We can access the elements of a tuple by zero-based index using square brackets, and we can determine the
+
+6
+00:00:33,000 --> 00:00:38,000
+number of elements in the tuple using the built-in len function.
+
+7
+00:00:38,000 --> 00:00:50,000
+We can iterate over tuples using the for loop, and we can concatenate tuples using the plus operator.
+
+8
+00:00:50,000 --> 00:00:56,000
+Tuples can be repeated using the multiplication operator.
+
+9
+00:00:56,000 --> 00:01:03,000
+Since tuples can contain any object, it's perfectly possible to have nested tuples.
+
+10
+00:01:03,000 --> 00:01:10,000
+We use repeated application of the indexing operator to get to the inner elements.
+
+11
+00:01:10,000 --> 00:01:17,000
+Sometimes a single element tuple is required. To write this, we can't just use a simple number in parentheses.
+
+12
+00:01:17,000 --> 00:01:23,000
+This is because Python pauses that as an integer enclosed in the president's controlling parentheses
+
+13
+00:01:23,000 --> 00:01:29,000
+of a math expression. To create a single element tuple, we make use of the trailing comma separator, which
+
+14
+00:01:29,000 --> 00:01:34,000
+we're allowed to use when specifying literal tuples, lists, and dictionaries.
+
+15
+00:01:34,000 --> 00:01:39,000
+A single element with a trailing comma is passed as a single element tuple.
+
+16
+00:01:39,000 --> 00:01:42,000
+This leaves us with the problem of how to specify an empty tuple.
+
+17
+00:01:42,000 --> 00:01:50,000
+In actuality the answer is simple. We just use empty parentheses.
+
+18
+00:01:50,000 --> 00:01:54,000
+In many cases, the parentheses of literal tuples may be omitted.
+
+19
+00:01:54,000 --> 00:01:58,000
+This feature is often used when returning multiple values from a function.
+
+20
+00:01:58,000 --> 00:02:04,000
+Here we make a function to return the minimum and maximum values of a series, the hard work being done by
+
+21
+00:02:04,000 --> 00:02:12,000
+the two built-in functions min and max. Returning multiple values as tuple is often used in conjunction
+
+22
+00:02:12,000 --> 00:02:18,000
+with a wonderful feature of Python called tuple unpacking. Tuple unpacking is a destructuring operation,
+
+23
+00:02:18,000 --> 00:02:22,000
+which allows us to unpack data structures into named references.
+
+24
+00:02:22,000 --> 00:02:30,000
+For example, we can assign the result of our minmax function to two new references like this.
+
+25
+00:02:30,000 --> 00:02:37,000
+Tuple unpacking works with arbitrarily nested tuples, although not with other data structures.
+
+26
+00:02:37,000 --> 00:02:46,000
+This in turn leads to the beautiful Python idiom for swapping two or more variables.
+
+27
+00:02:46,000 --> 00:02:51,000
+Should you need to create a tuple from an existing collection object such as a list, you can use the tuple
+
+28
+00:02:51,000 --> 00:03:00,000
+constructor, here also shown for strings.
+
+29
+00:03:00,000 --> 00:03:07,000
+Finally, as with most collection types in Python, we can test for containment using the in operator or
+
+30
+00:03:07,000 --> 00:03:15,000
+nonmembership with the not in operator. While that just about wraps up our look at tuple, let's move onto
+
+31
+00:03:15,000 --> 00:59:00,000
+the next collection type.
+

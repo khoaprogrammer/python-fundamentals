@@ -1,0 +1,76 @@
+1
+00:00:02,000 --> 00:00:07,000
+Welcome to the Python Fundamentals course by Robert Smallshire and Austin Bingham.
+
+2
+00:00:07,000 --> 00:00:12,000
+My name is Robert Smallshire, and I'll be presenting this Getting Started module of the Python Fundamentals
+
+3
+00:00:12,000 --> 00:00:16,000
+course.
+
+4
+00:00:16,000 --> 00:00:22,000
+In this module we'll cover obtaining and installing Python on your system for Windows, Ubuntu Linux,
+
+5
+00:00:22,000 --> 00:00:29,000
+and Mac OS X. We'll write some basic Python code and become acquainted with the essentials of Python programming
+
+6
+00:00:29,000 --> 00:00:38,000
+culture such as The Zen of Python, although never forgetting the origins of the name of the language.
+
+7
+00:00:38,000 --> 00:00:44,000
+There are two major versions of the Python language, Python 2, which is the widely deployed legacy language,
+
+8
+00:00:44,000 --> 00:00:48,000
+and Python 3, which is the present and future of the language.
+
+9
+00:00:48,000 --> 00:00:53,000
+Most Python code will work without modification between the last version of Python 2, which is Python
+
+10
+00:00:53,000 --> 00:01:01,000
+2.7, and recent versions of Python 3 such as Python 3.3. However, there are some key differences, and in
+
+11
+00:01:01,000 --> 00:01:08,000
+a strict sense the languages are incompatible. We'll be using Python 3.3 for this course, but we'll point
+
+12
+00:01:08,000 --> 00:01:15,000
+out key differences with Python 2 as we go. It's also very likely that this being a fundamentals course
+
+13
+00:01:15,000 --> 00:01:20,000
+everything we present will apply to future versions of Python 3, so don't be afraid to try those as they
+
+14
+00:01:20,000 --> 00:01:23,000
+become available.
+
+15
+00:01:23,000 --> 00:01:27,000
+Before we can start programming in Python, we need to get ahold of a Python environment.
+
+16
+00:01:27,000 --> 00:01:31,000
+Python is a highly portable language available on all major operating systems.
+
+17
+00:01:31,000 --> 00:01:36,000
+You'll be able to complete this course on Windows, Mac, or Linux, and the only major section where we diverge
+
+18
+00:01:36,000 --> 00:01:41,000
+into platform specifics is coming right up as we install Python 3.
+
+19
+00:01:41,000 --> 00:59:00,000
+As we cover the three platforms, feel free to skip over the sections which aren't relevant for you.
+

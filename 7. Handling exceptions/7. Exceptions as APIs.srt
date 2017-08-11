@@ -1,0 +1,156 @@
+1
+00:00:01,000 --> 00:00:05,000
+Exceptions form an important aspect of the API of a function.
+
+2
+00:00:05,000 --> 00:00:10,000
+Callers of a function need to know which exceptions to expect under various conditions so that they can
+
+3
+00:00:10,000 --> 00:00:15,000
+ensure appropriate exception handlers are in place. We'll use a square root finding as an example using
+
+4
+00:00:15,000 --> 00:00:22,000
+a home-grown square root function courtesy of Heron of Alexandria, although he probably didn't use Python.
+
+5
+00:00:22,000 --> 00:00:28,000
+Place the following code in a file called roots.py. There's only one language feature in this program
+
+6
+00:00:28,000 --> 00:00:34,000
+we haven't met before, the logical and operator, which we use in this case to test that two conditions are
+
+7
+00:00:34,000 --> 00:00:39,000
+true on each iteration of the loop. Python also includes a logical or operator, which can be used to test
+
+8
+00:00:39,000 --> 00:00:44,000
+whether either or both operands are true.
+
+9
+00:00:44,000 --> 00:00:49,000
+Running our program, we can see that Heron was really onto something.
+
+10
+00:00:49,000 --> 00:00:54,000
+Let's add a new line to the main() function, which takes the square root of -1.
+
+11
+00:00:54,000 --> 00:01:00,000
+If we run that, we get a new exception. What has happened is that Python has intercepted a division by 0,
+
+12
+00:01:00,000 --> 00:01:08,000
+which occurs on the second iteration of the loop and raises an exception, a ZeroDivisionError.
+
+13
+00:01:08,000 --> 00:01:13,000
+Let's modify our code to catch the exception before it propagates up to the top of the call stack, thereby
+
+14
+00:01:13,000 --> 00:01:19,000
+causing our program to stop using the try except construct.
+
+15
+00:01:19,000 --> 00:01:24,000
+Now when we run the script we see that we're handling the exception cleanly.
+
+16
+00:01:24,000 --> 00:01:29,000
+We should be careful to avoid a beginner's mistake of having two tight scopes for exception handling blocks.
+
+17
+00:01:29,000 --> 00:01:33,000
+We can easily use one try except blocks for all of our calls to square root.
+
+18
+00:01:33,000 --> 00:01:39,000
+We also need a third print statement to show how execution of the enclosed block is terminated.
+
+19
+00:01:39,000 --> 00:01:43,000
+This is an improvement on what we started with, but most likely users of a square root function don't expect
+
+20
+00:01:43,000 --> 00:01:49,000
+it to throw a ZeroDivisionError. Python provides us with several standard exception types to signal
+
+21
+00:01:49,000 --> 00:01:55,000
+common errors. If a function parameter is supplied with an illegal value, it is customary to raise a ValueError.
+
+22
+00:01:55,000 --> 00:02:00,000
+We can do this by using the raise keyword with a newly created exception object, which we can create by calling
+
+23
+00:02:00,000 --> 00:02:03,000
+the ValueError constructor.
+
+24
+00:02:03,000 --> 00:02:08,000
+There are two places we could deal with the division by zero. The first approach would be to wrap the root
+
+25
+00:02:08,000 --> 00:02:14,000
+finding while loop in a try except ZeroDivisionError construct and then raise a new ValueError exception
+
+26
+00:02:14,000 --> 00:02:18,000
+from inside the exception handler. This would be wasteful though.
+
+27
+00:02:18,000 --> 00:02:22,000
+We know this routine will fail with negative numbers, so we can detect this free condition early on and
+
+28
+00:02:22,000 --> 00:02:28,000
+raise an exception at that point. This is a simple if statement and a call to raise passing the new exception
+
+29
+00:02:28,000 --> 00:02:32,000
+object. The ValueError constructor accepts an error message.
+
+30
+00:02:32,000 --> 00:02:36,000
+See how we also modify the docstring to make it plain which exception type will be raised by a square root
+
+31
+00:02:36,000 --> 00:02:40,000
+and under what circumstances.
+
+32
+00:02:40,000 --> 00:02:46,000
+But look what happens if we run the program. We're still getting a traceback and an ungraceful program exit.
+
+33
+00:02:46,000 --> 00:02:50,000
+This happens because we forgot to modify our exception handler to catch ValueError rather than
+
+34
+00:02:50,000 --> 00:02:53,000
+ZeroDivisionError.
+
+35
+00:02:53,000 --> 00:02:57,000
+Let's modify our calling code to catch the right exception class and also assign the caught exception
+
+36
+00:02:57,000 --> 00:03:02,000
+object to a named variable so we can interrogate it after it has been caught.
+
+37
+00:03:02,000 --> 00:03:07,000
+In this case, our interrogation is simply to print the exception object, which knows how to display itself
+
+38
+00:03:07,000 --> 00:03:10,000
+as the message to standard error.
+
+39
+00:03:10,000 --> 00:59:00,000
+Running the program again, we can see that our exception is being handled gracefully.
+

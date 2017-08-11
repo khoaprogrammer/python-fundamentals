@@ -1,0 +1,168 @@
+1
+00:00:01,000 --> 00:00:06,000
+Now we come onto generator functions, one of the most powerful and elegant features of the Python programming
+
+2
+00:00:06,000 --> 00:00:14,000
+language. Python generators provide the means for describing iterable series with code and functions.
+
+3
+00:00:14,000 --> 00:00:21,000
+These sequences are evaluated lazily meaning they only compute the next value on demand.
+
+4
+00:00:21,000 --> 00:00:26,000
+This important property allows them to model infinite sequences of values with no definite end such as
+
+5
+00:00:26,000 --> 00:00:33,000
+streams of data from a sensor or active log files. By carefully designing our generator functions, we
+
+6
+00:00:33,000 --> 00:00:42,000
+can make generic stream processing elements, which can be composed into sophisticated pipelines.
+
+7
+00:00:42,000 --> 00:00:48,000
+Generators are defined by any Python function which uses the yield keyword at least once in its definition.
+
+8
+00:00:48,000 --> 00:00:53,000
+They may also contain the return keyword with no arguments. And just like any other function, there's
+
+9
+00:00:53,000 --> 00:00:59,000
+an implicit return at the end of the definition. To understand what generators do, let's start with a simple
+
+10
+00:00:59,000 --> 00:01:06,000
+example at the Python REPL. We'll define the generator, and then we'll examine how the generator works.
+
+11
+00:01:06,000 --> 00:01:13,000
+Here we write a generator called gen123(), which yields successively 1, 2, and 3.
+
+12
+00:01:13,000 --> 00:01:20,000
+The generator function is introduced by def just as a regular Python function, and as we've seen, we must
+
+13
+00:01:20,000 --> 00:01:30,000
+use the yield keyword at least once within the definition. Here I'm yielding a value of 1, and then 2, and
+
+14
+00:01:30,000 --> 00:01:37,000
+then 3. We'll enter a blank line to complete the definition, and there we are.
+
+15
+00:01:37,000 --> 00:01:45,000
+Now let's call gen123() and assign its return value to G. As you can see, gen123() is called just like any
+
+16
+00:01:45,000 --> 00:01:52,000
+other Python function, but what has it returned? G is a generator object.
+
+17
+00:01:52,000 --> 00:01:58,000
+Generators are in fact Python iterators, so we can use the standard ways of working with iterators to retrieve
+
+18
+00:01:58,000 --> 00:02:05,000
+or yield successive values from the sequence. To retrieve the next value from an iterator, we use the built-
+
+19
+00:02:05,000 --> 00:02:10,000
+in next function passing the iterator or generator in this case to the function.
+
+20
+00:02:10,000 --> 00:02:20,000
+So, next(g) returns 1, and again 2, and again 3. Take note of what happens now that we've yielded the last
+
+21
+00:02:20,000 --> 00:02:27,000
+value from our generator. Subsequent calls to next raise a StopIteration exception just like any other
+
+22
+00:02:27,000 --> 00:02:33,000
+Python iterator. Because generators are iterators, they can be used in all the usual Python constructs
+
+23
+00:02:33,000 --> 00:02:41,000
+which expect iterators such as for loops. Here we call the generator again, and in each iteration of the
+
+24
+00:02:41,000 --> 00:02:52,000
+loop we print the return value 1, 2, 3 just as we'd expect. Be aware that each call to the generator function
+
+25
+00:02:52,000 --> 00:03:05,000
+returns a new generator object. Here we call gen123() again assigning to H, and again assigning to I.
+
+26
+00:03:05,000 --> 00:03:10,000
+We can see when we display these objects that they have distinct addresses.
+
+27
+00:03:10,000 --> 00:03:19,000
+This means that each generator can be advanced independently. Let's request the first value from H, the
+
+28
+00:03:19,000 --> 00:03:29,000
+second value from H, and now the first value from I. Let's take a closer look at how and crucially when the
+
+29
+00:03:29,000 --> 00:03:35,000
+code in the body of our generator function is executed. To do this, we'll create a slightly more complex
+
+30
+00:03:35,000 --> 00:03:40,000
+generator that traces its execution with good old-fashioned print statements.
+
+31
+00:03:40,000 --> 00:03:50,000
+As we enter the generator, we'll print a message. Then we will yield 2 and print a message about yielding 4,
+
+32
+00:03:50,000 --> 00:03:58,000
+and then yield 4, print a message about yielding 6, and then yield 6.
+
+33
+00:03:58,000 --> 00:04:05,000
+And then at the generator function we'll print a message indicating that the function is about to return.
+
+34
+00:04:05,000 --> 00:04:10,000
+A blank line to complete the definition, and now we can call our new generator assigning to G.
+
+35
+00:04:10,000 --> 00:04:15,000
+Note that at this point the generator object has been created and returned, but none of the code within
+
+36
+00:04:15,000 --> 00:04:22,000
+the generator body has yet been executed. Now let's call the built-in next function on our generator.
+
+37
+00:04:22,000 --> 00:04:28,000
+See how when we request the first value the generator body runs up to and including the first yield statement.
+
+38
+00:04:28,000 --> 00:04:34,000
+The code executes just far enough to literally yield the next value.
+
+39
+00:04:34,000 --> 00:04:40,000
+When we call next(g) again, execution of the generator function resumes at the point it left off and continues
+
+40
+00:04:40,000 --> 00:04:50,000
+running until the next yield. And then the final value. The function resumes again until it yields 6.
+
+41
+00:04:50,000 --> 00:04:55,000
+After the final value is returned, the next request causes the generator function to execute until it
+
+42
+00:04:55,000 --> 00:59:00,000
+returns at the end of the function body, which in turn raises the expected StopIteration exception.
+

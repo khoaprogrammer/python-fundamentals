@@ -1,0 +1,48 @@
+1
+00:00:01,000 --> 00:00:07,000
+Let's make our class a little more interesting by adding a so-called instance method, which returns the
+
+2
+00:00:07,000 --> 00:00:14,000
+flight number.
+
+3
+00:00:14,000 --> 00:00:18,000
+Methods are just functions defined within the class, and instance methods are functions which can be
+
+4
+00:00:18,000 --> 00:00:25,000
+called on objects or instances of our class such as F. Instance methods must accept a reference to the instance
+
+5
+00:00:25,000 --> 00:00:30,000
+on which the method was called as the first argument, and by convention this argument is always called self.
+
+6
+00:00:30,000 --> 00:00:36,000
+We have no way of configuring the flight number value yet, so we'll just return a constant string.
+
+7
+00:00:36,000 --> 00:00:43,000
+Now from a fresh REPL let's import that and see how it works.
+
+8
+00:00:43,000 --> 00:00:48,000
+Notice that when we call the method we do not provide the instance F for the actual argument itself in the
+
+9
+00:00:48,000 --> 00:00:54,000
+argument list. That's because the standard method invocation form with the dot is simply syntactic sugar
+
+10
+00:00:54,000 --> 00:01:00,000
+for the class name followed by a dot followed by the method name with the instance passed as the first argument.
+
+11
+00:01:00,000 --> 00:01:04,000
+If you try the latter, you'll find that it works as expected, although you'll almost never see this form
+
+12
+00:01:04,000 --> 00:59:00,000
+used for real.
+

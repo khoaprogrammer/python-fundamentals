@@ -1,0 +1,76 @@
+1
+00:00:01,000 --> 00:00:04,000
+The third type of comprehension is the dictionary comprehension.
+
+2
+00:00:04,000 --> 00:00:09,000
+This also uses curly braces and is distinguished from the set comprehension by the fact that we now provide
+
+3
+00:00:09,000 --> 00:00:17,000
+two colon separated expressions for the key and value, which will be evaluated in tandem for each item.
+
+4
+00:00:17,000 --> 00:00:24,000
+Here's a dictionary we can play with, which maps countries to their capital cities, the U.K. to London,
+
+5
+00:00:24,000 --> 00:00:30,000
+Brazil to Brazilia, Morocco to Rabat, and Sweden to Stockholm.
+
+6
+00:00:30,000 --> 00:00:35,000
+One nice use for a dictionary comprehension is to invert a dictionary so we can perform efficient lookups
+
+7
+00:00:35,000 --> 00:00:42,000
+in the opposite direction. This example converts from a capital to country mapping into a country to capital
+
+8
+00:00:42,000 --> 00:00:49,000
+mapping. Note that dictionary comprehension is to not usually operate dictionary on sources while they
+
+9
+00:00:49,000 --> 00:00:55,000
+can, but recall that iterating over a dictionary yields only the keys.
+
+10
+00:00:55,000 --> 00:01:00,000
+If we want both the keys and the values, we should use the items() method of the dictionary, and then use
+
+11
+00:01:00,000 --> 00:01:06,000
+tuple unpacking to access the key and values separately.
+
+12
+00:01:06,000 --> 00:01:12,000
+Should your comprehension produce some identical keys, later keys will override earlier keys.
+
+13
+00:01:12,000 --> 00:01:24,000
+In this example we map the first letters of words to the words themselves, but only the last H word is kept.
+
+14
+00:01:24,000 --> 00:01:30,000
+Remember that there's no limit to the complexity of the expression you can use in any of the comprehensions,
+
+15
+00:01:30,000 --> 00:01:34,000
+but for the sake of your fellow programmers you should avoid going overboard and extract complex expressions
+
+16
+00:01:34,000 --> 00:01:40,000
+into separate functions to preserve readability. The following is close to the limit of being reasonable
+
+17
+00:01:40,000 --> 00:01:47,000
+for a dictionary comprehension. It uses the Standard Library glob module to find all of the Python source
+
+18
+00:01:47,000 --> 00:01:53,000
+files in a particular directory, and then creates a mapping from the full path name for those files to the
+
+19
+00:01:53,000 --> 00:59:00,000
+size of the file in bytes. The file path and file size are derived using facilities of the OS module.
+

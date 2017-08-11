@@ -1,0 +1,20 @@
+1
+00:00:02,000 --> 00:00:09,000
+Beautiful is better than ugly. Sugary syntax, fewer defects attained through sweet fidelity.
+
+2
+00:00:09,000 --> 00:00:13,000
+The with-block syntax is so-called syntactic sugar
+
+3
+00:00:13,000 --> 00:00:17,000
+for a much more complex arrangement of try/except and try/finally blocks.
+
+4
+00:00:17,000 --> 00:00:22,000
+Few of us would want our code to look this convoluted, but for it to be reliable this is how it would need to
+
+5
+00:00:22,000 --> 00:59:00,000
+look without the with statement. Sugar may not be good for your health, but it can be very healthy for your code.
+

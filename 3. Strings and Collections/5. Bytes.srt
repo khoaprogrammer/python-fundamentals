@@ -1,0 +1,76 @@
+1
+00:00:01,000 --> 00:00:06,000
+Bytes are very similar to strings except that rather than being sequences of Unicode codepoints, they
+
+2
+00:00:06,000 --> 00:00:14,000
+are sequences of well, bytes. As such, they are used for raw binary data and fixed with single byte character
+
+3
+00:00:14,000 --> 00:00:16,000
+encodings such as ASCII.
+
+4
+00:00:16,000 --> 00:00:23,000
+As with strings, they have a simple literal form using quotes, the first of which is prefixed by a lowercase B.
+
+5
+00:00:23,000 --> 00:00:30,000
+There is also a bytes constructor, but it's an advanced feature, and we won't cover it in this fundamentals course.
+
+6
+00:00:30,000 --> 00:00:36,000
+At this point, it's sufficient for us to recognize bytes literals and understand that they support most
+
+7
+00:00:36,000 --> 00:00:39,000
+of the same operations as strings such as indexing and splitting.
+
+8
+00:00:39,000 --> 00:00:44,000
+You'll see that the split method returns a list of bytes objects.
+
+9
+00:00:44,000 --> 00:00:48,000
+To convert between bytes and strings, we must know the encoding of the byte sequence used to represent
+
+10
+00:00:48,000 --> 00:00:53,000
+the string's Unicode codepoints as bytes. Python supports a wide variety of encodings, a full list of
+
+11
+00:00:53,000 --> 00:00:57,000
+which can be found at python.org.
+
+12
+00:00:57,000 --> 00:01:03,000
+Let's start with an interesting Unicode string, which contains all the characters of the 29 letter Norwegian
+
+13
+00:01:03,000 --> 00:01:08,000
+alphabet, a pangram. We'll now encode that using UTF-8 into a bytes object.
+
+14
+00:01:08,000 --> 00:01:12,000
+See how the Norwegian characters have each been rendered as pairs of bytes.
+
+15
+00:01:12,000 --> 00:01:16,000
+We can reverse the process using the decode method of the bytes object.
+
+16
+00:01:16,000 --> 00:01:26,000
+Again, we must supply the correct encoding. We can check that the result is equal to what we started with and display it for good measure.
+
+17
+00:01:26,000 --> 00:01:31,000
+This may seem like an unnecessary detail so early in the course, especially if you operate in an anglophone
+
+18
+00:01:31,000 --> 00:01:36,000
+environment, but it's crucial to understand since files and network resources such as HTTP responses
+
+19
+00:01:36,000 --> 00:59:00,000
+are transmitted as byte streams whereas we prefer to work with the convenience of Unicode strings.
+

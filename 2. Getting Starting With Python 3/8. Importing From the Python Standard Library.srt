@@ -1,0 +1,204 @@
+1
+00:00:02,000 --> 00:00:08,000
+As mentioned earlier, Python comes with an extensive Standard Library, an aspect of Python often referred
+
+2
+00:00:08,000 --> 00:00:14,000
+to as Batteries Included. The Standard Library is structured as modules, a topic we'll discuss in depth
+
+3
+00:00:14,000 --> 00:00:19,000
+later in the course. What's important at this stage is to know that you gain access to Standard Library
+
+4
+00:00:19,000 --> 00:00:27,000
+modules using the import keyword. The basic form of importing a module is simply the import keyword followed
+
+5
+00:00:27,000 --> 00:00:35,000
+by a space and the name of the module. For example, let's see how we can use the Standard Library's math module
+
+6
+00:00:35,000 --> 00:00:37,000
+to compute square roots.
+
+7
+00:00:37,000 --> 00:00:44,000
+At the triple arrow prompt we type import math. Since import is the statement which doesn't return a value,
+
+8
+00:00:44,000 --> 00:00:50,000
+Python doesn't print anything if the import succeeds and we immediately return to the prompt.
+
+9
+00:00:50,000 --> 00:00:56,000
+We can access the contents of the imported module by using the name of the module followed by a dot followed
+
+10
+00:00:56,000 --> 00:01:02,000
+by the name of the attribute in the module that you need. Like many object-oriented languages, the dot
+
+11
+00:01:02,000 --> 00:01:09,000
+operator is used to drill down into object structures. Being expert Pythonistas, we have inside knowledge
+
+12
+00:01:09,000 --> 00:01:16,000
+that the math module contains a function called square root. Let's try to use it.
+
+13
+00:01:16,000 --> 00:01:20,000
+But how can we find out what other functions are available in the math module?
+
+14
+00:01:20,000 --> 00:01:26,000
+The REPL has a special function, help, which can retrieve any embedded documentation from objects for
+
+15
+00:01:26,000 --> 00:01:34,000
+which it has been provided such as Standard Library modules. To get help, type simply help.
+
+16
+00:01:34,000 --> 00:01:38,000
+We'll leave you to explore the first form for interactive help in your own time.
+
+17
+00:01:38,000 --> 00:01:47,000
+We'll go for the second option and pass the math module as the object for which we want help.
+
+18
+00:01:47,000 --> 00:01:53,000
+You can use the spacebar to page through the help, and if you're on Mac or Linux use the arrow keys to scroll
+
+19
+00:01:53,000 --> 00:02:02,000
+up and down. Browsing through the functions we can see there's a math function for computing factorials.
+
+20
+00:02:02,000 --> 00:02:09,000
+Press Q to exit the help browser and return us to the Python REPL.
+
+21
+00:02:09,000 --> 00:02:18,000
+Practice using help to request specific help on the factorial function.
+
+22
+00:02:18,000 --> 00:02:26,000
+Press Q to return to the REPL. Let's use the factorial function, which accepts an integer and returns an integer.
+
+23
+00:02:26,000 --> 00:02:31,000
+Notice how we need to qualify the function name with the module namespace.
+
+24
+00:02:31,000 --> 00:02:37,000
+This is generally good practice as it makes it abundantly clear where the function is coming from.
+
+25
+00:02:37,000 --> 00:02:41,000
+That said, it can result in code that is excessively verbose.
+
+26
+00:02:41,000 --> 00:02:47,000
+Let's use factorials to compute how many ways there are to draw three fruits from a set of five fruits using
+
+27
+00:02:47,000 --> 00:02:55,000
+some math we learned in school. (Typing)
+
+28
+00:02:55,000 --> 00:03:05,000
+This simple expression is quite verbose with all those references to the math module.
+
+29
+00:03:05,000 --> 00:03:10,000
+The Python import statement has an alternative form that allows us to bring a specific function from a
+
+30
+00:03:10,000 --> 00:03:20,000
+module into the current namespace. This is a good improvement, but it's still a little long winded for
+
+31
+00:03:20,000 --> 00:03:28,000
+such a simple expression. A third form of the import statement allows us to rename the imported function.
+
+32
+00:03:28,000 --> 00:03:34,000
+This can be useful for reasons of readability or to avoid a namespace clash.
+
+33
+00:03:34,000 --> 00:03:40,000
+Useful as it is, we recommend that this feature be used infrequently and judiciously.
+
+34
+00:03:40,000 --> 00:03:46,000
+Remember that when we use factorial alone it returned an integer, but our more complex expression for
+
+35
+00:03:46,000 --> 00:03:51,000
+combinations is returning a floating-point number. This is because we've used Python's floating-point
+
+36
+00:03:51,000 --> 00:03:58,000
+division operator, the single forward slash. We can improve our expression since we know it only ever
+
+37
+00:03:58,000 --> 00:04:10,000
+returns integral results by using Python's integer division operator, which is a double forward slash.
+
+38
+00:04:10,000 --> 00:04:15,000
+What's notable is that many other programming languages would fail on the above expression for even moderate
+
+39
+00:04:15,000 --> 00:04:21,000
+values of N. In most programming languages, regular garden variety signed integers can only store values
+
+40
+00:04:21,000 --> 00:04:31,000
+less than 2 to the power of 31. However, factorials grow so fast that the largest factorial you can fit into
+
+41
+00:04:31,000 --> 00:04:38,000
+a 32-bit signed integer is 12 factorial since 13 factorial is too large.
+
+42
+00:04:38,000 --> 00:04:44,000
+In most widely used programming languages, you would need more complex code or more sophisticated mathematics
+
+43
+00:04:44,000 --> 00:04:49,000
+merely to compute how many ways there are to draw 3 fruits from a set of 13 fruits.
+
+44
+00:04:49,000 --> 00:04:55,000
+Python encounters no such problems and can compute with arbitrarily large integers limited only by the
+
+45
+00:04:55,000 --> 00:05:01,000
+memory in your computer. Let's try the larger problem of computing how many different pairs of fruit we
+
+46
+00:05:01,000 --> 00:05:08,000
+can pick from 100 different fruits assuming we can lay our hands on so many fruit.
+
+47
+00:05:08,000 --> 00:05:13,000
+Just to emphasize how large the size of the first term of that expression is, calculate 100 factorial on
+
+48
+00:05:13,000 --> 00:05:21,000
+its own. It's a number vastly larger even than the number of atoms in the known universe with an awful lot
+
+49
+00:05:21,000 --> 00:05:28,000
+of digits. If like me you're curious to know exactly how many digits, we can convert our integer to a text
+
+50
+00:05:28,000 --> 00:05:34,000
+string and count the number of characters in it like this. Let's move on and look at integers, strings,
+
+51
+00:05:34,000 --> 00:59:00,000
+and other built-in types in more detail.
+

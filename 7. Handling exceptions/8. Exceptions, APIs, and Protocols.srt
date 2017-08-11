@@ -1,0 +1,76 @@
+1
+00:00:01,000 --> 00:00:07,000
+Again, exceptions are part of a function's API, and more broadly they are part of certain protocols.
+
+2
+00:00:07,000 --> 00:00:12,000
+For example, objects which implement the sequence protocol should raise and IndexError exception for
+
+3
+00:00:12,000 --> 00:00:17,000
+indices which are out of range. The exceptions which are raised are as much a part of a function's specification
+
+4
+00:00:17,000 --> 00:00:22,000
+as the arguments it accepts, and as such must be implemented and documented appropriately.
+
+5
+00:00:22,000 --> 00:00:26,000
+There are a handful of common exception types in Python, and usually when you need to raise an exception
+
+6
+00:00:26,000 --> 00:00:32,000
+in your own code one of the built-in types is a good choice. Much more rarely you'll need to define new exception
+
+7
+00:00:32,000 --> 00:00:37,000
+types, but we don't cover that in this course. Often if you're deciding what exceptions your code should
+
+8
+00:00:37,000 --> 00:00:42,000
+raise, you should look for similar cases in existing code. The more your code follows existing patterns,
+
+9
+00:00:42,000 --> 00:00:45,000
+the easier it will be for people to integrate and understand.
+
+10
+00:00:45,000 --> 00:00:50,000
+For example, suppose you are writing a key value database. It would be natural to use KeyError to indicate
+
+11
+00:00:50,000 --> 00:00:54,000
+a request for a nonexistent key because this is how dictionary works.
+
+12
+00:00:54,000 --> 00:00:59,000
+That is, mapping in Python follows certain patterns, and exceptions are part of that pattern.
+
+13
+00:00:59,000 --> 00:01:01,000
+Let's look at a few common exception types.
+
+14
+00:01:01,000 --> 00:01:05,000
+IndexError is raised when an integer index is out of range.
+
+15
+00:01:05,000 --> 00:01:09,000
+You can see this when you index pass the end of a list.
+
+16
+00:01:09,000 --> 00:01:15,000
+ValueError is raised when the object is of the right type, but contains an inappropriate value.
+
+17
+00:01:15,000 --> 00:01:21,000
+We've seen that already when trying to construct an int from a non-numeric string.
+
+18
+00:01:21,000 --> 00:01:24,000
+KeyError is raised when a look-up in a mapping fails.
+
+19
+00:01:24,000 --> 00:59:00,000
+You can see that here when we look up a non-existent key in a dictionary.
+

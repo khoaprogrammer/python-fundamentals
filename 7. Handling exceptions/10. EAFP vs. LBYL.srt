@@ -1,0 +1,132 @@
+1
+00:00:01,000 --> 00:00:06,000
+Now let's look at another tenant of Python philosophy and culture, the idea that it's easier to ask forgiveness
+
+2
+00:00:06,000 --> 00:00:11,000
+than permission. There are only two approaches to dealing with a program operation that might fail.
+
+3
+00:00:11,000 --> 00:00:16,000
+The first approach is to check that all the preconditions for a failure-prone operation are met in advance
+
+4
+00:00:16,000 --> 00:00:21,000
+of attempting the operation. The second approach is to blindly hope for the best, but be prepared to deal
+
+5
+00:00:21,000 --> 00:00:24,000
+with the consequences if it doesn't work out.
+
+6
+00:00:24,000 --> 00:00:30,000
+In Python culture, these two philosophies are known as Look Before You Leap, LBYL, and It's Easier to Ask
+
+7
+00:00:30,000 --> 00:00:36,000
+Forgiveness than Permission, EAFP, which incidentally was coined by Rear Admiral Grace Hopper, inventor
+
+8
+00:00:36,000 --> 00:00:42,000
+of the compiler. Python is strongly in favor of EAFP because it puts primary logic for the happy path in
+
+9
+00:00:42,000 --> 00:00:47,000
+its most readable form with deviations from the normal flow handled separately rather than interspersed
+
+10
+00:00:47,000 --> 00:00:52,000
+with the main flow. Let's consider an example, processing a file.
+
+11
+00:00:52,000 --> 00:00:57,000
+The details of the processing aren't relevant. All we need to know is that the process_file function will
+
+12
+00:00:57,000 --> 00:01:00,000
+open a file and read some data from it.
+
+13
+00:01:00,000 --> 00:01:06,000
+First the LBYL version. Before attempting to call process_file, we check that the files exists, and if
+
+14
+00:01:06,000 --> 00:01:10,000
+it doesn't we avoid making the call and print a helpful message instead.
+
+15
+00:01:10,000 --> 00:01:15,000
+There are several problems with this approach, some obvious and some insidious.
+
+16
+00:01:15,000 --> 00:01:18,000
+One obvious problem is that we only perform an existence check.
+
+17
+00:01:18,000 --> 00:01:24,000
+What if the file exists, but contains garbage? What if the path refers to a directory instead of a file?
+
+18
+00:01:24,000 --> 00:01:28,000
+According to LBYL, we should add preemptive tests for these too.
+
+19
+00:01:28,000 --> 00:01:32,000
+A more subtle problem is that there is a race condition here. It's possible for the file to be deleted, for
+
+20
+00:01:32,000 --> 00:01:39,000
+example by another process, between the existence check and the process_file call, a classic atomicity issue.
+
+21
+00:01:39,000 --> 00:01:47,000
+There's really no good way to deal with this. Handling of errors from process_file will be needed in any case.
+
+22
+00:01:47,000 --> 00:01:51,000
+Now consider the alternative using the more Pythonic EAFP approach.
+
+23
+00:01:51,000 --> 00:01:55,000
+Here we simply attempt the operation without checks in advance, but we have an exception handler in place
+
+24
+00:01:55,000 --> 00:02:01,000
+to deal with any problems. We don't even need to know in a lot of detail exactly what might go wrong.
+
+25
+00:02:01,000 --> 00:02:06,000
+Here we catch OSError, which covers all manner of conditions such as file not found and using directories
+
+26
+00:02:06,000 --> 00:02:08,000
+where files are expected.
+
+27
+00:02:08,000 --> 00:02:12,000
+EAFP is standard in Python, and that philosophy is enabled by exceptions.
+
+28
+00:02:12,000 --> 00:02:17,000
+Without exceptions, that is using error codes instead, you are forced to include error handling directly
+
+29
+00:02:17,000 --> 00:02:22,000
+in the main flow of the logic. Since exceptions interrupt the main flow, they allow you to handle exceptional
+
+30
+00:02:22,000 --> 00:02:25,000
+cases non-locally.
+
+31
+00:02:25,000 --> 00:02:31,000
+Exceptions coupled with EAFP are also superior because unlike error codes exceptions cannot be easily ignored.
+
+32
+00:02:31,000 --> 00:02:38,000
+By default, exceptions have a big effect whereas error codes are silent by default, so the exception EAFP-
+
+33
+00:02:38,000 --> 00:59:00,000
+base style makes it very difficult for problems to be silently ignored.
+

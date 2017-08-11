@@ -1,0 +1,88 @@
+1
+00:00:02,000 --> 00:00:06,000
+That completes our tour of the collection types in Python, but we're not quite finished.
+
+2
+00:00:06,000 --> 00:00:11,000
+Let's complete this module by looking at the protocols which unite these collections and allow them to
+
+3
+00:00:11,000 --> 00:00:18,000
+be used in standard ways. In Python, a protocol is a set of operations or methods that a type must support
+
+4
+00:00:18,000 --> 00:00:23,000
+if it is to implement that protocol. Protocols needn't be defined in the source code as separate interfaces
+
+5
+00:00:23,000 --> 00:00:29,000
+or base classes as they would in an anomaly typed language such as C# or Java.
+
+6
+00:00:29,000 --> 00:00:34,000
+It's sufficient to simply have an object provide functioning implementations of those operations.
+
+7
+00:00:34,000 --> 00:00:39,000
+We can organize the different collections we've encountered in Python according to which protocols
+
+8
+00:00:39,000 --> 00:00:45,000
+they support. Support for protocol demands specific behavior from a type.
+
+9
+00:00:45,000 --> 00:00:50,000
+As you can see from this table, most of the collection types we've looked at support the container, size,
+
+10
+00:00:50,000 --> 00:00:57,000
+and iterable protocols. Many of them are also sequences. The immutable protocols are each represented
+
+11
+00:00:57,000 --> 00:01:05,000
+by only one type we have encountered. The container protocol requires that membership testing using
+
+12
+00:01:05,000 --> 00:01:12,000
+the in and not in operators be supported. The size protocol requires that the number of elements in a collection
+
+13
+00:01:12,000 --> 00:01:18,000
+can be determined by passing the collection to the built-in len function.
+
+14
+00:01:18,000 --> 00:01:23,000
+Iteration is such an important concept we're devoting a whole module to it later in this course.
+
+15
+00:01:23,000 --> 00:01:29,000
+In short though, iterables provide a means of yielding elements one-by-one as they're requested.
+
+16
+00:01:29,000 --> 00:01:35,000
+One important property of iterables is that they can be used with for loops.
+
+17
+00:01:35,000 --> 00:01:41,000
+The sequence protocol requires that items can be retrieved using square brackets with an integer index,
+
+18
+00:01:41,000 --> 00:01:48,000
+that items can be searched for with the index method, that items can be counted with the count method, and
+
+19
+00:01:48,000 --> 00:01:53,000
+that a reversed copy of the sequence can be produced with the reversed built-in function.
+
+20
+00:01:53,000 --> 00:01:59,000
+We won't cover the mutable sequence, mutable mapping, and mutable set protocols here since we've only
+
+21
+00:01:59,000 --> 00:02:04,000
+covered one representative of each protocol, so the generality afforded by the protocol concept doesn't
+
+22
+00:02:04,000 --> 00:59:00,000
+gain as much as this juncture.
+

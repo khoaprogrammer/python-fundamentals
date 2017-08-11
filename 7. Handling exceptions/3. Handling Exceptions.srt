@@ -1,0 +1,84 @@
+1
+00:00:01,000 --> 00:00:07,000
+Let's make our convert function more robust by handling the ValueError using a try except construct.
+
+2
+00:00:07,000 --> 00:00:12,000
+Both the try and except keywords introduce new blocks. The try block contains code that could raise an
+
+3
+00:00:12,000 --> 00:00:17,000
+exception, and the except block contains the code which performs error handling in the event that an exception
+
+4
+00:00:17,000 --> 00:00:20,000
+is raised.
+
+5
+00:00:20,000 --> 00:00:24,000
+We have decided that if a non-integer string is supplied we'll return -1.
+
+6
+00:00:24,000 --> 00:00:29,000
+To reinforce your understanding of the control flow here, we'll add a couple of print statements.
+
+7
+00:00:29,000 --> 00:00:34,000
+Modify the convert function to look like this.
+
+8
+00:00:34,000 --> 00:00:44,000
+Let's test this interactively after restarting the REPL. (Typing)
+
+9
+00:00:44,000 --> 00:00:49,000
+Note how the print in the try block after the point at which the exception was raised was not executed when
+
+10
+00:00:49,000 --> 00:00:57,000
+we passed in giraffe. Instead, execution was transferred directly to the first statement of the except block.
+
+11
+00:00:57,000 --> 00:01:01,000
+The int constructor only accepts numbers in strings, so let's see what happens if we feed an object of another
+
+12
+00:01:01,000 --> 00:01:07,000
+type into it, say a list. This time our handler didn't intercept the exception.
+
+13
+00:01:07,000 --> 00:01:13,000
+If we look closely at the trace, we can see that this time we receive a TypeError, a different type of exception.
+
+14
+00:01:13,000 --> 00:01:18,000
+Each try block can have multiple corresponding except blocks, which intercept exceptions of different types.
+
+15
+00:01:18,000 --> 00:01:22,000
+Let's add a handler for TypeError too.
+
+16
+00:01:22,000 --> 00:01:31,000
+Now if we rerun the same test in a fresh REPL we find that TypeError is handled too.
+
+17
+00:01:31,000 --> 00:01:35,000
+We've got some code duplication between our two exception handlers with that duplicated print statement
+
+18
+00:01:35,000 --> 00:01:39,000
+and assignment. We'll move the assignment in front of the try block, which doesn't change the behavior
+
+19
+00:01:39,000 --> 00:01:45,000
+of the program. Then we'll exploit the fact that both handlers did the same thing by collapsing them into
+
+20
+00:01:45,000 --> 00:01:52,000
+one using the ability of the except statement to accept a tuple of exception types.
+
+21
+00:01:52,000 --> 00:59:00,000
+Now we see that everything still works as designed.
+

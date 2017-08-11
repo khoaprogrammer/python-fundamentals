@@ -1,0 +1,100 @@
+1
+00:00:01,000 --> 00:00:06,000
+This course is broken up into 10 separate modules. The modules build on one another, so unless you've already
+
+2
+00:00:06,000 --> 00:00:09,000
+had some exposure to Python you'll need to follow them in order.
+
+3
+00:00:09,000 --> 00:00:14,000
+We'll start with getting Python installed onto your system and orienting you a bit.
+
+4
+00:00:14,000 --> 00:00:19,000
+We'll then cover language elements, features, idioms, and libraries all driven by working examples
+
+5
+00:00:19,000 --> 00:00:23,000
+that you'll be able to build along with the lecture. We're firm believers that you'll learn more by doing
+
+6
+00:00:23,000 --> 00:00:27,000
+than just by watching, so we encourage you to run the examples yourself.
+
+7
+00:00:27,000 --> 00:00:31,000
+By the end of the course, you'll know the fundamentals of the Python language.
+
+8
+00:00:31,000 --> 00:00:36,000
+You'll also know how to use third-party libraries, and you'll know the basics of developing them yourself.
+
+9
+00:00:36,000 --> 00:00:41,000
+We'll even show you how to package up your code to make it easier for others to use what you have written.
+
+10
+00:00:41,000 --> 00:00:47,000
+The course modules are: One, Getting Started, where we cover installing Python, look at some of the basic
+
+11
+00:00:47,000 --> 00:00:51,000
+Python tools, and cover the core elements of the language and syntax.
+
+12
+00:00:51,000 --> 00:00:57,000
+Two, Strings and Collections, where we look at some of the fundamental complex data types, stings, byte
+
+13
+00:00:57,000 --> 00:01:03,000
+sequences, lists, and dictionaries. Three, Modularity, where we look at the tools Python has for structuring
+
+14
+00:01:03,000 --> 00:01:09,000
+your code such as functions and modules. Four, Built-in Types and the Object Model, where we examine Python's
+
+15
+00:01:09,000 --> 00:01:16,000
+type system and object system in detail and where we develop a strong sense of Python's reference semantics.
+
+16
+00:01:16,000 --> 00:01:22,000
+Five, Collection Types, where we go into more depth on some of the Python collection types, as well as introduce
+
+17
+00:01:22,000 --> 00:01:28,000
+a few more. Six, Handling Exceptions, where we learn about Python's exception handling system and the
+
+18
+00:01:28,000 --> 00:01:34,000
+central role that exceptions play in the language. Seven, Comprehensions, Iterables, and Generators,
+
+19
+00:01:34,000 --> 00:01:39,000
+where we explore the elegant, pervasive, and powerful sequence-oriented parts of the Python language
+
+20
+00:01:39,000 --> 00:01:45,000
+such as comprehensions and generator functions. Eight, Defining New Types with Classes, where we'll
+
+21
+00:01:45,000 --> 00:01:51,000
+cover developing your own complex data types in Python using classes to support object-oriented programming.
+
+22
+00:01:51,000 --> 00:01:57,000
+Nine, Files and Resource Management, where we'll look at how to work with files in Python and where we'll
+
+23
+00:01:57,000 --> 00:02:02,000
+cover the tools Python has for resource management. Finally ten, Shipping Working and Maintainable
+
+24
+00:02:02,000 --> 00:02:08,000
+Code, where we'll show you how to use Python's testing, debugging, and code distribution facilities
+
+25
+00:02:08,000 --> 00:59:00,000
+to produce code that works and can be used by others.
+

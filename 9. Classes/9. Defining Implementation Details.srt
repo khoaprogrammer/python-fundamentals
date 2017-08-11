@@ -1,0 +1,80 @@
+1
+00:00:01,000 --> 00:00:06,000
+First we'll perform a small refactoring and extract the seat designator, parsing, and validation logic
+
+2
+00:00:06,000 --> 00:00:12,000
+into its own method parse_seat. We use a leading underscore here because this method is an implementation
+
+3
+00:00:12,000 --> 00:00:21,000
+detail. The new parse_seat method returns a tuple with an integer row number and a seat letter string.
+
+4
+00:00:21,000 --> 00:00:26,000
+This leave allocate_seat much simpler. See the call to parse_seat, and notice that method calls within
+
+5
+00:00:26,000 --> 00:00:33,000
+the same object also require explicit qualification with the self prefix.
+
+6
+00:00:33,000 --> 00:00:37,000
+Now we've laid the groundwork for our relocate_passenger method.
+
+7
+00:00:37,000 --> 00:00:45,000
+This parses and validates the from_seat and to_seat arguments and then moves the passenger to the new location.
+
+8
+00:00:45,000 --> 00:00:50,000
+It's also getting tiresome recreating the flight object each time, so we'll add a module level convenience
+
+9
+00:00:50,000 --> 00:00:57,000
+function for that too. It's quite normal to mix related functions and classes in the same module.
+
+10
+00:00:57,000 --> 00:01:05,000
+Now let's see that at the REPL. You may find it remarkable that we have access to the flight class when we
+
+11
+00:01:05,000 --> 00:01:10,000
+have only imported a function make_flight(). This is quite normal, and it's a powerful aspect of Python's
+
+12
+00:01:10,000 --> 00:01:16,000
+dynamic type system that allows us this very loose coupling between code.
+
+13
+00:01:16,000 --> 00:01:25,000
+Let's go on and move Guido back to 15 with his fellow Europeans.
+
+14
+00:01:25,000 --> 00:01:29,000
+It's important during booking to know how many seats are available.
+
+15
+00:01:29,000 --> 00:01:37,000
+To this end, we'll write a num_available_seats method. This is achieved using two nested generator
+
+16
+00:01:37,000 --> 00:01:41,000
+expressions. The outer expression filters for all rows, which are not None.
+
+17
+00:01:41,000 --> 00:01:46,000
+This excludes our dummy first row. The value of each item in the outer expression is the sum of the number
+
+18
+00:01:46,000 --> 00:01:52,000
+of None values in each row. This inner expression iterates over values of the dictionary and adds one for
+
+19
+00:01:52,000 --> 00:02:05,000
+each None found. See how we split the outer expression over three lines to improve readability. (Typing)
+
+20
+00:02:05,000 --> 00:59:00,000
+And just to check, let's do a little bit of math.
+

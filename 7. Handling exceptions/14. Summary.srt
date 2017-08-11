@@ -1,0 +1,88 @@
+1
+00:00:01,000 --> 00:00:06,000
+We've tackled a complicated subject in this module, so let's see if we can sum up.
+
+2
+00:00:06,000 --> 00:00:12,000
+The raising of an exception interrupts normal program flow and transfers control to an exception handler.
+
+3
+00:00:12,000 --> 00:00:16,000
+Exception handlers are defined using the try…except construct.
+
+4
+00:00:16,000 --> 00:00:20,000
+Try blocks define a context in which exceptions can be detected.
+
+5
+00:00:20,000 --> 00:00:25,000
+Corresponding except blocks define handlers for specific types of exceptions.
+
+6
+00:00:25,000 --> 00:00:30,000
+Python uses exceptions pervasively, and many built-in language features depend on them.
+
+7
+00:00:30,000 --> 00:00:35,000
+Except blocks can capture an exception object, which is often of a standard type such as a ValueError,
+
+8
+00:00:35,000 --> 00:00:42,000
+KeyError, or IndexError. Programmer errors such as indentation error and syntax error should not normally
+
+9
+00:00:42,000 --> 00:00:48,000
+be handled. Exceptional conditions can be signaled using the raise keyword, which accepts a single parameter
+
+10
+00:00:48,000 --> 00:00:53,000
+of an exception object. Raise without an argument with an except block re-raises the exception which
+
+11
+00:00:53,000 --> 00:00:55,000
+is currently being processed.
+
+12
+00:00:55,000 --> 00:01:01,000
+We tend to not to routinely check for TypeErrors. To do so would negate the flexibility afforded to us by
+
+13
+00:01:01,000 --> 00:01:06,000
+Python's dynamic type system. Exception objects can be converted to strings using the str() constructor
+
+14
+00:01:06,000 --> 00:01:12,000
+for the purposes of printing message payloads. The exceptions thrown by a function form part of its API
+
+15
+00:01:12,000 --> 00:01:17,000
+and should be appropriately documented. When raising exceptions, prefer to use the most appropriate
+
+16
+00:01:17,000 --> 00:01:23,000
+built-in exception type. Cleanup and restorative actions can be performed using the try…finally construct,
+
+17
+00:01:23,000 --> 00:01:27,000
+which may optionally be used in conjunction with except blocks.
+
+18
+00:01:27,000 --> 00:01:32,000
+Along the way, we saw that the output of the print() function can be directed to standard error using the
+
+19
+00:01:32,000 --> 00:01:39,000
+optional file argument. Python supports the logical operators and and or for combining boolean expressions.
+
+20
+00:01:39,000 --> 00:01:45,000
+Return codes are too easily ignored. Platform-specific actions can be implemented using an easier to
+
+21
+00:01:45,000 --> 00:01:49,000
+ask forgiveness than permission approach facilitated by intercepting import errors and providing
+
+22
+00:01:49,000 --> 00:59:00,000
+alternative implementations. Thanks for watching, and we'll see you in the next module.
+

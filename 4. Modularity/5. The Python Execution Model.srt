@@ -1,0 +1,76 @@
+1
+00:00:01,000 --> 00:00:05,000
+It's important to understand the Python execution model and precisely when function definitions and other
+
+2
+00:00:05,000 --> 00:00:10,000
+important events occur when a module is imported or executed.
+
+3
+00:00:10,000 --> 00:00:17,000
+Here we show execution of our Python module in the PyCharm graphical debugging environment.
+
+4
+00:00:17,000 --> 00:00:22,000
+We step through the top-level statements in the module. What's important to realize here is that the def
+
+5
+00:00:22,000 --> 00:00:27,000
+used for the fetch_words function isn't really a declaration. It's actually a statement, which when used in
+
+6
+00:00:27,000 --> 00:00:33,000
+sequence with the other top-level module scope code causes the code within the function to be bound to the
+
+7
+00:00:33,000 --> 00:00:39,000
+name of the function. When modules are imported or run, all of the top-level statements are run,
+
+8
+00:00:39,000 --> 00:00:45,000
+and this is the means by which functions within the module namespace are defined.
+
+9
+00:00:45,000 --> 00:00:51,000
+We're sometimes asked about the differences between Python modules, Python scripts, and Python programs.
+
+10
+00:00:51,000 --> 00:00:57,000
+Any py file constitutes a Python module. But as we've seen, modules can be written for convenient import,
+
+11
+00:00:57,000 --> 00:01:03,000
+convenient execution, or using the if __name__ equals __main__ idiom, both.
+
+12
+00:01:03,000 --> 00:01:09,000
+We strongly recommend making even simple scripts importable since it eases development and testing so much
+
+13
+00:01:09,000 --> 00:01:15,000
+if you can access your code from the Python REPL. Likewise, even modules which are only ever meant to be
+
+14
+00:01:15,000 --> 00:01:20,000
+imported in production settings benefit from having executable test code.
+
+15
+00:01:20,000 --> 00:01:25,000
+For this reason, nearly all modules we create have this form of defining one or more importable functions
+
+16
+00:01:25,000 --> 00:01:31,000
+with a postscript to facilitate execution.
+
+17
+00:01:31,000 --> 00:01:38,000
+Whether you consider our module to be a Python script or a Python program is a matter of context and usage.
+
+18
+00:01:38,000 --> 00:01:43,000
+It's certainly wrong to consider Python to be merely a scripting tool in the vein of Windows batch files or
+
+19
+00:01:43,000 --> 00:59:00,000
+Unix shell scripts as many large and complex applications have been built exclusively with Python.
+

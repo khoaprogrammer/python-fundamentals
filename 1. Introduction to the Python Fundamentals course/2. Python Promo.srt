@@ -1,0 +1,80 @@
+1
+00:00:01,000 --> 00:00:04,000
+First, what's so great about Python? Why do you want to learn it?
+
+2
+00:00:04,000 --> 00:00:06,000
+There are lots of good answers to those questions. One is
+
+3
+00:00:06,000 --> 00:00:09,000
+that Python is powerful. The Python language is expressive and productive.
+
+4
+00:00:09,000 --> 00:00:14,000
+It comes with a great standard library, and it's the center of a huge universe of wonderful third-party
+
+5
+00:00:14,000 --> 00:00:19,000
+libraries. With Python you can build everything from simple scripts to complex applications, you can
+
+6
+00:00:19,000 --> 00:00:25,000
+do it quickly, you can do it safely, and you can do it with fewer lines of code than you might think possible.
+
+7
+00:00:25,000 --> 00:00:27,000
+But that's just part of what makes Python great.
+
+8
+00:00:27,000 --> 00:00:31,000
+Another is that Python is wonderfully open. It's open source, so you can get to know every aspect of it if
+
+9
+00:00:31,000 --> 00:00:36,000
+you want. At the same time, Python is hugely popular and has a great community to support you when you run
+
+10
+00:00:36,000 --> 00:00:42,000
+into problems. This combination of openness and large user base means that almost anyone from casual
+
+11
+00:00:42,000 --> 00:00:47,000
+programmers to professional software developers can engage with the language at the level they need.
+
+12
+00:00:47,000 --> 00:00:52,000
+Another benefit of a large user base is that Python is showing up in more and more places.
+
+13
+00:00:52,000 --> 00:00:57,000
+You may be wanting to learn Python simply because it's the language of some technology you want to use,
+
+14
+00:00:57,000 --> 00:01:01,000
+and this is not surprising. Many of the most popular web and scientific packages in the world are written
+
+15
+00:01:01,000 --> 00:01:07,000
+in Python. But for many people these reasons take backseat to something more important.
+
+16
+00:01:07,000 --> 00:01:13,000
+Python is fun. Python's expressive readable style, quick edit and run development cycle, and batteries
+
+17
+00:01:13,000 --> 00:01:17,000
+included philosophy mean that you can sit down and enjoy writing code rather than fighting compilers
+
+18
+00:01:17,000 --> 00:01:23,000
+and thorny syntax. And Python will grow with you. As your experiments become prototypes and your prototypes
+
+19
+00:01:23,000 --> 00:01:28,000
+become products, Python makes the experience of writing software not just easier, but truly enjoyable.
+
+20
+00:01:28,000 --> 00:59:00,000
+In the words of Randall Munroe, "Come join us. Programming is fun again."
+

@@ -1,0 +1,36 @@
+1
+00:00:03,000 --> 00:00:09,000
+Strings in Python have the data type str spelled S-T-R, and we've been using them extensively already.
+
+2
+00:00:09,000 --> 00:00:14,000
+Strings are sequences of Unicode codepoints, and for the most part you can think of codepoints as being
+
+3
+00:00:14,000 --> 00:00:19,000
+like characters, although they aren't strictly equivalent. The sequence of characters in a Python string
+
+4
+00:00:19,000 --> 00:00:24,000
+is immutable meaning that once you've constructed a string you can't modify its contents.
+
+5
+00:00:24,000 --> 00:00:31,000
+Literal strings in Python are delimited by quotes. You can use single quotes or double quotes.
+
+6
+00:00:31,000 --> 00:00:37,000
+You must, however, be consistent. For example, you can't do this.
+
+7
+00:00:37,000 --> 00:00:41,000
+Supporting both quoting styles allows you to easily incorporate the other quote characters into the
+
+8
+00:00:41,000 --> 00:00:45,000
+literal string without resorting to ugly escape character gymnastics.
+
+9
+00:00:45,000 --> 00:59:00,000
+Notice that the REPL exploits the same quoting flexibility when echoing the strings back to us.
+

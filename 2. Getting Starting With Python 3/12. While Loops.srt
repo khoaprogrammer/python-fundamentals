@@ -1,0 +1,164 @@
+1
+00:00:02,000 --> 00:00:08,000
+Python has two types of loops, for loops and while loops. We've already briefly encountered for loops
+
+2
+00:00:08,000 --> 00:00:15,000
+back when we introduced significant whitespace, and we'll return to them soon, but right now we'll cover
+
+3
+00:00:15,000 --> 00:00:22,000
+while loops. While loops in Python are introduced by the while keyword, which is followed by a Boolean
+
+4
+00:00:22,000 --> 00:00:28,000
+expression. As with a condition for if statements, the expression is implicitly converted to a Boolean
+
+5
+00:00:28,000 --> 00:00:37,000
+value as if it had been passed to the bool constructor. The while statement is terminated by a colon because
+
+6
+00:00:37,000 --> 00:00:45,000
+it introduces a new block. Let's write a while loop at the REPL, which counts down from five to one.
+
+7
+00:00:45,000 --> 00:00:52,000
+We'll initialize a counter variable called c to 5 and keep looping until with reach 0.
+
+8
+00:00:52,000 --> 00:00:57,000
+Another new language feature here is the use of the augmented assignment operator to subtract one from
+
+9
+00:00:57,000 --> 00:01:04,000
+the value of the counter on each iteration. Similar augmented assignment operators exist for the other
+
+10
+00:01:04,000 --> 00:01:14,000
+basic math operators such as plus and multiply. Because the condition or predicate will be implicitly
+
+11
+00:01:14,000 --> 00:01:19,000
+converted to bool just as if a call to the bool constructor were present, we could replace the above code
+
+12
+00:01:19,000 --> 00:01:27,000
+with the following version. This works because the conversion of the integer value of c to bool results
+
+13
+00:01:27,000 --> 00:01:36,000
+in true until we get to 0, which converts to false. That said, to use the short form of this case might be described
+
+14
+00:01:36,000 --> 00:01:43,000
+as unphythonic because referring back to The Zen of Python explicit is better than implicit, and we place
+
+15
+00:01:43,000 --> 00:01:50,000
+a higher value on the readability of the first form over the concision of the second form.
+
+16
+00:01:50,000 --> 00:01:54,000
+While loops are often used in Python where an infinite loop is required.
+
+17
+00:01:54,000 --> 00:02:05,000
+We achieve this simply by passing True as the predicate expression to the while construct.
+
+18
+00:02:05,000 --> 00:02:11,000
+Now, you're probably wondering how we get out of this loop and regain control of our REPL.
+
+19
+00:02:11,000 --> 00:02:17,000
+We press Control+C, which Python intercepts to raise a special exception, which terminates the loop.
+
+20
+00:02:17,000 --> 00:02:24,000
+We'll be talking much more about what exceptions are and how to use them later in the course.
+
+21
+00:02:24,000 --> 00:02:28,000
+Many programming languages support a loop construct, which places the predicate test at the end of the
+
+22
+00:02:28,000 --> 00:02:38,000
+loop rather than at the beginning. For example, C, C++, C#, and Java support the do while construct.
+
+23
+00:02:38,000 --> 00:02:45,000
+Other languages have repeat until loops instead or as well. This is not the case in Python where the idiom
+
+24
+00:02:45,000 --> 00:02:51,000
+is to use while True together with an early exit facilitated by the break statement.
+
+25
+00:02:51,000 --> 00:02:56,000
+The break statement jumps out of the loop, and only the innermost loop if several loops have been nested,
+
+26
+00:02:56,000 --> 00:03:03,000
+continuing execution immediately after the loop body. Let's look at an example of break introducing
+
+27
+00:03:03,000 --> 00:03:06,000
+a few other Python features along the way.
+
+28
+00:03:06,000 --> 00:03:13,000
+We start with while True for an infinite loop. On the first statement of the while block we use the built-
+
+29
+00:03:13,000 --> 00:03:22,000
+in input function to request a string from the user. We assign that string to a variable called response.
+
+30
+00:03:22,000 --> 00:03:27,000
+We now use an if statement to test whether the value provided is divisible by 7.
+
+31
+00:03:27,000 --> 00:03:32,000
+We convert the response string to an integer using the int constructor, and then use the modulus operator
+
+32
+00:03:32,000 --> 00:03:37,000
+with a percent symbol to divide by 7 and give us the remainder.
+
+33
+00:03:37,000 --> 00:03:43,000
+If the remainder is equal to 0, the response was divisible by 7, then we enter the body of the if block.
+
+34
+00:03:43,000 --> 00:03:51,000
+Within the if block, now two levels of indentation deep, we start with eight spaces and use the break keyword.
+
+35
+00:03:51,000 --> 00:03:57,000
+Break terminates the innermost loop, in this case the while loop, and causes execution to jump to the first
+
+36
+00:03:57,000 --> 00:04:02,000
+statement after the loop, or in our case the end of the program.
+
+37
+00:04:02,000 --> 00:04:07,000
+And for a blank line, the three dots prompt close both if block and the while block.
+
+38
+00:04:07,000 --> 00:04:12,000
+Our loop will start executing, and we'll pause at the calls of the input function waiting for us to enter
+
+39
+00:04:12,000 --> 00:04:29,000
+a number. Let's try a few, 12, 67, 34, and 28. As soon as we enter a number divisible by 7, the predicate becomes true.
+
+40
+00:04:29,000 --> 00:04:34,000
+We enter the if block, and then literally break out of the loop to the end of the program returning us to the
+
+41
+00:04:34,000 --> 00:59:00,000
+REPL prompt.
+

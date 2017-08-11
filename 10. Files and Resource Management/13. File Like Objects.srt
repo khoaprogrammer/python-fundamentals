@@ -1,0 +1,76 @@
+1
+00:00:01,000 --> 00:00:08,000
+There's a notion in Python of file-like objects. This isn't as formal as a specific protocol like sequence
+
+2
+00:00:08,000 --> 00:00:15,000
+protocol is for tuple objects, but thanks to the polymorphism afforded by duck typing it works well in practice.
+
+3
+00:00:15,000 --> 00:00:21,000
+This is where the easier to ask forgiveness than permission philosophy comes into its own.
+
+4
+00:00:21,000 --> 00:00:26,000
+If you want to perform seek on a file-like object without knowing in advance that it supports random access,
+
+5
+00:00:26,000 --> 00:00:33,000
+go ahead and try literally, but be prepared to fail if the seek method doesn't exit or does exist, but doesn't
+
+6
+00:00:33,000 --> 00:00:35,000
+behave as you expect. You might say
+
+7
+00:00:35,000 --> 00:00:41,000
+if it looks like a file and reads like a file, then it is a file.
+
+8
+00:00:41,000 --> 00:00:46,000
+We've actually seen this already. The objects returned to us when we opened files in text and binary mode
+
+9
+00:00:46,000 --> 00:00:52,000
+are actually of different types, although both with definitely file-like behavior.
+
+10
+00:00:52,000 --> 00:00:58,000
+We saw one of them in action back at the beginning of the course used to retrieve data from a URL on the internet.
+
+11
+00:00:58,000 --> 00:01:03,000
+Let's exploit this polymorphism across file-like objects by writing a function to count to the number
+
+12
+00:01:03,000 --> 00:01:09,000
+of words per line in a file and return that information as a list.
+
+13
+00:01:09,000 --> 00:01:14,000
+Now we'll open a regular text file containing the fragment of T.S. Eliot's masterpiece we created earlier
+
+14
+00:01:14,000 --> 00:01:25,000
+and pass it to our new function. The actual type of real_file is _io.TextIOWrapper, which is an internal
+
+15
+00:01:25,000 --> 00:01:32,000
+Python implementation detail. We'll now do the same using a file-like object representing a web resource
+
+16
+00:01:32,000 --> 00:01:47,000
+referred to by a URL. (Typing) In this example, the type of web file is http.client.HTTPReponse, a quite
+
+17
+00:01:47,000 --> 00:01:53,000
+different thing. However, since they are both file-like objects, our function can work with both.
+
+18
+00:01:53,000 --> 00:01:58,000
+There's nothing magical about file-like objects. It's just a convenient and fairly informal description
+
+19
+00:01:58,000 --> 00:59:00,000
+for a set of expectations we can place on an object, which are exploited through duck typing.
+

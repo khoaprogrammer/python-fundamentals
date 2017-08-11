@@ -1,0 +1,20 @@
+1
+00:00:01,000 --> 00:00:06,000
+At first sight, support for both quoting styles seems to violate an important principle of Pythonic style
+
+2
+00:00:06,000 --> 00:00:11,000
+from The Zen of Python. There should be one and preferably only one obvious way to do it.
+
+3
+00:00:11,000 --> 00:00:17,000
+In this case, however, another aphorism from the same source, practicality beats purity, takes precedence.
+
+4
+00:00:17,000 --> 00:00:22,000
+The utility of supporting two quoting styles is valued more highly than the alternative, a single quoting
+
+5
+00:00:22,000 --> 00:59:00,000
+style combined with more frequent use of ugly escape sequences, which we'll encounter shortly.
+

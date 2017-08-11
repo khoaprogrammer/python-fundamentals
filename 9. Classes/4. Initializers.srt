@@ -1,0 +1,196 @@
+1
+00:00:01,000 --> 00:00:05,000
+This class isn't very useful because it can only represent one particular flight.
+
+2
+00:00:05,000 --> 00:00:09,000
+We need to make the flight number configurable at the point that flight is created.
+
+3
+00:00:09,000 --> 00:00:15,000
+To do that, we need to write an initialization method.
+
+4
+00:00:15,000 --> 00:00:19,000
+If provided, the initialization method is called as part of the process of creating a new object when we
+
+5
+00:00:19,000 --> 00:00:24,000
+call the constructor. The initializer method must be called to double underscore init delimited by the
+
+6
+00:00:24,000 --> 00:00:29,000
+double underscores used for Python runtime machinery. Like all other instance methods, the first argument
+
+7
+00:00:29,000 --> 00:00:34,000
+to double underscore init must be self.
+
+8
+00:00:34,000 --> 00:00:39,000
+In this case, we also pass a second argument to double underscore init, which is the flight number.
+
+9
+00:00:39,000 --> 00:00:48,000
+The initializer should not return anything. It simply modifies the object referred to by self.
+
+10
+00:00:48,000 --> 00:00:53,000
+If you're coming from a Java, C#, or C++ background, it's tempting to think of double underscore init as
+
+11
+00:00:53,000 --> 00:00:58,000
+being the constructor. This isn't quite accurate. In Python, the purpose of double underscore init is
+
+12
+00:00:58,000 --> 00:01:04,000
+to configure an object that already exists by the time it's called.
+
+13
+00:01:04,000 --> 00:01:09,000
+The self argument is, however, analogous to this in Java, C#, or C++.
+
+14
+00:01:09,000 --> 00:01:14,000
+In Python, the actual constructor is provided by the Python runtime system, and one of the things it does
+
+15
+00:01:14,000 --> 00:01:19,000
+is check for the existence of an instance initializer and call it when present.
+
+16
+00:01:19,000 --> 00:01:25,000
+Within the initializer we assign to an attribute of the newly created instance called _number.
+
+17
+00:01:25,000 --> 00:01:32,000
+Assigning to an object attribute that doesn't yet exist is sufficient to bring it into being.
+
+18
+00:01:32,000 --> 00:01:35,000
+Just as we don't need to declare variables until we create them, neither do we need to declare object attributes
+
+19
+00:01:35,000 --> 00:01:37,000
+before we create them. We choose _number with the leading underscore for two reasons.
+
+20
+00:01:37,000 --> 00:01:45,000
+First, because it avoids a name clash with the method of the same name.
+
+21
+00:01:45,000 --> 00:01:50,000
+Methods are functions, functions are objects, and these functions are bound to attributes of the object,
+
+22
+00:01:50,000 --> 00:01:53,000
+so we already have an attribute called number, and we don't want to replace it.
+
+23
+00:01:53,000 --> 00:01:57,000
+Second, there is a widely followed convention that the implementation details of objects which are not
+
+24
+00:01:57,000 --> 00:02:05,000
+intended for consumption or manipulation by clients of the object should be prefixed with an underscore.
+
+25
+00:02:05,000 --> 00:02:11,000
+We also modify our number method to access the _number attribute and return it.
+
+26
+00:02:11,000 --> 00:02:15,000
+Any arguments passed to the flight constructor will be forwarded to the initializer.
+
+27
+00:02:15,000 --> 00:02:19,000
+So, to create and configure our flight object we can now do this.
+
+28
+00:02:19,000 --> 00:02:24,000
+We can also directly access the implementation details. Although this is not recommend for production
+
+29
+00:02:24,000 --> 00:02:30,000
+code, it's very handy for debugging and early testing.
+
+30
+00:02:30,000 --> 00:02:35,000
+If you're coming from a bondage and discipline language like Java or C# with public, private, and protected
+
+31
+00:02:35,000 --> 00:02:41,000
+access modifiers, Python's everything is public approach can seem excessively open minded.
+
+32
+00:02:41,000 --> 00:02:45,000
+The prevailing culture among Pythonistas is that we're all consenting adults here.
+
+33
+00:02:45,000 --> 00:02:49,000
+In practice, the leading underscore convention has proven sufficient protection even in large and complex
+
+34
+00:02:49,000 --> 00:02:53,000
+Python systems we have worked with. People know not to use these attributes directly, and in fact they
+
+35
+00:02:53,000 --> 00:03:02,000
+tend not to. Like so many doctrines, lack of access modifiers is a much bigger problem in theory than in practice.
+
+36
+00:03:02,000 --> 00:03:06,000
+It's good practice for the initializer of an object to establish so-called class invariants.
+
+37
+00:03:06,000 --> 00:03:11,000
+The invariants are truths about the objects of that class that should endure for the lifetime of the object.
+
+38
+00:03:11,000 --> 00:03:16,000
+One such invariant for flights is that the flight number always begins with an uppercase two letter airline
+
+39
+00:03:16,000 --> 00:03:20,000
+code followed by a three or four digit route number.
+
+40
+00:03:20,000 --> 00:03:25,000
+In Python we establish class invariants in the double underscore init method and raise exceptions if
+
+41
+00:03:25,000 --> 00:03:32,000
+they can't be attained. We use string slicing and various methods of the string class to perform validation.
+
+42
+00:03:32,000 --> 00:03:37,000
+For the first time in the course we also see the logical negation operator not.
+
+43
+00:03:37,000 --> 00:03:44,000
+Ad hoc testing in the REPL is a very effective technique during development.
+
+44
+00:03:44,000 --> 00:03:48,000
+If we construct a flight with a valid flight number, everything works as expected.
+
+45
+00:03:48,000 --> 00:03:52,000
+However, if that flight number doesn't have an airline code, we get a ValueError.
+
+46
+00:03:52,000 --> 00:03:59,000
+Likewise, if the airline code is lowercase, we get a ValueError, and if we construct a flight that has letters
+
+47
+00:03:59,000 --> 00:04:04,000
+instead of numbers you get another ValueError. And if we try to use five numbers instead of four, we also
+
+48
+00:04:04,000 --> 00:04:12,000
+get a ValueError. Now that we're sure of having a valid flight number, we'll add a second method to return
+
+49
+00:04:12,000 --> 00:59:00,000
+just the airline code. Once the class invariants have been established, most query methods can be very simple.
+

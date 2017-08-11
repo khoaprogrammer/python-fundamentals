@@ -1,0 +1,48 @@
+1
+00:00:01,000 --> 00:00:05,000
+Let's add a second function string_log to our module, which calls our convert function and computes the
+
+2
+00:00:05,000 --> 00:00:11,000
+natural log of the result. At this point we must confess that we've gone out of way here to be deeply unpythonic
+
+3
+00:00:11,000 --> 00:00:16,000
+by wrapping the perfectly good int conversion included with Python, which raises exceptions on failure,
+
+4
+00:00:16,000 --> 00:00:20,000
+in our convert function, which returns a good old fashioned negative error code.
+
+5
+00:00:20,000 --> 00:00:25,000
+Rest assured that this unforgivable Python heresy has been committed solely to demonstrate the greatest
+
+6
+00:00:25,000 --> 00:00:30,000
+folly of error return codes, that they can be ignored by the caller wreaking havoc amongst unsuspecting
+
+7
+00:00:30,000 --> 00:00:32,000
+code later in the program.
+
+8
+00:00:32,000 --> 00:00:37,000
+A slightly better program might test the value of V before proceeding to the log call.
+
+9
+00:00:37,000 --> 00:00:42,000
+Without such a check, log will of course fail when passed the negative error code value.
+
+10
+00:00:42,000 --> 00:00:46,000
+Naturally, the log failure causes the raising of another exception.
+
+11
+00:00:46,000 --> 00:00:51,000
+Much better, and altogether more Pythonic, is to forget about error codes completely and go back to rasing
+
+12
+00:00:51,000 --> 00:59:00,000
+an exception from convert.
+

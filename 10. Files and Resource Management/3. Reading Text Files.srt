@@ -1,0 +1,96 @@
+1
+00:00:01,000 --> 00:00:06,000
+To read the file back, we use open again, but pass a different mode string,
+
+2
+00:00:06,000 --> 00:00:14,000
+in this case 'rt' for read text. If we know how many bytes to read or if we want to read the whole file, we can
+
+3
+00:00:14,000 --> 00:00:22,000
+use the read function. Looking back through our REPL, we can see that the first write was 32 characters long.
+
+4
+00:00:22,000 --> 00:00:29,000
+We can read that back with a call to the read method. In text mode the read method accepts the number of characters
+
+5
+00:00:29,000 --> 00:00:36,000
+to read from the file, not the number of bytes. The call returns the text and advances the file pointer to
+
+6
+00:00:36,000 --> 00:00:43,000
+the end of what was read. The return type is str because we opened the file in text mode.
+
+7
+00:00:43,000 --> 00:00:48,000
+To read all the remaining data in the file, we can call read without an argument.
+
+8
+00:00:48,000 --> 00:00:55,000
+This gives us parts of two lines in one string. Note the newline character in the middle.
+
+9
+00:00:55,000 --> 00:01:01,000
+At the end of the file, further calls to read return an empty string.
+
+10
+00:01:01,000 --> 00:01:06,000
+Normally when we are finished reading a file we would close it, but for the purposes of this exercise we'll
+
+11
+00:01:06,000 --> 00:01:11,000
+keep the file open and move the file pointer back to the beginning of the file using the seek method with
+
+12
+00:01:11,000 --> 00:01:19,000
+a 0 offset from the start of the file. The return value is the new file pointer position.
+
+13
+00:01:19,000 --> 00:01:24,000
+Using read for text is quite awkward, and thankfully Python provides us with better tools for reading
+
+14
+00:01:24,000 --> 00:01:30,000
+text files line-by-line. First of these is the readline() function.
+
+15
+00:01:30,000 --> 00:01:35,000
+The returned lines are terminated by a single newline character if there is one present in the file.
+
+16
+00:01:35,000 --> 00:01:42,000
+The last line here does not terminate with a newline because there is no newline sequence at the end of the file.
+
+17
+00:01:42,000 --> 00:01:47,000
+You shouldn't rely on the string returned by readline being terminated by a newline.
+
+18
+00:01:47,000 --> 00:01:53,000
+Again, the universal newline support will have translated to /n from whatever the platform native newline
+
+19
+00:01:53,000 --> 00:02:00,000
+sequence is. Once we reach the end of the file, further calls to readline return an empty string.
+
+20
+00:02:00,000 --> 00:02:07,000
+Let's rewind again with seek. Sometimes when we know we want to read every line in the file and we're sure
+
+21
+00:02:07,000 --> 00:02:13,000
+we have enough memory, we can read all lines into a list with the readlines() method.
+
+22
+00:02:13,000 --> 00:02:18,000
+This is particularly useful if pausing the file involves hopping backwards and forwards between lines.
+
+23
+00:02:18,000 --> 00:02:23,000
+It's much easier to do this with a list than with a file stream of characters.
+
+24
+00:02:23,000 --> 00:59:00,000
+This time we'll close the file before moving on with g.close().
+

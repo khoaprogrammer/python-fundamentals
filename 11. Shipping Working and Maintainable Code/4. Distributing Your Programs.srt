@@ -1,0 +1,204 @@
+1
+00:00:01,000 --> 00:00:06,000
+Packaging and distributing your Python code can be complex and sometimes confusing task, especially
+
+2
+00:00:06,000 --> 00:00:11,000
+if your projects have lots of dependencies or involve components more exotic than straight Python code.
+
+3
+00:00:11,000 --> 00:00:15,000
+However, for many cases it's very straightforward to make your code accessible to others in a standard
+
+4
+00:00:15,000 --> 00:00:21,000
+way, and we'll see how to do that using the standard distutils module in this section.
+
+5
+00:00:21,000 --> 00:00:25,000
+The distutils module allows you to write a simple Python script, which knows how to install your Python
+
+6
+00:00:25,000 --> 00:00:32,000
+modules into any Python installation. By convention, this script is called setup.py, and it exists at
+
+7
+00:00:32,000 --> 00:00:40,000
+the top of your project structure. This script can then be executed to perform the actual installation.
+
+8
+00:00:40,000 --> 00:00:46,000
+Let's see a simple example of distutils. We'll create a basic setup.py installation script for the palindrome
+
+9
+00:00:46,000 --> 00:00:52,000
+module we wrote in the previous section. The first thing we want to do is create a directory to hold our project.
+
+10
+00:00:52,000 --> 00:00:59,000
+Let's call this palindrome. Let's put a copy of our palindrome.py in this directory.
+
+11
+00:00:59,000 --> 00:01:08,000
+And finally, let's create our setup.py. The first line in the file imports the functionality we need from
+
+12
+00:01:08,000 --> 00:01:14,000
+the distutils.core module, namely the setup function. This function does all the work of installing
+
+13
+00:01:14,000 --> 00:01:17,000
+our code, so we need to tell it about the code we're installing.
+
+14
+00:01:17,000 --> 00:01:21,000
+We do this of course with the arguments we pass to the function.
+
+15
+00:01:21,000 --> 00:01:25,000
+The first thing we tell setup is the name of this project. We've chosen palindrome in this case, but you
+
+16
+00:01:25,000 --> 00:01:31,000
+can choose any name you like. In general though, it's simplest to just keep the name the same as your project name.
+
+17
+00:01:31,000 --> 00:01:36,000
+The next argument we pass to setup is the version. Again, this can be any string you want.
+
+18
+00:01:36,000 --> 00:01:40,000
+Python doesn't rely on the version to follow any sort of rules.
+
+19
+00:01:40,000 --> 00:01:43,000
+The next argument, py_modules, is probably the most interesting.
+
+20
+00:01:43,000 --> 00:01:50,000
+We use this to specify the Python modules we want to install. Each entry in this list is the name of the module
+
+21
+00:01:50,000 --> 00:01:57,000
+without the .py extension. Setup will look for a matching .py file and install it, so in our example we've
+
+22
+00:01:57,000 --> 00:02:03,000
+asked setup to install palindrome.py, which of course is a file in our project.
+
+23
+00:02:03,000 --> 00:02:08,000
+The rest of the arguments we're using here are fairly self-explanatory, and are there mostly to help people
+
+24
+00:02:08,000 --> 00:02:14,000
+to use your module correctly and to know who to contact if they have problems.
+
+25
+00:02:14,000 --> 00:02:19,000
+Before we start using our setup.py, we first need to create a virtual environment into which we'll install
+
+26
+00:02:19,000 --> 00:02:26,000
+our module. In your palindrome directory, create a virtual environment called venv.
+
+27
+00:02:26,000 --> 00:02:31,000
+When this completes, activate the new environment. On Linux or Mac OS X, source the activate script, or
+
+28
+00:02:31,000 --> 00:02:38,000
+on Windows call the script directly. Now that we've got our setup.py, you can use it to do a number of interesting
+
+29
+00:02:38,000 --> 00:02:44,000
+things. The first and perhaps most obvious thing we can do is install our module into our virtual environment.
+
+30
+00:02:44,000 --> 00:02:53,000
+We do this by passing the install argument to setup.py. Setup prints out a few lines to tell you about its progress.
+
+31
+00:02:53,000 --> 00:02:59,000
+The most important line for us is where it actually copies palindrome.py into the installation folder.
+
+32
+00:02:59,000 --> 00:03:03,000
+The site-packages directory of a Python installation is where third-party packages such as ours are
+
+33
+00:03:03,000 --> 00:03:07,000
+normally installed, so it looks like the installation worked properly.
+
+34
+00:03:07,000 --> 00:03:12,000
+Let's verify this by running Python and seeing that our module can be imported.
+
+35
+00:03:12,000 --> 00:03:16,000
+Note that we want to change directories before we do this; otherwise, when we import palindrome, Python
+
+36
+00:03:16,000 --> 00:03:23,000
+will simply load the source file in our current directory. Here we use the __file__ attribute on the module
+
+37
+00:03:23,000 --> 00:03:28,000
+to see where it was imported from, and we see that we're importing it from our virtual environment's site-
+
+38
+00:03:28,000 --> 00:03:33,000
+packages, which is exactly what we wanted. Don't forget to switch back to your source directory after
+
+39
+00:03:33,000 --> 00:03:36,000
+exiting the Python REPL.
+
+40
+00:03:36,000 --> 00:03:41,000
+Another useful feature of setup is that I can create various types of distribution formats.
+
+41
+00:03:41,000 --> 00:03:45,000
+It will take all of the modules you specified and bundle them into packages that are easy to distribute
+
+42
+00:03:45,000 --> 00:03:52,000
+to others. You can do this with the sdist command, which is shorthand for source distribution.
+
+43
+00:03:52,000 --> 00:03:56,000
+If we look, we'll see that this command created a new directory dist, which contains the newly generated
+
+44
+00:03:56,000 --> 00:03:58,000
+distribution file.
+
+45
+00:03:58,000 --> 00:04:05,000
+If we unzip that file, we'll see that it contains our project source code including the setup.py.
+
+46
+00:04:05,000 --> 00:04:10,000
+So, now you can send this zip file to anyone who wants to use your code, and they can use the setup.py to install
+
+47
+00:04:10,000 --> 00:04:18,000
+it into their system. Very convenient. Note that the sdist command can produce distributions of various types.
+
+48
+00:04:18,000 --> 00:04:24,000
+To see the available options, you can use the --help-formats option.
+
+49
+00:04:24,000 --> 00:04:28,000
+This section really just touches on the very basics of distutils.
+
+50
+00:04:28,000 --> 00:04:34,000
+You can find out more about how to use distutils by passing --help to setup.py.
+
+51
+00:04:34,000 --> 00:59:00,000
+For most simple projects, however, you'll find that what we've just covered is almost all you need to know.
+

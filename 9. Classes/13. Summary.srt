@@ -1,0 +1,156 @@
+1
+00:00:01,000 --> 00:00:06,000
+Classes and inheritance are an important topic in Python, so let's sum up.
+
+2
+00:00:06,000 --> 00:00:11,000
+All types in Python have a class. Classes define the structure and behavior of an object.
+
+3
+00:00:11,000 --> 00:00:17,000
+The class is determined when an object is created and is fixed for the lifetime of the object in the general case.
+
+4
+00:00:17,000 --> 00:00:22,000
+Classes are the key support for object-oriented programming in Python.
+
+5
+00:00:22,000 --> 00:00:27,000
+Classes are defined using the class keyword followed by the class name, which is in CamelCase.
+
+6
+00:00:27,000 --> 00:00:32,000
+Instances of a class are created by calling the class as if it were a function.
+
+7
+00:00:32,000 --> 00:00:36,000
+Instance methods are functions defined inside the class, which should accept an object instance called
+
+8
+00:00:36,000 --> 00:00:42,000
+self as the first parameter. Methods are called using the instance.method() syntax, which is syntactic
+
+9
+00:00:42,000 --> 00:00:47,000
+sugar for passing the instance as the formal self argument to the method.
+
+10
+00:00:47,000 --> 00:00:51,000
+An optional special initializer method called __init__() can be provided, which is used to configure
+
+11
+00:00:51,000 --> 00:00:56,000
+the self object at creation time. If present, the constructor calls the __init__() method.
+
+12
+00:00:56,000 --> 00:01:02,000
+Double underscore init is not the constructor. The object has been constructed by the time the initializer
+
+13
+00:01:02,000 --> 00:01:07,000
+is called. Arguments passed to the constructor are forwarded to the initializer.
+
+14
+00:01:07,000 --> 00:01:11,000
+Instance attributes are brought into existence simply by assigning to them.
+
+15
+00:01:11,000 --> 00:01:16,000
+Attributes and methods which are implementation details are by convention prefixed with an underscore.
+
+16
+00:01:16,000 --> 00:01:20,000
+There are no public, protected, or private access modifiers in Python.
+
+17
+00:01:20,000 --> 00:01:24,000
+Access to implementation details from outside the class can be very useful during development, testing,
+
+18
+00:01:24,000 --> 00:01:29,000
+and debugging. Class invariants should be established in the initializer.
+
+19
+00:01:29,000 --> 00:01:33,000
+If the invariants can't be established, raise exceptions to signal failure.
+
+20
+00:01:33,000 --> 00:01:38,000
+Methods can have docstrings, just like regular functions. Classes can have docstrings.
+
+21
+00:01:38,000 --> 00:01:42,000
+Even within an object method, calls must be preceded with self.
+
+22
+00:01:42,000 --> 00:01:45,000
+You can have as many classes and functions in a module as you wish.
+
+23
+00:01:45,000 --> 00:01:49,000
+Related classes and global functions are generally grouped together this way.
+
+24
+00:01:49,000 --> 00:01:53,000
+Polymorphism in Python is achieved through duck typing where attributes and methods are only resolved
+
+25
+00:01:53,000 --> 00:02:00,000
+at point of use. This is called late binding. Polymorphism in Python does not require shared base classes
+
+26
+00:02:00,000 --> 00:02:05,000
+or named interfaces. Class inheritance in Python is primarily useful for sharing implementation rather
+
+27
+00:02:05,000 --> 00:02:10,000
+than being necessary for polymorphism. All methods are inherited including special methods like the
+
+28
+00:02:10,000 --> 00:02:12,000
+initializer.
+
+29
+00:02:12,000 --> 00:02:17,000
+Along the way we found that strings support slicing because they implement the sequence protocol.
+
+30
+00:02:17,000 --> 00:02:22,000
+Following the Law of Demeter can reduce coupling. We can nest comprehensions.
+
+31
+00:02:22,000 --> 00:02:26,000
+It can sometimes be useful to discard the current item in a comprehension using a dummy reference,
+
+32
+00:02:26,000 --> 00:02:31,000
+conventionally the underscore character. When dealing with one-based collections, it's often easier
+
+33
+00:02:31,000 --> 00:02:37,000
+just to waste one list entry. Don't feel compelled to use classes when a simple function will suffice.
+
+34
+00:02:37,000 --> 00:02:43,000
+Functions are also objects. Complex comprehensions or generator expressions can be split over multiple
+
+35
+00:02:43,000 --> 00:02:48,000
+lines to aid readability. Statements can be split over multiple lines using the backslash line continuation
+
+36
+00:02:48,000 --> 00:02:53,000
+character. Use this feature sparingly and only when it improves readability.
+
+37
+00:02:53,000 --> 00:02:57,000
+Object-oriented design where one object tells another information can be more loosely coupled than
+
+38
+00:02:57,000 --> 00:03:01,000
+those where one object queries another. "Ask! Don't tell."
+
+39
+00:03:01,000 --> 00:59:00,000
+Thanks for watching, and we'll see you in the next module.
+

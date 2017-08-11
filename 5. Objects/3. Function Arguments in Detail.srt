@@ -1,0 +1,192 @@
+1
+00:00:01,000 --> 00:00:05,000
+Now that we understand the distinction between object references and objects, we'll look at some more
+
+2
+00:00:05,000 --> 00:00:11,000
+capabilities of function arguments. The formal function arguments specified when a function is defined
+
+3
+00:00:11,000 --> 00:00:15,000
+with the def keyword are a comma separated list of the argument names.
+
+4
+00:00:15,000 --> 00:00:19,000
+These arguments can be made optional by providing default values.
+
+5
+00:00:19,000 --> 00:00:22,000
+Consider a function which prints a simple banner to the console.
+
+6
+00:00:22,000 --> 00:00:27,000
+This function takes two arguments, the second of which is provided with a default value, in this case a
+
+7
+00:00:27,000 --> 00:00:33,000
+hyphen, in a literal string. When we define functions using default arguments, the parameters with default
+
+8
+00:00:33,000 --> 00:00:38,000
+arguments must come after those without default; otherwise, we will get a syntax error.
+
+9
+00:00:38,000 --> 00:00:43,000
+Within the body of the function, we multiply our border string by the length of the message string.
+
+10
+00:00:43,000 --> 00:00:48,000
+This shows how we can determine the number of items in a Python collection using the built-in len function,
+
+11
+00:00:48,000 --> 00:00:53,000
+and secondly how multiplying a string, in this case the single character string border, by an integer
+
+12
+00:00:53,000 --> 00:00:58,000
+results in a new string containing the original string repeated a number of times.
+
+13
+00:00:58,000 --> 00:01:02,000
+We use that feature here to make a string equal in length to our message.
+
+14
+00:01:02,000 --> 00:01:06,000
+We then print the full-width border, the message, and the border again.
+
+15
+00:01:06,000 --> 00:01:12,000
+When we call our banner function, we don't need to supply the border string because we provided a default value.
+
+16
+00:01:12,000 --> 00:01:19,000
+However, if we do provide the option argument, it is used. In production code, this function call is not
+
+17
+00:01:19,000 --> 00:01:25,000
+particularly self-documenting. We can improve that situation by naming the border argument at the call site.
+
+18
+00:01:25,000 --> 00:01:31,000
+In this case, the message string is called a positional argument and the border string a keyword argument.
+
+19
+00:01:31,000 --> 00:01:36,000
+The actual positional arguments are matched up in sequence with the formal arguments whereas the keyword
+
+20
+00:01:36,000 --> 00:01:41,000
+arguments are matched by name. If we use keyword arguments for both of our parameters, we have the freedom
+
+21
+00:01:41,000 --> 00:01:47,000
+to supply them in any order, although remember that all keyword arguments must be specified after the
+
+22
+00:01:47,000 --> 00:01:53,000
+positional arguments. It's crucial to have an appreciation of exactly when the expression provided
+
+23
+00:01:53,000 --> 00:01:58,000
+as a default argument value is evaluated to avoid a common pitfall which frequently ensnares newcomers
+
+24
+00:01:58,000 --> 00:02:05,000
+to Python. Let's examine this question closely using the Python Standard Library time module.
+
+25
+00:02:05,000 --> 00:02:10,000
+We can easily get the time as a readable string by using the ctime function of the time module.
+
+26
+00:02:10,000 --> 00:02:15,000
+Let's write a function which uses a value retrieved from ctime as a default argument value.
+
+27
+00:02:15,000 --> 00:02:22,000
+So far so good, but notice what happens when you call show_default() again a few seconds later, and again.
+
+28
+00:02:22,000 --> 00:02:24,000
+The display time never progresses.
+
+29
+00:02:24,000 --> 00:02:29,000
+Recall how we said that def is a statement that when executed binds a function definition to a function name.
+
+30
+00:02:29,000 --> 00:02:35,000
+Well, the default argument expressions are evaluated only once when the def statement is executed.
+
+31
+00:02:35,000 --> 00:02:39,000
+Normally this causes no problems when the default is a simple immutable constant such as an integer or
+
+32
+00:02:39,000 --> 00:02:45,000
+a string, but it can be a confusing trap for the unwary that usually shows up in the form of using mutable
+
+33
+00:02:45,000 --> 00:02:48,000
+collections as argument defaults.
+
+34
+00:02:48,000 --> 00:02:52,000
+Let's take a closer look. Consider the function which uses an empty list as a default argument.
+
+35
+00:02:52,000 --> 00:02:59,000
+It accepts a menu, which will be a list of strings; appends the item spam to the list; and returns the modified menu.
+
+36
+00:02:59,000 --> 00:03:04,000
+Let's create a simple breakfast of bacon and eggs and naturally add spam to it.
+
+37
+00:03:04,000 --> 00:03:09,000
+We'll do something similar for lunch. Nothing unexpected so far.
+
+38
+00:03:09,000 --> 00:03:14,000
+But look what happens when you rely on the default argument by not passing an existing menu.
+
+39
+00:03:14,000 --> 00:03:19,000
+When we append spam to an empty menu, we get just spam. Let's do that again.
+
+40
+00:03:19,000 --> 00:03:26,000
+When we exercise the default the second time, we get two spams and three and four.
+
+41
+00:03:26,000 --> 00:03:30,000
+What's happening here is that the empty list used for the default argument is created exactly once when
+
+42
+00:03:30,000 --> 00:03:36,000
+the def statement is executed. The first time we fell back on the default this list has spam added to it.
+
+43
+00:03:36,000 --> 00:03:41,000
+When we used the default the second time, the list still contains that item, and a second instance of spam
+
+44
+00:03:41,000 --> 00:03:47,000
+is added to it making two ad infinitum, or perhaps ad nauseam would be more appropriate.
+
+45
+00:03:47,000 --> 00:03:50,000
+The solution to this is straightforward, but perhaps not obvious.
+
+46
+00:03:50,000 --> 00:03:55,000
+Always use immutable objects such as integers or strings for default values.
+
+47
+00:03:55,000 --> 00:04:01,000
+Following this advice, we can solve this particular case by using the immutable None object as a sentinel.
+
+48
+00:04:01,000 --> 00:59:00,000
+And now our add_spam function works as expected.
+

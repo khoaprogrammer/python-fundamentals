@@ -1,0 +1,52 @@
+1
+00:00:02,000 --> 00:00:06,000
+Since exceptions are a means of control flow, they can be clumsy to demonstrate at the REPL, so for this
+
+2
+00:00:06,000 --> 00:00:10,000
+part of the course we'll be using a Python module to contain our code.
+
+3
+00:00:10,000 --> 00:00:15,000
+Let's start with a very simple module we can use for exploring these important concepts and behaviors.
+
+4
+00:00:15,000 --> 00:00:19,000
+Place this code in a module called exceptional.py.
+
+5
+00:00:19,000 --> 00:00:25,000
+Import the convert function from this module into the Python REPL and call our function with a string to
+
+6
+00:00:25,000 --> 00:00:30,000
+see that it has the desired effect. But if we call our function with an object that can't be converted to
+
+7
+00:00:30,000 --> 00:00:34,000
+an integer, we get a traceback from the int call.
+
+8
+00:00:34,000 --> 00:00:38,000
+What's happened here is that the int constructor raised an exception because it couldn't sensibly perform
+
+9
+00:00:38,000 --> 00:00:44,000
+the conversion. We didn't have a handler in place, so it was caught by the REPL and the stack trace was displayed.
+
+10
+00:00:44,000 --> 00:00:49,000
+The ValueError referred to in the stack trace is the type of the exception object, and the error message
+
+11
+00:00:49,000 --> 00:00:54,000
+invalid literal for int() with base 10: 'hedgehog' is part of the payload of the exception object that
+
+12
+00:00:54,000 --> 00:00:58,000
+has been retrieved and printed by the REPL.
+
+13
+00:00:58,000 --> 00:59:00,000
+Notice the exception propagates across several levels in the call stack.
+

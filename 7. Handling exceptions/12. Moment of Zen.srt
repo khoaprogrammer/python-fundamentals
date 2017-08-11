@@ -1,0 +1,8 @@
+1
+00:00:01,000 --> 00:00:06,000
+Errors should never pass silently, unless explicitly silenced.
+
+2
+00:00:06,000 --> 00:59:00,000
+Errors are like bells, and if we make them silent they are of no use.
+

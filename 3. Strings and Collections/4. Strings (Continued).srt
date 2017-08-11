@@ -1,0 +1,200 @@
+1
+00:00:03,000 --> 00:00:08,000
+Adjacent literal strings are concatenated by the Python compiler into a single string, which although
+
+2
+00:00:08,000 --> 00:00:13,000
+at first it seems rather pointless, can be useful for nicely formatting code as we'll see later.
+
+3
+00:00:13,000 --> 00:00:19,000
+If you want a literal string containing new lines, you have two options, use multiline strings or use escape
+
+4
+00:00:19,000 --> 00:00:22,000
+sequences. First, multiline strings.
+
+5
+00:00:22,000 --> 00:00:26,000
+Multiline strings are delimited by three quote characters rather than one.
+
+6
+00:00:26,000 --> 00:00:31,000
+Here's an example of using three double quotes. Notice how when the string is echoed back to us the new lines
+
+7
+00:00:31,000 --> 00:00:38,000
+are represented by the slash N escapes sequence. We can also use three single quotes.
+
+8
+00:00:38,000 --> 00:00:45,000
+As an alternative to using multiline quoting, we can just embed the control characters ourselves, or
+
+9
+00:00:45,000 --> 00:00:51,000
+to get a better sense of what we're representing, we can use print to see the string.
+
+10
+00:00:51,000 --> 00:00:56,000
+If you're working on Windows, you might be thinking that new lines should be represented by the carriage
+
+11
+00:00:56,000 --> 00:01:00,000
+return at new line couplet \r\n. There's no need to do
+
+12
+00:01:00,000 --> 00:01:05,000
+that with Python since Python 3 has a feature called universal newlines support, which translates from
+
+13
+00:01:05,000 --> 00:01:11,000
+the simple \n to the native newline sequence for your platform on input and output.
+
+14
+00:01:11,000 --> 00:01:16,000
+You can read more about universal newlines support in PEP278.
+
+15
+00:01:16,000 --> 00:01:22,000
+We can use the escapes sequences for other purposes too such as incorporating tabs with slash T or allowing
+
+16
+00:01:22,000 --> 00:01:28,000
+us to use quote characters within strings by using a slash followed by the quote sign that you want.
+
+17
+00:01:28,000 --> 00:01:33,000
+See how Python is smarter than we are using the most convenient quote delimiters, although Python will
+
+18
+00:01:33,000 --> 00:01:40,000
+also resort to escapes sequences when we use both types of quotes in a string.
+
+19
+00:01:40,000 --> 00:01:46,000
+Because the backslash has special meaning, to place a backslash in a string we escape the backslash with itself.
+
+20
+00:01:46,000 --> 00:01:52,000
+To reassure ourselves that there really is only one backslash in that string, we can print it.
+
+21
+00:01:52,000 --> 00:01:59,000
+You can read more about escape sequences in the Python documentation at python.org.
+
+22
+00:01:59,000 --> 00:02:04,000
+Sometimes, particularly when dealing with strings such as Windows file system paths or regular expression
+
+23
+00:02:04,000 --> 00:02:10,000
+patterns, which use backslashes extensively, the requirement to double up on backslashes can be ugly
+
+24
+00:02:10,000 --> 00:02:13,000
+and error prone. Python comes to the rescue with its raw strings.
+
+25
+00:02:13,000 --> 00:02:19,000
+Raw strings don't support any escapes sequences and are very much what you see is what you get.
+
+26
+00:02:19,000 --> 00:02:24,000
+To create a raw string, prefix the opening quote with a lowercase R.
+
+27
+00:02:24,000 --> 00:02:32,000
+We can use the string constructor to create string representations of other types such as integers or floats.
+
+28
+00:02:32,000 --> 00:02:37,000
+Strings in Python are what are called sequence types, which means they support certain common operations
+
+29
+00:02:37,000 --> 00:02:42,000
+for querying sequences. For example, we can access individual characters using
+
+30
+00:02:42,000 --> 00:02:45,000
+square brackets with an integer zero-based index.
+
+31
+00:02:45,000 --> 00:02:49,000
+Note that in contrast to many other programming languages there is no separate character type distinct
+
+32
+00:02:49,000 --> 00:02:54,000
+from the string type. The indexing operation we just used returns a full-blown string that contains a
+
+33
+00:02:54,000 --> 00:03:00,000
+single character element, something we can test using Python's built-in type function.
+
+34
+00:03:00,000 --> 00:03:05,000
+There will be more on types and classes later in the course.
+
+35
+00:03:05,000 --> 00:03:13,000
+String objects also support a wide variety of operations implemented as methods.  We can list those methods by using help on the string type.
+
+36
+00:03:13,000 --> 00:03:20,000
+Ignore all the hieroglyphics with underscores for now, and page down until you see the documentation for the capitalize method.
+
+37
+00:03:20,000 --> 00:03:25,000
+Press Q to quit the help browser, and we'll try to use that method.
+
+38
+00:03:25,000 --> 00:03:30,000
+First, let's make a string that deserves capitalization, the proper noun of a capital city no less.
+
+39
+00:03:30,000 --> 00:03:37,000
+To call methods on objects in Python, we use the dot after the object name and before the method name.
+
+40
+00:03:37,000 --> 00:03:41,000
+Methods are functions, so we must use the parentheses to indicate that the method should be called.
+
+41
+00:03:41,000 --> 00:03:46,000
+Remember that strings are immutable, so the capitalize method didn't modify C in place.
+
+42
+00:03:46,000 --> 00:03:51,000
+It returned a new string. We can verify this by displaying C, which remains unchanged.
+
+43
+00:03:51,000 --> 00:03:56,000
+You might like to spend a little time familiarizing yourself with the various useful methods provided by the string
+
+44
+00:03:56,000 --> 00:03:57,000
+
+
+45
+00:03:57,000 --> 00:04:02,000
+Finally, because strings are fully Unicode capable, you can use them with international characters
+
+46
+00:04:02,000 --> 00:04:08,000
+easily, even in literals because the default source code encoding for Python 3 is UTF-8.
+
+47
+00:04:08,000 --> 00:04:13,000
+For example, if you have access to Norwegian characters, you can simply enter this.
+
+48
+00:04:13,000 --> 00:04:20,000
+Alternatively, you can use the hexadecimal Unicode codepoints as an escape sequence prefixed by slash U,
+
+49
+00:04:20,000 --> 00:04:24,000
+which I'm sure you'll agree is somewhat more unwieldy. There are no such Unicode capabilities in the otherwise
+
+50
+00:04:24,000 --> 00:59:00,000
+similar bytes type, which we'll look at next.
+

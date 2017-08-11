@@ -1,0 +1,120 @@
+1
+00:00:01,000 --> 00:00:05,000
+We've covered a lot of important concepts about how the Python language works in this module.
+
+2
+00:00:05,000 --> 00:00:10,000
+Let's summarize what we've been over. Better to think of Python working in terms of named references to
+
+3
+00:00:10,000 --> 00:00:15,000
+objects rather than variables and values. Assignment doesn't put a value in a box.
+
+4
+00:00:15,000 --> 00:00:23,000
+It attaches a name tag to an object. Assigning from one reference to another puts two name tags on the same object.
+
+5
+00:00:23,000 --> 00:00:28,000
+The Python garbage collector will reclaim unreachable objects, those objects with no name tag.
+
+6
+00:00:28,000 --> 00:00:34,000
+The id() function returns a unique and constant identifier, which should rarely if ever be used in production.
+
+7
+00:00:34,000 --> 00:00:41,000
+The is operator determines equality of identity, that is whether two names refer to the same object.
+
+8
+00:00:41,000 --> 00:00:44,000
+We can test for equivalence using the double equals operator.
+
+9
+00:00:44,000 --> 00:00:49,000
+Function arguments are passed by object reference, so functions can modify their arguments if they are
+
+10
+00:00:49,000 --> 00:00:55,000
+mutable objects. If a formal function argument is rebound through assignment, the reference to the passed
+
+11
+00:00:55,000 --> 00:01:00,000
+in object is lost. To change a mutable argument, you should replace its contents rather than replacing
+
+12
+00:01:00,000 --> 00:01:05,000
+the whole object. The return statement also passes by object-reference.
+
+13
+00:01:05,000 --> 00:01:07,000
+No copies are made.
+
+14
+00:01:07,000 --> 00:01:13,000
+Function arguments can be specified with defaults. Default argument expressions are evaluated only
+
+15
+00:01:13,000 --> 00:01:18,000
+once when the def statement is executed. Python uses dynamic typing, so we don't need to specify reference
+
+16
+00:01:18,000 --> 00:01:25,000
+types in advance. Python uses strong typing. Types are not coerced to match.
+
+17
+00:01:25,000 --> 00:01:30,000
+Python reference names are looked up in one of four nested scopes according to the LEGB rule:
+
+18
+00:01:30,000 --> 00:01:37,000
+Local to functions, in Enclosing functions, in the Global or module namespace, and Built-ins.
+
+19
+00:01:37,000 --> 00:01:43,000
+Global references can be read from a local scope. Assigning to global references from a local scope requires
+
+20
+00:01:43,000 --> 00:01:48,000
+that the reference be declared global using the global keyword.
+
+21
+00:01:48,000 --> 00:01:51,000
+Everything in Python is an object including modules and functions.
+
+22
+00:01:51,000 --> 00:01:54,000
+They can be treated just like other objects.
+
+23
+00:01:54,000 --> 00:01:58,000
+The import and def keywords result in binding to named references.
+
+24
+00:01:58,000 --> 00:02:02,000
+The built-in type function can be used to determine the type of an object.
+
+25
+00:02:02,000 --> 00:02:08,000
+The built-in dir function can be used to introspect an object and return a list of its attribute names.
+
+26
+00:02:08,000 --> 00:02:14,000
+The name of a function or module object can be accessed through its double underscore name attribute.
+
+27
+00:02:14,000 --> 00:02:20,000
+The docstring for a function or module object can be accessed through its double underscore doc attribute.
+
+28
+00:02:20,000 --> 00:02:25,000
+In passing, we also saw that we can use len() to measure the length of a string.
+
+29
+00:02:25,000 --> 00:02:30,000
+If we multiply a string by an integer, we get a new string with multiple copies of the operand string.
+
+30
+00:02:30,000 --> 00:59:00,000
+This is called the repetition operation. Thanks for watching, and we'll see you in the next module.
+

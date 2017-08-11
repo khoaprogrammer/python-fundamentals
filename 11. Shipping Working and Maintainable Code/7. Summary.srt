@@ -1,0 +1,188 @@
+1
+00:00:01,000 --> 00:00:06,000
+We've really come full circle in this module. We started by learning how to develop automated tests using
+
+2
+00:00:06,000 --> 00:00:12,000
+unittest. We then learned how to debug our code with PDB followed by sections on packaging and distributing
+
+3
+00:00:12,000 --> 00:00:17,000
+our code with distutils, and we finished off by learning how to install third-party code into our Python
+
+4
+00:00:17,000 --> 00:00:22,000
+installations. One of the programs we were able to install in the end was a tool to help us run the tests we
+
+5
+00:00:22,000 --> 00:00:27,000
+developed earlier. That's quite a trip.
+
+6
+00:00:27,000 --> 00:00:31,000
+Here's a more detailed list of the topic we covered: The unittest module is a framework for developing
+
+7
+00:00:31,000 --> 00:00:38,000
+reliable automated tests. You define test cases by subclassing from unittest.TestCase.
+
+8
+00:00:38,000 --> 00:00:43,000
+The unittest.main() function is useful for running all of the tests in a module.
+
+9
+00:00:43,000 --> 00:00:49,000
+The setUp() and tearDown() fixtures are used to run code before and after each test method.
+
+10
+00:00:49,000 --> 00:00:55,000
+Test methods are defined by creating method names that start with test_ on TestCase objects.
+
+11
+00:00:55,000 --> 00:01:01,000
+The various TestCase.assert methods can be used to make a test method fail when the right conditions aren't met.
+
+12
+00:01:01,000 --> 00:01:07,000
+Use TestCase.assertRaises() in a with-statement to check that the right exceptions are thrown in a test.
+
+13
+00:01:07,000 --> 00:01:14,000
+Python's standard debugger is called PDB. PDB is a command-line debugger.
+
+14
+00:01:14,000 --> 00:01:20,000
+The pdb.set_trace() method can be used to stop program execution and enter the debugger.
+
+15
+00:01:20,000 --> 00:01:25,000
+Your REPL's prompt will change to (Pdb) in parentheses when you're in the debugger.
+
+16
+00:01:25,000 --> 00:01:33,000
+You can access PDB's built-in help system by typing help. You can use Python -m pdb followed by a script
+
+17
+00:01:33,000 --> 00:01:41,000
+name to run a program under PDB from the start. PDB's where command shows the current call stack.
+
+18
+00:01:41,000 --> 00:01:46,000
+PDB's next command lets execution continue to the next line of code.
+
+19
+00:01:46,000 --> 00:01:53,000
+PDB's continue command lets program execution continue indefinitely, or until you stop it with control-c.
+
+20
+00:01:53,000 --> 00:01:57,000
+PDB's list command shows you the source code at your current location.
+
+21
+00:01:57,000 --> 00:02:01,000
+PDB's return command resumes execution until the end of the current function.
+
+22
+00:02:01,000 --> 00:02:06,000
+PDB's print command lets you see the value of objects in the debugger.
+
+23
+00:02:06,000 --> 00:02:12,000
+Use quit to exit PDB. Virtual environments are light-weight, self-contained Python installations
+
+24
+00:02:12,000 --> 00:02:19,000
+that any user can create. Pyvenv is the standard tool for creating virtual environments.
+
+25
+00:02:19,000 --> 00:02:24,000
+Pyvenv accepts both a source-installation argument, as well as a directory name into which it creates
+
+26
+00:02:24,000 --> 00:02:29,000
+the new environment. To use a virtual environment, you need to run its activate script.
+
+27
+00:02:29,000 --> 00:02:34,000
+When you activate a virtual environment, your prompt is modified to remind you.
+
+28
+00:02:34,000 --> 00:02:38,000
+The distutils package is used to help you distribute your Python code.
+
+29
+00:02:38,000 --> 00:02:45,000
+Distutils is generally used inside a setup.py script, which users run to install your software.
+
+30
+00:02:45,000 --> 00:02:50,000
+The main function in distutils is setup(). Setup() takes a number of arguments describing both the source
+
+31
+00:02:50,000 --> 00:02:57,000
+files, as well as metadata for the code. The most common way to use setup.py is to install code using python
+
+32
+00:02:57,000 --> 00:03:04,000
+setup.py install. Setup.py can also be used to generate distributions of your code.
+
+33
+00:03:04,000 --> 00:03:10,000
+Distributions can be zip files, tarballs, or several other formats.
+
+34
+00:03:10,000 --> 00:03:17,000
+Pass --help to setup.py to see all of its options. Three common tools for installing third-party software
+
+35
+00:03:17,000 --> 00:03:25,000
+are distutils, easy_install, and pip. The central repository for Python packages is the Python Package
+
+36
+00:03:25,000 --> 00:03:31,000
+Index, also called PyPI or cheeseshop. You can install easy_install by downloading and running
+
+37
+00:03:31,000 --> 00:03:39,000
+distribute_setup.py. You use easy_install to install modules by running easy_install package-name
+
+38
+00:03:39,000 --> 00:03:44,000
+from the command line. You can install pip via easy_install.
+
+39
+00:03:44,000 --> 00:03:50,000
+To install modules with pip, use the subcommand notation pip install package-name.
+
+40
+00:03:50,000 --> 00:03:55,000
+Along the way, we found that divmod() calculates the quotient and remainder for a division operation
+
+41
+00:03:55,000 --> 00:04:00,000
+at one time. The reversed() function can reverse a sequence.
+
+42
+00:04:00,000 --> 00:04:05,000
+You can pass -m to your Python command to have it run a module as a script.
+
+43
+00:04:05,000 --> 00:04:08,000
+Debugging makes it clear that Python is evaluating everything at runtime.
+
+44
+00:04:08,000 --> 00:04:15,000
+You can use the __file__ attribute on a module to find out where its source file is located.
+
+45
+00:04:15,000 --> 00:04:20,000
+Third-party Python packages are generally installed into your installation's site-packages directory.
+
+46
+00:04:20,000 --> 00:04:25,000
+Nose is a useful tool for working with unittest-based tests.
+
+47
+00:04:25,000 --> 00:59:00,000
+Thanks for watching, and we hope you enjoyed Python fundamentals.
+

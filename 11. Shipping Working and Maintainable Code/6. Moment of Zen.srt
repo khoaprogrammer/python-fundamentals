@@ -1,0 +1,16 @@
+1
+00:00:01,000 --> 00:00:09,000
+In the face of ambiguity, refuse the temptation to guess. To guess is to know that you have left something out.
+
+2
+00:00:09,000 --> 00:00:15,000
+What are you missing? The temptation to guess or to ignore ambiguity with wishful thinking can lead to
+
+3
+00:00:15,000 --> 00:00:21,000
+short-term gains, but it can often lead to confusion in the future and bugs which are difficult to understand
+
+4
+00:00:21,000 --> 00:59:00,000
+and fix. Before you make that next quick fix, ask yourself what information do you need to do it correctly?
+

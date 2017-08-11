@@ -1,0 +1,416 @@
+1
+00:00:01,000 --> 00:00:06,000
+Hello. My name is Austin Bingham. Welcome to the tenth module of the Python Fundamentals course.
+
+2
+00:00:06,000 --> 00:00:11,000
+Here we'll cover some topics related to producing working maintainable code in Python.
+
+3
+00:00:11,000 --> 00:00:15,000
+We'll look at the unittest module, which you can use to automate testing of your code, and we'll look at
+
+4
+00:00:15,000 --> 00:00:19,000
+the debugger that comes with the Standard Library. After that, we'll briefly cover the basics of packaging
+
+5
+00:00:19,000 --> 00:00:24,000
+and distributing your code, as well as how to install third party packages.
+
+6
+00:00:24,000 --> 00:00:30,000
+When we build programs and even minor complexity, there are countless ways for defects to creep into our code.
+
+7
+00:00:30,000 --> 00:00:33,000
+This can happen when we initially write the code, but we're just as likely to introduce defects when we're
+
+8
+00:00:33,000 --> 00:00:39,000
+making modifications to it. To help get a handle on defects and keep our code quality high, it's often very
+
+9
+00:00:39,000 --> 00:00:45,000
+useful to have a set of tests that you can run which will tell you if your code is acting as you expect it to.
+
+10
+00:00:45,000 --> 00:00:48,000
+To help with this, the Python Standard Library includes the unittest module.
+
+11
+00:00:48,000 --> 00:00:54,000
+Despite its name, this module provides a flexible framework for automating tests of all sorts from acceptance
+
+12
+00:00:54,000 --> 00:01:01,000
+tests to integration tests to unit tests. Its key feature, like many testing frameworks in many languages,
+
+13
+00:01:01,000 --> 00:01:05,000
+is that it makes automated and repeatable tests meaning that you can cheaply and easily verify your code
+
+14
+00:01:05,000 --> 00:01:11,000
+at any time. The unittest module is built around a handful of key concepts.
+
+15
+00:01:11,000 --> 00:01:17,000
+At the center of these concepts is a notion of a TestCase, which groups together a set of related individual
+
+16
+00:01:17,000 --> 00:01:23,000
+test functions. A TestCase is the basic unit of text organization in the unittest framework.
+
+17
+00:01:23,000 --> 00:01:28,000
+The next important concept is that of fixtures. Fixtures are pieces of code which run before and/or after
+
+18
+00:01:28,000 --> 00:01:33,000
+every test method. Fixtures are used to make sure that the test environment is in an expected state before
+
+19
+00:01:33,000 --> 00:01:38,000
+a text is run, for example to create a necessary database table or populate a cache.
+
+20
+00:01:38,000 --> 00:01:42,000
+Fixtures are then used to clean up any resources that may have been used in a test method.
+
+21
+00:01:42,000 --> 00:01:48,000
+The final key concept is that of assertions. Assertions are how you can tell the unittest framework to
+
+22
+00:01:48,000 --> 00:01:52,000
+make specific checks, which determine whether a test passes or fails.
+
+23
+00:01:52,000 --> 00:01:58,000
+Among other things, assertions can make simple Boolean checks, perform object equality tests, or verify
+
+24
+00:01:58,000 --> 00:02:03,000
+that the proper exceptions are thrown. If an assertion fails, then a test function fails, so assertions
+
+25
+00:02:03,000 --> 00:02:10,000
+are really the lowest level of testing you can perform. With those concepts in mind, let's see how to actually
+
+26
+00:02:10,000 --> 00:02:11,000
+use the unittest module.
+
+27
+00:02:11,000 --> 00:02:16,000
+For this we'll use Test-Driven Development to write a simple text analysis function.
+
+28
+00:02:16,000 --> 00:02:21,000
+This function will take in a filename, read the file, and calculate both the number of lines in the file
+
+29
+00:02:21,000 --> 00:02:24,000
+and the number of characters in the file.
+
+30
+00:02:24,000 --> 00:02:29,000
+Since this will be an iterative development process, we'll put the code in the file text_analyzer.py
+
+31
+00:02:29,000 --> 00:02:34,000
+rather than work at the REPL. So to start, let's create our first test with enough supporting code to actually
+
+32
+00:02:34,000 --> 00:02:44,000
+run it. First we import the unittest module. Next we create our test case by creating a class, TextAnalysisTests,
+
+33
+00:02:44,000 --> 00:02:51,000
+which derives from unittest.TestCase. This is how you create test cases with the unittest framework.
+
+34
+00:02:51,000 --> 00:02:56,000
+To define individual test methods in a test case, you simply create methods that start with test_.
+
+35
+00:02:56,000 --> 00:03:00,000
+These are automatically discovered by the unittest framework and don't require any sort of explicit
+
+36
+00:03:00,000 --> 00:03:05,000
+registration. In this case, we define the simplest possible test.
+
+37
+00:03:05,000 --> 00:03:11,000
+Does the analyze text function run at all? This function doesn't make any explicit checks, but rather
+
+38
+00:03:11,000 --> 00:03:15,000
+it relies on the fact that a test method will fail if it throws any exceptions.
+
+39
+00:03:15,000 --> 00:03:20,000
+So in this case, if analyze_text() isn't defined, then this test will fail.
+
+40
+00:03:20,000 --> 00:03:26,000
+Finally, we define the idiomatic main block, which calls unittest.main() when this module is executed.
+
+41
+00:03:26,000 --> 00:03:32,000
+Unittest.main() will search for all test case subclasses in a module and execute all of their test methods.
+
+42
+00:03:32,000 --> 00:03:33,000
+Since we're using test
+
+43
+00:03:33,000 --> 00:03:39,000
+driven design here, we expect our tests to fail at first, and indeed this fails spectacularly for the simple
+
+44
+00:03:39,000 --> 00:03:44,000
+reason that we haven't defined the necessary function yet. Unittest.main() produces a simple report
+
+45
+00:03:44,000 --> 00:03:50,000
+telling us how many tests were run and how many failed. It also shows us how the tests failed, in this case
+
+46
+00:03:50,000 --> 00:03:56,000
+showing us that we got a NameError when we tried to run the nonexistent function analyze_text().
+
+47
+00:03:56,000 --> 00:04:01,000
+Let's fix that by adding the function. Remember that in Test-Driven Development we only write enough
+
+48
+00:04:01,000 --> 00:04:05,000
+code to satisfy our tests, so all we do now is create an empty function.
+
+49
+00:04:05,000 --> 00:04:09,000
+Running the test again, we find that we now pass.
+
+50
+00:04:09,000 --> 00:04:14,000
+The next thing we want to do is to be able to pass a filename to analyze_text() so that it knows what to process.
+
+51
+00:04:14,000 --> 00:04:18,000
+For this to make sense, we want the filename to represent an actual file.
+
+52
+00:04:18,000 --> 00:04:21,000
+To make sure that a file exists, we're going to define some fixtures.
+
+53
+00:04:21,000 --> 00:04:25,000
+The first fixture we can define is a method on the test case called setUp.
+
+54
+00:04:25,000 --> 00:04:30,000
+This function is run before each test method. In this case, we'll use setUp to create a file for us and remember
+
+55
+00:04:30,000 --> 00:04:37,000
+the filename as a member of the test case. The second fixture available to us is another test case method
+
+56
+00:04:37,000 --> 00:04:42,000
+called tearDown. TearDown is run after each test method, and in this case we're going to use it to delete
+
+57
+00:04:42,000 --> 00:04:48,000
+the file we created in setUp. And since we're using the OS module and tearDown, we need to import it at the
+
+58
+00:04:48,000 --> 00:04:54,000
+top of the file. Notice how tearDown swallows any exceptions thrown by os.remove.
+
+59
+00:04:54,000 --> 00:04:59,000
+We do this because tearDown can't actually be certain that the file exits, so it simply tries to remove
+
+60
+00:04:59,000 --> 00:05:05,000
+the file, and it assumes that any failure is acceptable. With our two fixtures in place, we now have a file
+
+61
+00:05:05,000 --> 00:05:09,000
+that is created before each test method, and we just delete it after each test method.
+
+62
+00:05:09,000 --> 00:05:13,000
+This means that each test method is starting in a stable, known state.
+
+63
+00:05:13,000 --> 00:05:19,000
+This is critical to making reproducible tests. You may have noticed that the setUp and tearDown function
+
+64
+00:05:19,000 --> 00:05:24,000
+names aren't inline with what PEP-8 prescribes. This is because the unittest module predates those parts
+
+65
+00:05:24,000 --> 00:05:29,000
+of PEP-8, which specify the convention of function names being in lowercase with underscores.
+
+66
+00:05:29,000 --> 00:05:36,000
+There are several such cases in the Python Standard Library, but most new Python code follows the PEP-8 style.
+
+67
+00:05:36,000 --> 00:05:42,000
+Now that we have a filename that we can pass to analyze_text(), let's pass it in by modifying our existing test.
+
+68
+00:05:42,000 --> 00:05:46,000
+Since the self argument passed to the fixture is the same instance as that passed to the test methods, our
+
+69
+00:05:46,000 --> 00:05:50,000
+tests can access the filename attribute created in setUp.
+
+70
+00:05:50,000 --> 00:05:55,000
+Of course this test fails because analyze_text() doesn't accept any arguments yet.
+
+71
+00:05:55,000 --> 00:05:58,000
+That's simple enough to fix.
+
+72
+00:05:58,000 --> 00:06:02,000
+And now we're passing again.
+
+73
+00:06:02,000 --> 00:06:05,000
+Now that we're satisfied that the function exists and accepts the right number of arguments, let's see
+
+74
+00:06:05,000 --> 00:06:10,000
+if we can make it do real work. The first thing we want is for the function to return the number of lines in
+
+75
+00:06:10,000 --> 00:06:16,000
+the file, so let's define that test. Here we see our first example of an assertion.
+
+76
+00:06:16,000 --> 00:06:21,000
+The TestCase class has many assertion methods, and in this case we used assertEqual to check that the number
+
+77
+00:06:21,000 --> 00:06:28,000
+of lines counted by our function is equal to 4. If the value returned by analyze_text is not equal to 4, this
+
+78
+00:06:28,000 --> 00:06:31,000
+assertion will cause the test method to fail,
+
+79
+00:06:31,000 --> 00:06:37,000
+and that is precisely what happens. We can now see that we're running two tests, that one of them passes
+
+80
+00:06:37,000 --> 00:06:42,000
+and that the new fails with an AssertionError.
+
+81
+00:06:42,000 --> 00:06:47,000
+Let's break from the TDD rules and move a bit faster now. First we'll update the function to return the number
+
+82
+00:06:47,000 --> 00:06:56,000
+of lines in the file, (Typing)
+
+83
+00:06:56,000 --> 00:07:00,000
+and this gives good results.
+
+84
+00:07:00,000 --> 00:07:05,000
+So, let's add a test for the other feature we want, which is to count the number of characters in the file.
+
+85
+00:07:05,000 --> 00:07:10,000
+Since the function is now supposed to return two values, we'll have it return a tuple with a line count in
+
+86
+00:07:10,000 --> 00:07:17,000
+the first position and character count in the second. Our new test looks like this,
+
+87
+00:07:17,000 --> 00:07:25,000
+and it fails as expected. This tells us that it can't index into the integer returned by analyze_text,
+
+88
+00:07:25,000 --> 00:07:33,000
+so let's fix analyze_text to return the proper tuple.
+
+89
+00:07:33,000 --> 00:07:37,000
+This fixes our new test, but we find we've broken an old one.
+
+90
+00:07:37,000 --> 00:07:43,000
+But that's easy enough to fix because all we need to do is account for the new return type, and now
+
+91
+00:07:43,000 --> 00:07:49,000
+everything is passing again.
+
+92
+00:07:49,000 --> 00:07:53,000
+Another thing we want to test for is that analyze_text throws the correct exception when it is passed a
+
+93
+00:07:53,000 --> 00:08:01,000
+non-existent filename. Here we see the use of the assertRaises assertion.
+
+94
+00:08:01,000 --> 00:08:06,000
+This assertion checks that the specified exception type, in this case IOError, is thrown from the body
+
+95
+00:08:06,000 --> 00:08:09,000
+of the with block.
+
+96
+00:08:09,000 --> 00:08:15,000
+Since open raises IOError for non-existent files, our test already passes.
+
+97
+00:08:15,000 --> 00:08:20,000
+Finally, we can see one more very useful type of assertion if we write a test to verify that analyze_text
+
+98
+00:08:20,000 --> 00:08:24,000
+doesn't delete the file, a reasonable requirement for the function.
+
+99
+00:08:24,000 --> 00:08:28,000
+AssertTrue simply checks that the value passed into it evaluates to true.
+
+100
+00:08:28,000 --> 00:08:34,000
+There is an equivaluent assertFalse, which does the same thing, but for false values.
+
+101
+00:08:34,000 --> 00:08:38,000
+As you might imagine, this test passes already as well. So, now
+
+102
+00:08:38,000 --> 00:08:43,000
+now we've got a useful, passing set of tests. This example is small, but it demonstrates many of the important
+
+103
+00:08:43,000 --> 00:08:48,000
+parts of the unittest module. There are many more parts of unittest, but you can get quite far using just
+
+104
+00:08:48,000 --> 00:59:00,000
+the techniques we've seen here.
+

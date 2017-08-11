@@ -1,0 +1,44 @@
+1
+00:00:01,000 --> 00:00:06,000
+Dictionaries are completely fundamental to the way the Python language works and are very widely used.
+
+2
+00:00:06,000 --> 00:00:11,000
+A dictionary maps keys to values and in some languages is known as an associate of array.
+
+3
+00:00:11,000 --> 00:00:13,000
+Let's look at how to create and use them in Python.
+
+4
+00:00:13,000 --> 00:00:18,000
+Literal dictionaries are created using curly braces containing key value pairs.
+
+5
+00:00:18,000 --> 00:00:23,000
+Each pair is separated by a comma, and each key is separated from the corresponding value by a colon.
+
+6
+00:00:23,000 --> 00:00:28,000
+Here we use a dictionary to create a simple telephone directory.
+
+7
+00:00:28,000 --> 00:00:32,000
+We can retrieve items by key using the square brackets operator and update the values associated with
+
+8
+00:00:32,000 --> 00:00:39,000
+the key by assigning through the square brackets. If we assign to a key that has not yet been added, a new
+
+9
+00:00:39,000 --> 00:00:46,000
+entry is created. Be aware that the entries in the dictionary can't be relied upon to be stored in any particular
+
+10
+00:00:46,000 --> 00:00:52,000
+order. Similarly to lists, empty dictionaries can be created using empty curly braces.
+
+11
+00:00:52,000 --> 00:59:00,000
+We'll revisit dictionaries in much more detail in Module 5.
+

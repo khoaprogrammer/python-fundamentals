@@ -1,0 +1,56 @@
+1
+00:00:01,000 --> 00:00:05,000
+Many programming languages are at the center of a cultural movement.
+
+2
+00:00:05,000 --> 00:00:13,000
+They have their own communities, values, practices, and philosophy, and Python is no exception.
+
+3
+00:00:13,000 --> 00:00:17,000
+The development of the Python language itself is managed through a series of documents called Python
+
+4
+00:00:17,000 --> 00:00:25,000
+Enhancement Proposals or PEPs. One of the PEPs called PEP 8 explains how you should format your code, and
+
+5
+00:00:25,000 --> 00:00:31,000
+we follow its guidelines throughout this course. It is PEP 8 which recommends we use four spaces for indentation
+
+6
+00:00:31,000 --> 00:00:46,000
+in new Python code. Another of these PEPs called PEP 20 is called The Zen of Python.
+
+7
+00:00:46,000 --> 00:00:54,000
+It refers to 20 aphorisms describing the guiding principles of Python, only 19 of which have been written down.
+
+8
+00:00:54,000 --> 00:00:59,000
+Conveniently, The Zen of Python is never further away than the nearest Python interpreter as it can always
+
+9
+00:00:59,000 --> 00:01:08,000
+be accessed from the REPL by typing import this. Throughout this course, we'll be highlighting particular
+
+10
+00:01:08,000 --> 00:01:15,000
+negative wisdom from The Zen of Python in moments of Zen to understand how they apply to what we have learned.
+
+11
+00:01:15,000 --> 00:01:26,000
+As we've just introduced Python significant indentation, this is a good time for our first moment.
+
+12
+00:01:26,000 --> 00:01:37,000
+Readability counts. Clarity matters. So, readability makes for valuable code.
+
+13
+00:01:37,000 --> 00:01:41,000
+In time you'll come to appreciate Python's significant whitespace for the elegance it brings to your
+
+14
+00:01:41,000 --> 00:59:00,000
+code and these with which you can read others.
+

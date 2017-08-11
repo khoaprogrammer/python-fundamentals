@@ -1,0 +1,20 @@
+1
+00:00:01,000 --> 00:00:07,000
+You may have noticed that our top-level functions have two blank lines between them.
+
+2
+00:00:07,000 --> 00:00:11,000
+This is conventional for modern Python code.
+
+3
+00:00:11,000 --> 00:00:23,000
+Sparse is better than dense. Two between functions, that is the number of lines PEP 8 recommends.
+
+4
+00:00:23,000 --> 00:00:30,000
+According to the PEP 8 style guide, it's customary to use two blank lines between module level functions.
+
+5
+00:00:30,000 --> 00:59:00,000
+We find this convention has served us well making code easier to navigate.
+

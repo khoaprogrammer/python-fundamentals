@@ -1,0 +1,220 @@
+1
+00:00:02,000 --> 00:00:06,000
+Hello. My name is Austin Bingham. Welcome to the fourth module of the Python Fundamentals course where
+
+2
+00:00:06,000 --> 00:00:11,000
+we seek to understand the Python object model, take a more in-depth look at some collection types we've
+
+3
+00:00:11,000 --> 00:00:16,000
+met already, and introduce a few more collection types.
+
+4
+00:00:16,000 --> 00:00:20,000
+We've already talked about and used variables in Python, but what exactly is a variable?
+
+5
+00:00:20,000 --> 00:00:25,000
+What's going on when we do something as straightforward as assigning an integer to a variable?
+
+6
+00:00:25,000 --> 00:00:32,000
+In this case, Python creates an int object with a value of 1000, an object reference with the name X, and
+
+7
+00:00:32,000 --> 00:00:39,000
+arranges for X to refer to the int 1000 object. If we now modify the value of X with another assignment, what
+
+8
+00:00:39,000 --> 00:00:43,000
+does not happen is a change in the value of the integer object.
+
+9
+00:00:43,000 --> 00:00:46,000
+Integer objects in Python are immutable and cannot be changed.
+
+10
+00:00:46,000 --> 00:00:52,000
+In fact, what happens is that Python creates a new immutable integer object with the value 500 and redirects
+
+11
+00:00:52,000 --> 00:00:59,000
+the X reference to point at the new object. We now have no way of reaching the int 1000 object, and the Python
+
+12
+00:00:59,000 --> 00:01:06,000
+garbage collector will reclaim it at some point. When we assign from one variable to another, we're really
+
+13
+00:01:06,000 --> 00:01:11,000
+assigning from one object reference to another object reference, so both references now refer to the
+
+14
+00:01:11,000 --> 00:01:18,000
+same object. If we now reassign X, we have X referring to an int 3000 object and Y referring to a separate
+
+15
+00:01:18,000 --> 00:01:24,000
+int 500, and there is no work for the garbage collector to do because all objects are reachable from the
+
+16
+00:01:24,000 --> 00:01:26,000
+live references.
+
+17
+00:01:26,000 --> 00:01:30,000
+Let's dig a little deeper using the built-in id() function, which returns an integer identifier, which
+
+18
+00:01:30,000 --> 00:01:34,000
+is unique and constant for the lifetime of the object.
+
+19
+00:01:34,000 --> 00:01:40,000
+Let's rerun the previous experiment using id. Note that the id() function is seldom used in production
+
+20
+00:01:40,000 --> 00:01:48,000
+Python code. Its main use is in object model tutorials such as this one, and as a debugging tool.
+
+21
+00:01:48,000 --> 00:01:53,000
+Much more commonly used than the id() function is the is operator, which tests for equality of identity.
+
+22
+00:01:53,000 --> 00:01:57,000
+That is it tests whether two references refer to the same object.
+
+23
+00:01:57,000 --> 00:02:02,000
+We've already met the is operator earlier in the course when we tested for None.
+
+24
+00:02:02,000 --> 00:02:07,000
+Even operations which seem naturally mutating in nature are not necessarily so.
+
+25
+00:02:07,000 --> 00:02:10,000
+Consider the augmented assignment operator.
+
+26
+00:02:10,000 --> 00:02:16,000
+Now let's look at that pictorially. We start with T referring to an int 5 object.
+
+27
+00:02:16,000 --> 00:02:19,000
+Augmented assignment creates an int 2 without assigning a reference to it.
+
+28
+00:02:19,000 --> 00:02:24,000
+It then adds the original int 5 with the new int 2 to produce a new int 7.
+
+29
+00:02:24,000 --> 00:02:29,000
+Finally, it assigns T to the int 7 and the remaining ints are garbage collected.
+
+30
+00:02:29,000 --> 00:02:34,000
+Python objects show this behavior for all types. The assignment operator only ever binds to names.
+
+31
+00:02:34,000 --> 00:02:37,000
+It never copies an object by value.
+
+32
+00:02:37,000 --> 00:02:44,000
+Let's look at another example using mutable objects, lists. We create a list object with three elements
+
+33
+00:02:44,000 --> 00:02:49,000
+binding the list object to a reference named R, then assign R to a new reference S.
+
+34
+00:02:49,000 --> 00:02:55,000
+When we modify the list referred to by S by changing the middle element, the R list has changed too since
+
+35
+00:02:55,000 --> 00:02:59,000
+the names S and R in fact refer to the same object.
+
+36
+00:02:59,000 --> 00:03:04,000
+Let's see that again with a diagram. First we assign R to a new list.
+
+37
+00:03:04,000 --> 00:03:08,000
+We then assign S to R creating a new name for the existing list.
+
+38
+00:03:08,000 --> 00:03:13,000
+If we modify S, we also modify R because we're modifying the same underlying object.
+
+39
+00:03:13,000 --> 00:03:20,000
+S is R is true because both names refer to the same object. If you want to create an actual copy of an object
+
+40
+00:03:20,000 --> 00:03:25,000
+such as a list, other techniques must be used, which we'll look at later.
+
+41
+00:03:25,000 --> 00:03:30,000
+It turns out that Python doesn't really have variables in the metaphorical sense of a box holding a value.
+
+42
+00:03:30,000 --> 00:03:35,000
+It only has named references to objects, and the references behave more like labels, which allow us to
+
+43
+00:03:35,000 --> 00:03:40,000
+retrieve objects. That said, it's still common to talk about variables in Python.
+
+44
+00:03:40,000 --> 00:03:44,000
+We will continue to do so secure in the knowledge that you now understand what's really going on behind
+
+45
+00:03:44,000 --> 00:03:46,000
+the scenes.
+
+46
+00:03:46,000 --> 00:03:50,000
+Let's contrast that behavior with a test for value equality or equivalence.
+
+47
+00:03:50,000 --> 00:03:56,000
+We'll create two identical lists. Here we see that P and Q refer to different objects, but that the objects
+
+48
+00:03:56,000 --> 00:04:02,000
+they refer to have the same value. Of course an object should always be equivalent to itself.
+
+49
+00:04:02,000 --> 00:04:07,000
+Here's how that looks pictorially. We have two separate list objects each with a single reference to it.
+
+50
+00:04:07,000 --> 00:04:13,000
+The values contained in the objects are the same. That is they are equivalent or value equal even though
+
+51
+00:04:13,000 --> 00:04:15,000
+they have different identities.
+
+52
+00:04:15,000 --> 00:04:20,000
+Value equality and identity are fundamentally different notions of equality, and it's important to
+
+53
+00:04:20,000 --> 00:04:25,000
+keep them separate in your mind. It's also worth noting that value comparison is something that is defined
+
+54
+00:04:25,000 --> 00:04:31,000
+programatically. When you define types, you can control how that class determines value equality.
+
+55
+00:04:31,000 --> 00:59:00,000
+In contrast, identity comparison is defined by the language, and you can't change that behavior.
+

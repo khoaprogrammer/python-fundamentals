@@ -1,0 +1,88 @@
+1
+00:00:01,000 --> 00:00:07,000
+The with statement construct can be used with any type of object which implements the context-manager protocol.
+
+2
+00:00:07,000 --> 00:00:12,000
+We're not going to show you how to implement that in this course, but we will show you a simple way to make
+
+3
+00:00:12,000 --> 00:00:18,000
+your own classes useable with a context manager using the code in fridge.py.
+
+4
+00:00:18,000 --> 00:00:23,000
+The module includes a class RefrigeratorRaider, which well raids the refrigerator.
+
+5
+00:00:23,000 --> 00:00:30,000
+It has three methods: Open, which opens the fridge door; take, which gets some food from the refrigerator;
+
+6
+00:00:30,000 --> 00:00:38,000
+and close, which closes the fridge door. There's also a module scope driver function raid, which performs
+
+7
+00:00:38,000 --> 00:00:42,000
+a full raid on the refrigerator.
+
+8
+00:00:42,000 --> 00:00:48,000
+We'll import raid into the REPL and go on the rampage. First, let's take some bacon.
+
+9
+00:00:48,000 --> 00:00:54,000
+As expected, the code opens the fridge doors, finds the bacon, takes the bacon, and closes the fridge door.
+
+10
+00:00:54,000 --> 00:01:00,000
+Very responsible. It's important that we remember to close the door so the food will be preserved until
+
+11
+00:01:00,000 --> 00:01:06,000
+our next raid. Now let's try another raid for deep fried pizza.
+
+12
+00:01:06,000 --> 00:01:11,000
+This time we were interrupted by the health warning and didn't get around to closing the door.
+
+13
+00:01:11,000 --> 00:01:18,000
+We can fix that by using a function called closing in the Python Standard Library contextlib module.
+
+14
+00:01:18,000 --> 00:01:23,000
+After importing the function, we wrap our call to the RefrigeratorRaider constructor in a call to the
+
+15
+00:01:23,000 --> 00:01:29,000
+closing function, which wraps our object in a context manager that always calls the close() method on
+
+16
+00:01:29,000 --> 00:01:38,000
+the wrapped object before exiting. We use this object to initialize the with-block.
+
+17
+00:01:38,000 --> 00:01:45,000
+Now when we execute a raid the fridge door is closed twice. We see that our explicit call to close in unnecessary,
+
+18
+00:01:45,000 --> 00:01:48,000
+so let's fix that up too.
+
+19
+00:01:48,000 --> 00:01:53,000
+A more sophisticated implementation might check that the door was already closed and ignore subsequent
+
+20
+00:01:53,000 --> 00:01:55,000
+requests.
+
+21
+00:01:55,000 --> 00:02:01,000
+Let's try again. This time, even though the health warning was triggered, the door was still closed for
+
+22
+00:02:01,000 --> 00:59:00,000
+us afterwards by the context manager.
+

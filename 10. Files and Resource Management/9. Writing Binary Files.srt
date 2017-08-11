@@ -1,0 +1,216 @@
+1
+00:00:01,000 --> 00:00:06,000
+To demonstrate handling of binary files, we need an interesting binary data format.
+
+2
+00:00:06,000 --> 00:00:12,000
+The BMP file format contains device-independent bitmaps and is simple enough that we can make a BMP file
+
+3
+00:00:12,000 --> 00:00:16,000
+writer from scratch in this session.
+
+4
+00:00:16,000 --> 00:00:23,000
+The code will be placed in a module bmp.py and is straightforward from a file handling point of view.
+
+5
+00:00:23,000 --> 00:00:28,000
+For simplicity sake, we have decided to deal with 8-bit grayscale images, which have the nice property
+
+6
+00:00:28,000 --> 00:00:34,000
+that they are 1 byte per pixel. The write_grayscale function accepts two arguments, the filename and
+
+7
+00:00:34,000 --> 00:00:41,000
+a collection of pixels. As the docstring points out, this collection should be a sequence of iterable
+
+8
+00:00:41,000 --> 00:00:46,000
+series of integers. A list of lists of int objects will do just fine.
+
+9
+00:00:46,000 --> 00:00:53,000
+Each int is a pixel value from 0 to 255. Each inner list is a row of pixels from left to right, and the outer
+
+10
+00:00:53,000 --> 00:01:00,000
+list is a list of pixel rows from top to bottom. The first thing we do is figure out the size of the image by
+
+11
+00:01:00,000 --> 00:01:06,000
+counting the number of rows to give the height and number of items in the 0th row to get the width.
+
+12
+00:01:06,000 --> 00:01:10,000
+We assume, but don't check that all rows have the same length.
+
+13
+00:01:10,000 --> 00:01:18,000
+In production code, that's a check we would want to make. Next we open the file for write in binary mode using
+
+14
+00:01:18,000 --> 00:01:27,000
+the 'wb' mode string. We don't specify an encoding. That makes no sense for raw binary files.
+
+15
+00:01:27,000 --> 00:01:34,000
+Inside the with-block we start writing what is called the BMP Header, which begins the BMP format.
+
+16
+00:01:34,000 --> 00:01:41,000
+The header must start with a so-called magic byte sequence 'BM' to identify it as a BMP file.
+
+17
+00:01:41,000 --> 00:01:48,000
+We use the write method, and because the file was opened in binary mode, we must pass a bytes object.
+
+18
+00:01:48,000 --> 00:01:53,000
+The next four bytes should hold the 32-bit integer containing the file size, but we don't know that yet.
+
+19
+00:01:53,000 --> 00:01:58,000
+We could've computed it in advance, but we'll take a different approach of writing a placeholder value
+
+20
+00:01:58,000 --> 00:02:03,000
+for now, then returning to this point later to fill in the details.
+
+21
+00:02:03,000 --> 00:02:07,000
+To be able to come back to this point, we use the tell method of the file object to give us the offset from the
+
+22
+00:02:07,000 --> 00:02:14,000
+beginning of the file for the file pointer. We'll store this in a variable, which will act as a sort of bookmark.
+
+23
+00:02:14,000 --> 00:02:21,000
+We write four 0 bytes as a placeholder using escaping syntax to specify the zeros.
+
+24
+00:02:21,000 --> 00:02:27,000
+The next two pairs of bytes are unused in this format, so we'll just write 0 bytes for them too.
+
+25
+00:02:27,000 --> 00:02:32,000
+The next four bytes are for another 32-bit integer, which should contain the offsetting bytes from the
+
+26
+00:02:32,000 --> 00:02:38,000
+beginning of the file to the start of the pixel data. We don't know that value yet either, so we'll store
+
+27
+00:02:38,000 --> 00:02:42,000
+another bookmark using tell and write another 4-byte placeholder.
+
+28
+00:02:42,000 --> 00:02:47,000
+We'll return here shortly when we know more. The next section is called the Image Header.
+
+29
+00:02:47,000 --> 00:02:52,000
+The first thing we have to do is write the length of the image header as a 32-bit integer.
+
+30
+00:02:52,000 --> 00:02:58,000
+In our case, the header will always be 40 bytes long. We'll just hardwire that in hexadecimal.
+
+31
+00:02:58,000 --> 00:03:04,000
+Notice that the BMP format is little-endian, the least significant byte is written first.
+
+32
+00:03:04,000 --> 00:03:09,000
+The next 4 bytes are the image width as a little-endian 32-bit integer.
+
+33
+00:03:09,000 --> 00:03:15,000
+We call a module scope implementation detail function here called _int32_to_bytes, which converts
+
+34
+00:03:15,000 --> 00:03:22,000
+an int object into a bytes object containing exactly 4 bytes. We then use the same function again to deal
+
+35
+00:03:22,000 --> 00:03:27,000
+with the image height. The remainder of the header is essentially fixed for 8-bit grayscale images, and
+
+36
+00:03:27,000 --> 00:03:36,000
+the details aren't important here except to note that the whole header does in fact total 40 bytes.
+
+37
+00:03:36,000 --> 00:03:43,000
+Each pixel in an 8-bit BMP image is an index into a color table with 256 entries.
+
+38
+00:03:43,000 --> 00:03:51,000
+Each entry is a 4-byte blue, green, red color. For grayscale images, we need to write 256 four byte gray
+
+39
+00:03:51,000 --> 00:03:57,000
+values on a linear scale. This snippet is fertile ground for experimentation, and a natural enhancement
+
+40
+00:03:57,000 --> 00:04:04,000
+to this function would be to be able to supply this pallet separately as an argument to the function.
+
+41
+00:04:04,000 --> 00:04:09,000
+At last we are ready to write the pixel data. But before we do, we make a note of the current file pointer offset
+
+42
+00:04:09,000 --> 00:04:15,000
+using tell() as this is one of the locations we need to go back and fill in.
+
+43
+00:04:15,000 --> 00:04:21,000
+Writing the pixel data is straightforward enough. We use the reversed built-in function to flip the order
+
+44
+00:04:21,000 --> 00:04:27,000
+of the rows. BMP images are written from bottom to top. For each row, we simply pass the iterable series
+
+45
+00:04:27,000 --> 00:04:34,000
+of integers to bytes constructor. If any of the integers are out of the range 0-255, the constructor will
+
+46
+00:04:34,000 --> 00:04:40,000
+raise a ValueError. After the pixel data, we are at the end of the file.
+
+47
+00:04:40,000 --> 00:04:45,000
+We undertook to record this offset value earlier, so we record the precision using tell() into an end of
+
+48
+00:04:45,000 --> 00:04:52,000
+file bookmark variable. Now we can rewind and fulfill our promises by replacing the placeholder offsets
+
+49
+00:04:52,000 --> 00:04:59,000
+we recorded with the real thing. To do this, we seek back to the size_bookmark we remembered back near the
+
+50
+00:04:59,000 --> 00:05:06,000
+beginning of the file and write to the size stored in the eof_bookmark as a little-endian 32-bit integer
+
+51
+00:05:06,000 --> 00:05:14,000
+using our _int32_to_bytes function. Finally, we seek to the pixel data offset placeholder bookmarked
+
+52
+00:05:14,000 --> 00:05:20,000
+by pixel_offset_bookmark and write the 32-bit integer stored in pixel_data_bookmark.
+
+53
+00:05:20,000 --> 00:05:25,000
+As we exit the with-block, we can rest assured that the context manager will close the file and commit any
+
+54
+00:05:25,000 --> 00:59:00,000
+buffered writes to the file system.
+

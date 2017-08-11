@@ -1,0 +1,160 @@
+1
+00:00:01,000 --> 00:00:05,000
+We've already covered lists a little, and we've been making good use of them.
+
+2
+00:00:05,000 --> 00:00:11,000
+We know how to create lists using the literal syntax, add to them using the append method, and get at and
+
+3
+00:00:11,000 --> 00:00:17,000
+modify their contents using the square brackets indexing. Now let's take a deeper look.
+
+4
+00:00:17,000 --> 00:00:22,000
+Let's start by making a list containing the words show how to index into sequences.
+
+5
+00:00:22,000 --> 00:00:32,000
+We'll do this by calling the split method on a string. We're already familiar with how 0 and positive integers
+
+6
+00:00:32,000 --> 00:00:41,000
+index the list from the front using a zero-based index. Here we extract the fifth element by using the index 4.
+
+7
+00:00:41,000 --> 00:00:48,000
+One very convenient feature of lists and other Python sequences, for this applies to tuples too, is the
+
+8
+00:00:48,000 --> 00:00:55,000
+ability to index from the end rather than from the beginning. This is achieved by supplying negative indexes.
+
+9
+00:00:55,000 --> 00:01:01,000
+For example, we can access the fifth element from the end by supplying the index -5.
+
+10
+00:01:01,000 --> 00:01:08,000
+The last element of the sequence is at index -1. Negative indexing is much more elegant than the clunky
+
+11
+00:01:08,000 --> 00:01:14,000
+alternative of computing the forward index by subtracting the backward index from the length of the sequence.
+
+12
+00:01:14,000 --> 00:01:21,000
+Note that indexing with -0 is the same as indexing with 0, returning the first element in the list.
+
+13
+00:01:21,000 --> 00:01:26,000
+Because there is no distinction between 0 and -0, negative indexing is essentially one-based rather
+
+14
+00:01:26,000 --> 00:01:33,000
+than zero-based. This is good to keep in mind if you're calculating indexes with even moderately complex logic.
+
+15
+00:01:33,000 --> 00:01:38,000
+Off by one arrows can creep into negative indexing fairly easily.
+
+16
+00:01:38,000 --> 00:01:43,000
+Slicing is a form of extended indexing which allows us to refer to portions of a list.
+
+17
+00:01:43,000 --> 00:01:49,000
+To use it, we pass the start and stop indices of a half-open range separated by a colon as the square brackets
+
+18
+00:01:49,000 --> 00:01:59,000
+index argument. Here we slice three words from the list by passing the start index 1 and the stop index 4.
+
+19
+00:01:59,000 --> 00:02:04,000
+This facility can be combined with negative indexing. For example, to take all the elements except the
+
+20
+00:02:04,000 --> 00:02:10,000
+first and last, slice between 1 and -1.
+
+21
+00:02:10,000 --> 00:02:15,000
+Both the start and stop indices are optional. To slice all elements from the third to the end of the list,
+
+22
+00:02:15,000 --> 00:02:21,000
+supply only 3: as the argument to the index operator.
+
+23
+00:02:21,000 --> 00:02:28,000
+And to slice all elements from the beginning of the list up to, but not including the third, supply :3 as
+
+24
+00:02:28,000 --> 00:02:32,000
+the argument to the index operator.
+
+25
+00:02:32,000 --> 00:02:37,000
+Notice that these two lists together form the whole list demonstrating the convenience of the half-open
+
+26
+00:02:37,000 --> 00:02:40,000
+range convention.
+
+27
+00:02:40,000 --> 00:02:45,000
+Since both start and stop indices are optional, it's entirely possible to omit both and retrieve all of
+
+28
+00:02:45,000 --> 00:02:51,000
+the elements, and indeed this last example is an important idiom for copying a list.
+
+29
+00:02:51,000 --> 00:02:57,000
+This new list has a distinct identity, but an equivalent value.
+
+30
+00:02:57,000 --> 00:03:02,000
+It's important to understand that although we have a new list object, which can be independently modified,
+
+31
+00:03:02,000 --> 00:03:07,000
+the elements within it are references to the same objects referred to by the original list.
+
+32
+00:03:07,000 --> 00:03:12,000
+In the event that these objects are both mutable and modified as opposed to replaced, the change will be
+
+33
+00:03:12,000 --> 00:03:19,000
+seen in both lists. We teach this full slice list copying idiom because you're likely to see it in the wild,
+
+34
+00:03:19,000 --> 00:03:25,000
+and it's not immediately obvious what it does. You should be aware that there are other more readable ways
+
+35
+00:03:25,000 --> 00:03:31,000
+of copying a list such as the copy() method or even a simple call to the list() constructor passing the list
+
+36
+00:03:31,000 --> 00:03:38,000
+to be copied. Largely, it's a matter of taste. Our preference is for the third form using the list() constructor
+
+37
+00:03:38,000 --> 00:03:44,000
+since it has the advantage of working with any iterable series as the source and not just lists.
+
+38
+00:03:44,000 --> 00:03:48,000
+You must be aware, however, that all of these techniques perform a shallow copy.
+
+39
+00:03:48,000 --> 00:03:53,000
+That is, they create a new list containing the same object references as the source list, but don't copy
+
+40
+00:03:53,000 --> 00:59:00,000
+the referred to objects.
+

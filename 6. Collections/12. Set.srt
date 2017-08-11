@@ -1,0 +1,200 @@
+1
+00:00:02,000 --> 00:00:06,000
+The set data type is an unordered collection of unique elements.
+
+2
+00:00:06,000 --> 00:00:11,000
+The collection is mutable in so far as elements can be added and removed from the set, but each element must
+
+3
+00:00:11,000 --> 00:00:19,000
+itself be immutable very much like the keys of a dictionary. Sets have a literal form very similar to
+
+4
+00:00:19,000 --> 00:00:25,000
+dictionaries, again delimited by curly braces, but each item is a single object rather than a pair joined
+
+5
+00:00:25,000 --> 00:00:31,000
+by a colon. Note that the set is unordered and of course has type set.
+
+6
+00:00:31,000 --> 00:00:37,000
+Recall that empty curly braces create an empty dictionary, so to create an empty set we must resort to the
+
+7
+00:00:37,000 --> 00:00:45,000
+set() constructor with no arguments. This is the form that Python echoes back to us too.
+
+8
+00:00:45,000 --> 00:00:49,000
+The set() constructor can create a set from any iterable series such as a list.
+
+9
+00:00:49,000 --> 00:00:55,000
+Duplicates are discarded. In fact, a common use of sets is to efficiently remove duplicate items from
+
+10
+00:00:55,000 --> 00:01:07,000
+a series of objects. Here we remove duplicates from the list 1, 4, 2, 1, 7, 9, 9 resulting in the set 1, 2, 4, 9, 7.
+
+11
+00:01:07,000 --> 00:01:15,000
+Naturally sets are iterable, although the order is arbitrary.
+
+12
+00:01:15,000 --> 00:01:20,000
+Membership is a fundamental operation for sets, and as with the other collection types is performed using
+
+13
+00:01:20,000 --> 00:01:25,000
+the in and not in operators.
+
+14
+00:01:25,000 --> 00:01:33,000
+To add a single element to the set, simply use the add method. Adding an element that already exists has
+
+15
+00:01:33,000 --> 00:01:41,000
+no effect, and neither does it produce an error. Multiple elements can be added in one go from any iterable
+
+16
+00:01:41,000 --> 00:01:47,000
+series including another set using the update method.
+
+17
+00:01:47,000 --> 00:01:53,000
+Two methods are provided for removing elements from sets. The first, remove, requires that the element
+
+18
+00:01:53,000 --> 00:01:58,000
+to be removed is present in the set; otherwise, a KeyError is given.
+
+19
+00:01:58,000 --> 00:02:06,000
+The second method discard is less fussy and simply has no effect if the item is not a member of the set.
+
+20
+00:02:06,000 --> 00:02:11,000
+As with the other built-in collections, set sports a copy() method, which performs a shallow copy of the
+
+21
+00:02:11,000 --> 00:02:17,000
+set copying references, but not the objects they refer to. As we have already shown, the set constructor
+
+22
+00:02:17,000 --> 00:02:21,000
+may also be used.
+
+23
+00:02:21,000 --> 00:02:27,000
+Perhaps the most useful aspect of the set type is group of powerful set algebra operations which are provided.
+
+24
+00:02:27,000 --> 00:02:33,000
+These allow us to easily compute set unions, set differences, and set intersections and to evaluate whether
+
+25
+00:02:33,000 --> 00:02:39,000
+two sets have subset, superset, or disjoint relations. To demonstrate these methods, we'll construct
+
+26
+00:02:39,000 --> 00:02:45,000
+some sets of people according to various phenotypes.
+
+27
+00:02:45,000 --> 00:02:57,000
+Olivia, Harry, Lily, Jack, and Amelia have blue eyes. Harry, Jack, Amelia, Mia, and Joshua have blond hair.
+
+28
+00:02:57,000 --> 00:03:07,000
+Only Harry and Amelia can smell hydrogen cyanide. Harry, Lily, Amelia, and Lola can taste phenylthiocarbamide
+
+29
+00:03:07,000 --> 00:03:20,000
+or PTC. Mia, Joshua, Lily, and Oliva have O type blood, Amelia and Jack have B type blood, Harry has A type
+
+30
+00:03:20,000 --> 00:03:29,000
+blood, and Joshua and Lola have AB type blood. To find all the people with blond hair, blue eyes, or both,
+
+31
+00:03:29,000 --> 00:03:35,000
+we can use the union method, which collects together all of the elements, which are in either or both set.
+
+32
+00:03:35,000 --> 00:03:41,000
+We can demonstrate that union is a commutative operation. That is, we can swap the order of the operands
+
+33
+00:03:41,000 --> 00:03:47,000
+using the value equality operator to check for equivalence of the resulting sets.
+
+34
+00:03:47,000 --> 00:03:52,000
+To find all the people with blond hair and blue eyes, we can use the set intersection method, which collects
+
+35
+00:03:52,000 --> 00:04:01,000
+together only the elements which are present in both sets. This is also commutative.
+
+36
+00:04:01,000 --> 00:04:07,000
+To identify the people with blond hair who don't have blue eyes, we can use the set difference method.
+
+37
+00:04:07,000 --> 00:04:12,000
+This finds all of the elements which are in the first set, which are not in the second set.
+
+38
+00:04:12,000 --> 00:04:17,000
+This is non-commutative because the people with blond hair who don't have blue eyes are not the same as
+
+39
+00:04:17,000 --> 00:04:24,000
+the people who have blue eyes, but don't have blond hair. However, if you want to determine which people
+
+40
+00:04:24,000 --> 00:04:30,000
+have exclusively blond hair or blue eyes, but not both, we can use the symmetric_difference method.
+
+41
+00:04:30,000 --> 00:04:35,000
+This collects all the elements which are in the first set or the second set, but not both.
+
+42
+00:04:35,000 --> 00:04:41,000
+As you can tell from the name, symmetric_difference is indeed commutative.
+
+43
+00:04:41,000 --> 00:04:48,000
+In addition, three predicate methods are provided, which tell us about the relationships between sets.
+
+44
+00:04:48,000 --> 00:04:54,000
+We can check whether one set is the subset of another set using the issubset method.
+
+45
+00:04:54,000 --> 00:04:59,000
+For example, to check whether all of the people who can smell hydrogen cyanide also have blond hair, you
+
+46
+00:04:59,000 --> 00:05:07,000
+smell_hcn.issubset(blond_hair). This checks that all of the elements of the first set are also present
+
+47
+00:05:07,000 --> 00:05:14,000
+in the second set. To test whether all of the people who can taste phenylthiocarbamide can also taste hydrogen
+
+48
+00:05:14,000 --> 00:05:28,000
+cyanide, use the issuperset method. To test that two sets have no members in common, use the isdisjoint method.
+
+49
+00:05:28,000 --> 00:05:37,000
+For example, your blood type is either A or O, never both. We encourage you to experiment with these methods
+
+50
+00:05:37,000 --> 00:59:00,000
+and become comfortable using them. They can make for some very elegant solutions.
+

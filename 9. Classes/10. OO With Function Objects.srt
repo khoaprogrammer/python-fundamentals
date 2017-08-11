@@ -1,0 +1,88 @@
+1
+00:00:01,000 --> 00:00:09,000
+Now we'll show how it's quite possible to write nice object-oriented code without needing classes.
+
+2
+00:00:09,000 --> 00:00:14,000
+We have a requirement to produce boarding cards for our passengers in alphabetical order; however, we
+
+3
+00:00:14,000 --> 00:00:19,000
+realize that the flight class is probably not a good home for details of printing boarding passes.
+
+4
+00:00:19,000 --> 00:00:24,000
+We could go ahead and create a boarding card printer class, but that's probably overkill.
+
+5
+00:00:24,000 --> 00:00:28,000
+Remember that functions are objects too and are perfectly sufficient for many cases.
+
+6
+00:00:28,000 --> 00:00:34,000
+Don't feel compelled to make classes and objects without good reason.
+
+7
+00:00:34,000 --> 00:00:39,000
+Rather than have a card printer query all the passenger details from the flight, we'll follow the object-
+
+8
+00:00:39,000 --> 00:00:45,000
+oriented design principle of tell, don't ask, and have the flight tell a simple card printing function
+
+9
+00:00:45,000 --> 00:00:52,000
+what to do. First, the card printer, which is just a module-level function.
+
+10
+00:00:52,000 --> 00:00:57,000
+The new Python feature here is the use of line continuation backslash characters, which allow us to split
+
+11
+00:00:57,000 --> 00:01:04,000
+a long statement over several lines. This is used together with implicit string concatenation of adjacent
+
+12
+00:01:04,000 --> 00:01:11,000
+strings to produce one long string with no line breaks. We then measure the length of this output line,
+
+13
+00:01:11,000 --> 00:01:16,000
+build some banners and borders around it, and then concatenate the lines together using the join method
+
+14
+00:01:16,000 --> 00:01:21,000
+called on newline operator before printing the whole card followed by a blank line.
+
+15
+00:01:21,000 --> 00:01:25,000
+Note that the card printer doesn't know anything about flights or aircraft.
+
+16
+00:01:25,000 --> 00:01:32,000
+It's very loosely coupled. You can probably easily envisage an HTML card printer that has the same interface.
+
+17
+00:01:32,000 --> 00:01:37,000
+To the flight class we add a new method, make_boarding_cards, which accepts the card_printer.
+
+18
+00:01:37,000 --> 00:01:43,000
+This tells the card_printer to print each passenger having sorted a list of passenger seat tuples obtained
+
+19
+00:01:43,000 --> 00:01:49,000
+from a _passenger_seats() implementation detail method. Note the leading underscore.
+
+20
+00:01:49,000 --> 00:01:55,000
+That method is in fact a generator function which searches all seats for occupants yielding the passenger
+
+21
+00:01:55,000 --> 00:02:03,000
+and the seat number as they are found. Now if we run this on the REPL we can see that the new boarding card print
+
+22
+00:02:03,000 --> 00:59:00,000
+system works.
+

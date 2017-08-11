@@ -1,0 +1,88 @@
+1
+00:00:01,000 --> 00:00:06,000
+To find an element in a list, use the index method passing the object you're searching for.
+
+2
+00:00:06,000 --> 00:00:11,000
+The elements are compared for equivalence or value equality until the one you're looking for is found
+
+3
+00:00:11,000 --> 00:00:18,000
+and its index returned. Here we create a list W containing the words the quick brown fox jumps over the lazy
+
+4
+00:00:18,000 --> 00:00:25,000
+dog using the string split method. Searching for fox using the index method returns the integer 3, which
+
+5
+00:00:25,000 --> 00:00:32,000
+of course allows us to get ahold of that element. If you search for a value that isn't present like unicorn,
+
+6
+00:00:32,000 --> 00:00:37,000
+you will receive a ValueError, which we'll learn how to handle gracefully in the next module.
+
+7
+00:00:37,000 --> 00:00:41,000
+Another means of searching is to count matching elements using the count method.
+
+8
+00:00:41,000 --> 00:00:47,000
+Here we count occurrences of the word the. If you just want to test for membership, you can use the in operator
+
+9
+00:00:47,000 --> 00:00:54,000
+or for nonmembership using the not in operator.
+
+10
+00:00:54,000 --> 00:00:59,000
+Elements are removed from lists using a keyword with which we have not yet become acquainted, del.
+
+11
+00:00:59,000 --> 00:01:04,000
+The del keyword takes a single parameter, which is a reference to a list element and removes it from the
+
+12
+00:01:04,000 --> 00:01:11,000
+list shortening the list in the process. Here we make a string U containing the words jackdaws love my big
+
+13
+00:01:11,000 --> 00:01:18,000
+sphinx of quartz using the string split method. We can delete the fourth element using del u(3) leaving
+
+14
+00:01:18,000 --> 00:01:26,000
+jackdaws love my sphinx of quartz. It's also possible to remove elements by value rather than by position
+
+15
+00:01:26,000 --> 00:01:33,000
+using the remove method. Here we pass jackdaws to that method giving us love my sphinx of quartz.
+
+16
+00:01:33,000 --> 00:01:39,000
+This is of course equivalent to using the del statement and the index method in combination.
+
+17
+00:01:39,000 --> 00:01:45,000
+Attempting to remove an item which is not present such as pyramid results in a ValueError.
+
+18
+00:01:45,000 --> 00:01:50,000
+Items can be inserted into lists using the insert method, which accepts the index of the new item and the
+
+19
+00:01:50,000 --> 00:01:57,000
+new item itself. Here we create a list A containing the words I accidently the whole universe.
+
+20
+00:01:57,000 --> 00:02:03,000
+We insert the word destroyed at index 2 using a call to the insert method giving us I accidentally destroyed
+
+21
+00:02:03,000 --> 00:02:10,000
+the whole universe. We can covert this list of words back into a string by calling the string join operator
+
+22
+00:02:10,000 --> 00:59:00,000
+on a space separator.
+

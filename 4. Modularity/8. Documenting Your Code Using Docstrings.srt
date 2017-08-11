@@ -1,0 +1,68 @@
+1
+00:00:01,000 --> 00:00:06,000
+Now we'll look at documenting your code using a feature called docstrings.
+
+2
+00:00:06,000 --> 00:00:11,000
+We saw previously how it was possible to ask at the REPL for help on Python functions.
+
+3
+00:00:11,000 --> 00:00:19,000
+Let's look at how to add this self-documenting capability to our own module.
+
+4
+00:00:19,000 --> 00:00:25,000
+API documentation in Python uses a facility called docstrings. Docstrings are literal strings, which occur
+
+5
+00:00:25,000 --> 00:00:31,000
+as the first statement within a named block, such as a function or module.
+
+6
+00:00:31,000 --> 00:00:38,000
+Let's document the fetch_words function. We use triple quoted strings even for single-line docstrings
+
+7
+00:00:38,000 --> 00:00:45,000
+because they can easily be expanded to add more detail later. One Python convention for docstrings is
+
+8
+00:00:45,000 --> 00:00:52,000
+documented in PEP 257, although it's not widely adopted. Various tools, such as Sphinx, are available to
+
+9
+00:00:52,000 --> 00:00:59,000
+both HTML documentation from Python docstrings, and each tool mandates its preferred docstrings format.
+
+10
+00:00:59,000 --> 00:01:05,000
+Our preference is to use the form presented in Googles Python Style Guide since it is amenable to being
+
+11
+00:01:05,000 --> 00:01:14,000
+machine passed while still remaining readable at the console to humans.
+
+12
+00:01:14,000 --> 00:01:33,000
+Now we've added the docstring, we can access it through Help from the REPL.
+
+13
+00:01:33,000 --> 00:01:42,000
+We'll go ahead and add similar docstrings for our other functions, print items, and main.
+
+14
+00:01:42,000 --> 00:01:48,000
+Each docstring begins with a short description of the purpose of the function followed by, as necessary,
+
+15
+00:01:48,000 --> 00:01:59,000
+a list of the arguments to the function and the return value. Then we'll add one for the module itself.
+
+16
+00:01:59,000 --> 00:02:10,000
+The module docstring should be placed at the beginning of the module before any statements.
+
+17
+00:02:10,000 --> 00:59:00,000
+Now when we request help on the module as a whole, we get quite a lot of useful information.
+

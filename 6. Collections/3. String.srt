@@ -1,0 +1,224 @@
+1
+00:00:01,000 --> 00:00:05,000
+We've covered strings at some length already, but we'll take time now to explore
+
+2
+00:00:05,000 --> 00:00:12,000
+their capabilities in a little more depth. Recall that str is a homogeneous immutable sequence of Unicode
+
+3
+00:00:12,000 --> 00:00:18,000
+codepoints, which for the most part we can consider to be the same as characters.
+
+4
+00:00:18,000 --> 00:00:25,000
+Let's put str through its paces. As with any other Python sequence, we can determine the length of a string
+
+5
+00:00:25,000 --> 00:00:31,000
+with a built-in len function. For instance, if we wanted to know how many characters were in the Welsh place
+
+6
+00:00:31,000 --> 00:00:39,000
+name llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch, we could call len on this string
+
+7
+00:00:39,000 --> 00:00:43,000
+and get the answer of 58.
+
+8
+00:00:43,000 --> 00:00:47,000
+Concatenation of strings is supported using the plus operator.
+
+9
+00:00:47,000 --> 00:00:54,000
+For instance, it's easy to turn "New" + "found" + "land" into Newfoundland, although for joining large
+
+10
+00:00:54,000 --> 00:00:59,000
+numbers of strings the join method should be preferred because it's substantially more efficient.
+
+11
+00:00:59,000 --> 00:01:05,000
+This is because concatenation using the addition operator or its augmented assignment version can lead
+
+12
+00:01:05,000 --> 00:01:13,000
+to the generation of large numbers of temporaries with consequent costs for memory allocation and copies.
+
+13
+00:01:13,000 --> 00:01:19,000
+Let's see how join is used. Join is a method on str which takes a collection of strings as an argument and
+
+14
+00:01:19,000 --> 00:01:24,000
+produces a new string by inserting a separator between each of them.
+
+15
+00:01:24,000 --> 00:01:28,000
+An interesting aspect of join is how the separator is specified.
+
+16
+00:01:28,000 --> 00:01:34,000
+It is the string on which join is called. As with many parts of Python, an example is the best explanation.
+
+17
+00:01:34,000 --> 00:01:40,000
+To join a list of HTML color code strings into a semicolon separated string, we call join on the separator
+
+18
+00:01:40,000 --> 00:01:46,000
+we wish to use with a semicolon and pass in the list of strings to be joined.
+
+19
+00:01:46,000 --> 00:01:51,000
+We can then split them up again using the split() method, which we've already encountered, but this time
+
+20
+00:01:51,000 --> 00:01:58,000
+we're going to provide its optional argument. A widespread and fast path and idiom for concatenating
+
+21
+00:01:58,000 --> 00:02:08,000
+together a collection of strings is to join using the empty string as the separator.
+
+22
+00:02:08,000 --> 00:02:21,000
+The way may not be obvious at first. To concatenate, invoke join on empty text, something for nothing.
+
+23
+00:02:21,000 --> 00:02:29,000
+This use of join is often confusing to the uninitiated, but with use the approach taken by Python will be
+
+24
+00:02:29,000 --> 00:02:38,000
+appreciated as natural and elegant. Another very useful string method is partition(), which divides a
+
+25
+00:02:38,000 --> 00:02:44,000
+string into three sections, the part before the separator, the separator itself, and the part after the
+
+26
+00:02:44,000 --> 00:02:51,000
+separator. Partition returns a tuple, so this is commonly used in conjunction with tuple unpacking.
+
+27
+00:02:51,000 --> 00:02:59,000
+Here we separate the string "London:Edinburgh" into three by partitioning around the colon.
+
+28
+00:02:59,000 --> 00:03:04,000
+Often we're not interested in capturing the separator value, so you might see the underscore variable
+
+29
+00:03:04,000 --> 00:03:10,000
+name used. This is not treated in a special way by the Python language, but there's an unwritten convention
+
+30
+00:03:10,000 --> 00:03:16,000
+that the underscore variable is for unused or dummy values. This convention is supported by many Python
+
+31
+00:03:16,000 --> 00:03:22,000
+aware development tools, which will suppress unused variable warnings for underscore.
+
+32
+00:03:22,000 --> 00:03:26,000
+One of the most interesting and frequently used string methods is format.
+
+33
+00:03:26,000 --> 00:03:31,000
+This supercedes, although does not replace, the string interpolation technique used in all the versions
+
+34
+00:03:31,000 --> 00:03:37,000
+of Python and which we do not teach here. The format() method can be usefully called on any string containing
+
+35
+00:03:37,000 --> 00:03:41,000
+so-called replacement fields, which are surrounded by curly braces.
+
+36
+00:03:41,000 --> 00:03:47,000
+The objects provided as arguments to format are converted to strings and used to populate these fields.
+
+37
+00:03:47,000 --> 00:03:53,000
+The field names, in this case 0 and 1, are matched up with the positional arguments to format, and each argument
+
+38
+00:03:53,000 --> 00:04:04,000
+is converted to a string. A field name may be used more than once such as in this example.
+
+39
+00:04:04,000 --> 00:04:11,000
+However, if the field names are used exactly once and in the same order as the arguments they can be omitted.
+
+40
+00:04:11,000 --> 00:04:18,000
+If keyword arguments are supplied to formats, then named fields can be used instead of indexes.
+
+41
+00:04:18,000 --> 00:04:23,000
+Note in this example how we've used the ability to split long statements over multiple lines so long as
+
+42
+00:04:23,000 --> 00:04:30,000
+the split is inside open parentheses, brackets, or braces. In this case, we split the argument list with
+
+43
+00:04:30,000 --> 00:04:37,000
+a format() method inside its open parentheses. This technique can greatly aid the formatting of Python
+
+44
+00:04:37,000 --> 00:04:42,000
+code whilst keeping a manageable line length.
+
+45
+00:04:42,000 --> 00:04:47,000
+It's possible to index into sequences using square brackets inside the replacement field.
+
+46
+00:04:47,000 --> 00:04:55,000
+Here we've assigned a tuple to a variable pos, and then we pass pos as a keyword argument to format.
+
+47
+00:04:55,000 --> 00:05:00,000
+We access the elements of pos inside the replacement fields within the string.
+
+48
+00:05:00,000 --> 00:05:07,000
+We can even access object attributes. Here we pass the whole math module to format using a keyword argument.
+
+49
+00:05:07,000 --> 00:05:13,000
+Remember, modules are objects too. Then we access two of its attributes from within the replacement fields,
+
+50
+00:05:13,000 --> 00:05:22,000
+pi and e. Format strings also give us a lot of control over field alignment and floating point formatting.
+
+51
+00:05:22,000 --> 00:05:26,000
+Here's the same with the constants displayed to only three decimal places.
+
+52
+00:05:26,000 --> 00:05:30,000
+We don't cover all of the intricacies of the Python formatting mini language.
+
+53
+00:05:30,000 --> 00:05:36,000
+If you want to know more, consult the documentation. Now we've covered the fundamentals of the string type.
+
+54
+00:05:36,000 --> 00:05:41,000
+We recommend you spend some time familiarizing yourself with the other string methods.
+
+55
+00:05:41,000 --> 00:05:45,000
+Remember, you can find out what they are using simply help str.
+
+56
+00:05:45,000 --> 00:59:00,000
+Let's move on now and look at the next collection type.
+

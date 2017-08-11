@@ -1,0 +1,60 @@
+1
+00:00:01,000 --> 00:00:06,000
+Before we move onto the next sections, we need to quickly look at how to create a virtual environment for Python.
+
+2
+00:00:06,000 --> 00:00:11,000
+A virtual environment is a light-weight, self-contained Python installation that users can create without
+
+3
+00:00:11,000 --> 00:00:16,000
+needing administrator rights on their system. If you're using Python 3.3, then you should already have
+
+4
+00:00:16,000 --> 00:00:20,000
+a tool called pyvenv installed on your system.
+
+5
+00:00:20,000 --> 00:00:26,000
+You can verify this by running it from the command line. If you don't have pyvenv installed, there is another
+
+6
+00:00:26,000 --> 00:00:31,000
+tool, virtualenv, that you can get from the Python package index.
+
+7
+00:00:31,000 --> 00:00:38,000
+This works very similarly. You can use either pyvenv or virtualenv in this course, and we'll use pyvenv
+
+8
+00:00:38,000 --> 00:00:46,000
+for the examples. Using pyvenv is very simple. You simply specify the directory to contain your new virtual
+
+9
+00:00:46,000 --> 00:00:50,000
+environment. The tool creates the new directory and populates it with the installation.
+
+10
+00:00:50,000 --> 00:00:55,000
+Once the environment is created, you can activate it by using the activate script in the environment's
+
+11
+00:00:55,000 --> 00:01:01,000
+bin directory. On Linux or Mac OS X you have to source the script.
+
+12
+00:01:01,000 --> 00:01:08,000
+On Windows you simply run it. Once you do this, your prompt will change to remind you that you're in the virtual
+
+13
+00:01:08,000 --> 00:01:14,000
+environment, and most importantly the Python that will execute when you run Python is from the virtual
+
+14
+00:01:14,000 --> 00:01:19,000
+environment. We'll be using virtual environments in the following sections, so make sure you can create
+
+15
+00:01:19,000 --> 00:59:00,000
+them before moving on.
+

@@ -1,0 +1,16 @@
+1
+00:00:02,000 --> 00:00:10,000
+Special cases aren't special enough to break the rules. We follow patterns not to kill complexity, but
+
+2
+00:00:10,000 --> 00:00:17,000
+to master it. As we have shown, all variables in Python are references to objects, even basic types such
+
+3
+00:00:17,000 --> 00:00:23,000
+as integers. This thorough approach to object-orientation is a strong theme in Python, and practically
+
+4
+00:00:23,000 --> 00:59:00,000
+everything in Python is an object including functions and modules.
+

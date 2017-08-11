@@ -1,0 +1,20 @@
+1
+00:00:01,000 --> 00:00:10,000
+Complex is better than complicated. Many moving parts combined in a cleaver box are now one good tool.
+
+2
+00:00:10,000 --> 00:00:15,000
+The aircraft model method is an example of complex is better than complicated.
+
+3
+00:00:15,000 --> 00:00:20,000
+The flight class is more complex, that is it contains additional code to drill down through the aircraft
+
+4
+00:00:20,000 --> 00:00:26,000
+reference to find the model; however, all clients of flight can now be less complicated.
+
+5
+00:00:26,000 --> 00:59:00,000
+None of them need to know about the aircraft class, dramatically simplifying the system.
+

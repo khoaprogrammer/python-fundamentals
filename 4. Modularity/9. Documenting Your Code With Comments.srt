@@ -1,0 +1,32 @@
+1
+00:00:01,000 --> 00:00:05,000
+Next, we'll introduce Python code comments.
+
+2
+00:00:05,000 --> 00:00:09,000
+We believe docstrings are the right place for most documentation Python code.
+
+3
+00:00:09,000 --> 00:00:14,000
+They explain how to consume the facilities your module provides rather than how it works.
+
+4
+00:00:14,000 --> 00:00:20,000
+Ideally, your code should be clean enough that ancillary explanation is not required.
+
+5
+00:00:20,000 --> 00:00:25,000
+Nevertheless, it's sometimes necessary to explain why a particular approach has been chosen or a particular
+
+6
+00:00:25,000 --> 00:00:33,000
+technique used. And we can do that using Python comments. Comments in Python begin with a hash symbol and
+
+7
+00:00:33,000 --> 00:00:38,000
+continue to the end of the line. Let's document the fact that it might not be immediately obvious why we are
+
+8
+00:00:38,000 --> 00:59:00,000
+using sys.argv(1) rather than sys.argv(0). This is because the 0th argument of sys.argv is the module filename.
+

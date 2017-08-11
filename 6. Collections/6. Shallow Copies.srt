@@ -1,0 +1,116 @@
+1
+00:00:01,000 --> 00:00:07,000
+To demonstrate this, we'll used nested lists with the inner list serving as mutable objects.
+
+2
+00:00:07,000 --> 00:00:12,000
+Here's a list containing two elements, each of which is itself a list.
+
+3
+00:00:12,000 --> 00:00:17,000
+Let's look at what's going on under the covers as Python constructs this data structure.
+
+4
+00:00:17,000 --> 00:00:23,000
+First, two integer objects are created containing the values 1 and 2 respectively.
+
+5
+00:00:23,000 --> 00:00:29,000
+The elements of the first inner list are references to these two integer objects.
+
+6
+00:00:29,000 --> 00:00:34,000
+Now two more integer objects are created containing the values 3 and 4 respectively.
+
+7
+00:00:34,000 --> 00:00:39,000
+The elements of the second inner list are references to these integer objects.
+
+8
+00:00:39,000 --> 00:00:45,000
+Now the outer list is created, its elements containing references to the two inner lists.
+
+9
+00:00:45,000 --> 00:00:52,000
+Finally, the reference named A is bound to the outer list. What happens when we copy the list?
+
+10
+00:00:52,000 --> 00:00:58,000
+Here we use the full slice technique, but any of the three techniques we've shown will have the same effect.
+
+11
+00:00:58,000 --> 00:01:04,000
+We're requesting a copy of outer list, so it's elements, which contain references to the two inner lists,
+
+12
+00:01:04,000 --> 00:01:11,000
+are duplicated. These references refer to the same inner lists as the original list A.
+
+13
+00:01:11,000 --> 00:01:18,000
+Once the list copy is complete, we bind a new reference named B to the new list.
+
+14
+00:01:18,000 --> 00:01:24,000
+We can confirm that the lists are distinct objects by testing with A is B, which returns False.
+
+15
+00:01:24,000 --> 00:01:32,000
+They do, however, contain equivalent values, which we can test with A == B, which returns True.
+
+16
+00:01:32,000 --> 00:01:40,000
+Not only are the elements at a(0) and b(0) equivalent, they actually refer to the same inner list object.
+
+17
+00:01:40,000 --> 00:01:47,000
+Now let's replace the element at a(0) with a new list containing 8 and 9.
+
+18
+00:01:47,000 --> 00:01:52,000
+This results in the construction of two new integer objects containing 8 and 9 respectively and the new
+
+19
+00:01:52,000 --> 00:01:57,000
+list, the elements of which are references to these two new integer objects.
+
+20
+00:01:57,000 --> 00:02:04,000
+The reference in a(0) is redirected to point to this new inner list object, and we can confirm that a(0)
+
+21
+00:02:04,000 --> 00:02:13,000
+now indeed points to the new list while b(0) is unmodified. What happens if we now append to the inner list
+
+22
+00:02:13,000 --> 00:02:20,000
+referred to by a(1)? Let's append a new integer object containing the value 5.
+
+23
+00:02:20,000 --> 00:02:25,000
+The new integer object is created and is referred to by an additional element in the inner list referred
+
+24
+00:02:25,000 --> 00:02:31,000
+to by a(1), so a(1) now refers to a list containing integers 3, 4, 5.
+
+25
+00:02:31,000 --> 00:02:38,000
+Significantly, because a(1) and b(1) refer to the same inner list, the list accessible through b(1) has
+
+26
+00:02:38,000 --> 00:02:46,000
+also been modified. Following these manipulations, the data structure referred to by A is a list containing
+
+27
+00:02:46,000 --> 00:02:52,000
+two elements, each of which itself is a list. The first inner list contains 8 and 9, and the second inner
+
+28
+00:02:52,000 --> 00:02:59,000
+list contains 3, 4, and 5. The data structure referred to by B is also a list containing two inner lists.
+
+29
+00:02:59,000 --> 00:59:00,000
+The first element refers to a list containing 1 and 2, and the second element also refers to the 3, 4, 5 list.
+

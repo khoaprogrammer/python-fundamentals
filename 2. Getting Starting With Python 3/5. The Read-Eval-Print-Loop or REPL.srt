@@ -1,0 +1,128 @@
+1
+00:00:01,000 --> 00:00:05,000
+Now that Python is installed and running, we can immediately start using it.
+
+2
+00:00:05,000 --> 00:00:10,000
+This is a good way to get to know the language, as well as a useful tool for experimentation and quick testing
+
+3
+00:00:10,000 --> 00:00:18,000
+during normal development. This Python command line environment is a Read-Eval-Print-Loop.
+
+4
+00:00:18,000 --> 00:00:30,000
+Python will read whatever input we type in, evaluate it, print the result, and then loop back to the beginning.
+
+5
+00:00:30,000 --> 00:00:36,000
+You'll often hear it referred to as simply the REPL. When started, the REPL will print some information
+
+6
+00:00:36,000 --> 00:00:40,000
+about the version of Python you're running, and then it will give you a triple arrow prompt.
+
+7
+00:00:40,000 --> 00:00:44,000
+This prompt tells you that Python is waiting for you to type something.
+
+8
+00:00:44,000 --> 00:00:49,000
+Within an interactive Python session you can enter fragments of Python programs and see instant results.
+
+9
+00:00:49,000 --> 00:00:58,000
+Let's start with some simple arithmetic. 2 + 2 is 4. As you can see, Python reads that input, evaluates it,
+
+10
+00:00:58,000 --> 00:01:07,000
+prints the result, and loops around to do the same again. 6 * 7 is 42.
+
+11
+00:01:07,000 --> 00:01:15,000
+We can assign to variables in the REPL, x = 5, and print their content simply by typing their name.
+
+12
+00:01:15,000 --> 00:01:20,000
+We can also refer to variables and expressions such as 3 * x.
+
+13
+00:01:20,000 --> 00:01:25,000
+Within the REPL you can use the special underscore variable to refer to the most recently printed value,
+
+14
+00:01:25,000 --> 00:01:31,000
+this being one of very few obscure shortcuts in Python, or you can use the special underscore variable
+
+15
+00:01:31,000 --> 00:01:38,000
+in an expression. Remember though that this useful trick works only at the REPL.
+
+16
+00:01:38,000 --> 00:01:42,000
+The underscore doesn't have any special behavior in Python's scripts or programs.
+
+17
+00:01:42,000 --> 00:01:48,000
+Notice that not all statements have a return value. When we assigned 5 to X there was no return value, only
+
+18
+00:01:48,000 --> 00:01:55,000
+the side effect of bringing the variable X into being. Other statements have more visible side effects.
+
+19
+00:01:55,000 --> 00:02:05,000
+Try print ('Hello, Python') at the prompt followed by Return.
+
+20
+00:02:05,000 --> 00:02:10,000
+You'll see that Python immediately evaluates and executes this command printing the string Hello, Python
+
+21
+00:02:10,000 --> 00:02:15,000
+and returning you to another prompt. It's important to understand that the response here is not the result
+
+22
+00:02:15,000 --> 00:02:21,000
+of the expression evaluated and displayed by the REPL, but is a side effect of the print function.
+
+23
+00:02:21,000 --> 00:02:26,000
+As an aside, print is one of the biggest differences between Python 2 and Python 3.
+
+24
+00:02:26,000 --> 00:02:31,000
+In Python 3 the parentheses are required whereas in Python 2 they were not.
+
+25
+00:02:31,000 --> 00:02:37,000
+This is because in Python 3 print is a function call. More on functions later.
+
+26
+00:02:37,000 --> 00:02:43,000
+At this point, we should show you how to exit the REPL. We do this by sending the end of file control character
+
+27
+00:02:43,000 --> 00:02:49,000
+to Python, although unfortunately the means of sending this character varies across platforms.
+
+28
+00:02:49,000 --> 00:02:59,000
+If you're on Windows, press Control+Z to exit. If you're on Mac or Linux, press Control+D to exit.
+
+29
+00:02:59,000 --> 00:03:04,000
+If you regularly switch between platforms and you accidentally press Control+Z on a Unix-like system,
+
+30
+00:03:04,000 --> 00:03:09,000
+you'll inadvertently suspend the Python interpreter and return to your operating system's shell.
+
+31
+00:03:09,000 --> 00:03:15,000
+To reactivate Python making it a foreground process again, simply run the fg command, and press Enter
+
+32
+00:03:15,000 --> 00:59:00,000
+a couple of times to get the triple arrow Python prompt back.
+

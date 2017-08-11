@@ -1,0 +1,76 @@
+1
+00:00:02,000 --> 00:00:09,000
+Python gives us the tools to define new classes, which can be completely novel or based on existing classes.
+
+2
+00:00:09,000 --> 00:00:13,000
+Class definitions are introduced by the class keyword followed by the class name.
+
+3
+00:00:13,000 --> 00:00:19,000
+By convention, the new class name in Python uses CamelCase, sometimes known as PascalCase with a capital
+
+4
+00:00:19,000 --> 00:00:24,000
+letter for each and every component word. Since classes are awkward to define at the REPL, we'll be using
+
+5
+00:00:24,000 --> 00:00:28,000
+a Python module file to hold our class definitions.
+
+6
+00:00:28,000 --> 00:00:33,000
+Let's start with the very simplest class to which we'll progressively add features.
+
+7
+00:00:33,000 --> 00:00:38,000
+For this module I'll be using the PyCharm Python IDE so that it's easy to follow the code examples and their
+
+8
+00:00:38,000 --> 00:00:43,000
+use in the REPL. In this example we'll model a passenger aircraft flight between two airports by putting
+
+9
+00:00:43,000 --> 00:00:52,000
+this code into airtravel.py. The class statement introduces a new block, so we indent on the next line.
+
+10
+00:00:52,000 --> 00:00:56,000
+Empty blocks aren't allowed, so the simplest possible class needs at least a do nothing pass statement
+
+11
+00:00:56,000 --> 00:01:02,000
+to be syntactially admissible. Just as with def for defining functions, class is a statement that can
+
+12
+00:01:02,000 --> 00:01:06,000
+occur anywhere in a program and which binds a class definition to a class name.
+
+13
+00:01:06,000 --> 00:01:11,000
+When the top level code in the airtravel module is executed, the class will be defined.
+
+14
+00:01:11,000 --> 00:01:19,000
+We can now import our new class into the REPL and try it out. The thing we've just imported is the class object.
+
+15
+00:01:19,000 --> 00:01:23,000
+Everything is an object in Python, and classes are no exception.
+
+16
+00:01:23,000 --> 00:01:28,000
+To use this class to mint a new object, we call its constructor, which is done by calling the class as we would
+
+17
+00:01:28,000 --> 00:01:35,000
+a function. The constructor returns a new object, which here we assign to a name F.
+
+18
+00:01:35,000 --> 00:01:41,000
+If we use the type function to request the type of F, we see that it's of class 'airtravel.Flight.'
+
+19
+00:01:41,000 --> 00:59:00,000
+The type of F literally is the class.
+

@@ -1,0 +1,84 @@
+1
+00:00:02,000 --> 00:00:06,000
+For the next demonstration, we're going to need a data file containing some numbers.
+
+2
+00:00:06,000 --> 00:00:12,000
+We'll write a sequence of numbers called Recaman sequence to a text file with one number per line.
+
+3
+00:00:12,000 --> 00:00:17,000
+Recaman sequence itself isn't important to this exercise. We just need a way of generating numeric data,
+
+4
+00:00:17,000 --> 00:00:23,000
+so we won't be explaining the sequence generator. Feel free to experiment though.
+
+5
+00:00:23,000 --> 00:00:27,000
+The module contains a generator for yielding the Recaman numbers and a function which writes the start
+
+6
+00:00:27,000 --> 00:00:35,000
+of the sequence to a file using the writelines method. A generator expression is used to convert each number
+
+7
+00:00:35,000 --> 00:00:44,000
+to a string and add a newline. Itertool's islice is used to truncate the otherwise infinite sequence.
+
+8
+00:00:44,000 --> 00:00:50,000
+We'll write the first 1000 Recaman numbers to a file by executing the module passing the filename and series
+
+9
+00:00:50,000 --> 00:00:54,000
+length as command line arguments.
+
+10
+00:00:54,000 --> 00:01:01,000
+Now let's make a complimentary module, series.py, which reads this data file back in.
+
+11
+00:01:01,000 --> 00:01:07,000
+This simply uses a for loop to iterate over the file reading one line at a time and strips the newline with
+
+12
+00:01:07,000 --> 00:01:14,000
+a call to the strip string method and coverts it to an integer.
+
+13
+00:01:14,000 --> 00:01:19,000
+Running it from the command line, everything works as expected.
+
+14
+00:01:19,000 --> 00:01:22,000
+Now let's deliberately create an exceptional situation.
+
+15
+00:01:22,000 --> 00:01:30,000
+Open Recaman.dat in a text editor and replace one of the numbers with something that isn't a stringified integer.
+
+16
+00:01:30,000 --> 00:01:37,000
+Save the data file, and rerun series.py. The int constructor raises a ValueError, which is unhandled,
+
+17
+00:01:37,000 --> 00:01:48,000
+so the program terminates with a stack trace. One problem here is that our f.close() call was never executed.
+
+18
+00:01:48,000 --> 00:01:57,000
+To fix that, we can insert a try/finally block. Now the file will always be closed.
+
+19
+00:01:57,000 --> 00:02:03,000
+Doing so opens up the opportunity for another refactoring. We can replace the for loop with a list comprehension
+
+20
+00:02:03,000 --> 00:02:11,000
+and return the list directly. Even in this situation close will be called.
+
+21
+00:02:11,000 --> 00:59:00,000
+The finally block is called; however, the try block is exited.
+

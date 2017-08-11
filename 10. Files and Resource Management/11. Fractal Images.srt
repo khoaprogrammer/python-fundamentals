@@ -1,0 +1,56 @@
+1
+00:00:01,000 --> 00:00:06,000
+In order to generate a BMP image file, we're going to need some pixel data.
+
+2
+00:00:06,000 --> 00:00:15,000
+We've provided a simple module, fractal.py, which produces pixel values for the iconic Mandelbrot set fractal.
+
+3
+00:00:15,000 --> 00:00:20,000
+We're not going to explain the fractal generation code in detail, and still less the math behind it, but
+
+4
+00:00:20,000 --> 00:00:25,000
+the code is simple enough and doesn't rely on any Python features we haven't encountered already.
+
+5
+00:00:25,000 --> 00:00:31,000
+The key takeaway is that the Mandelbrot function uses nested list comprehensions to produce a list of
+
+6
+00:00:31,000 --> 00:00:39,000
+lists of integers in the range 0-255 representing an image of the fractal.
+
+7
+00:00:39,000 --> 00:00:43,000
+The integer value of each point is produced by the mandel function.
+
+8
+00:00:43,000 --> 00:00:48,000
+Let's fire up the REPL and use the fractal and BMP modules together.
+
+9
+00:00:48,000 --> 00:00:54,000
+First we use the Mandelbrot function to produce an image of 448 x 256 pixels.
+
+10
+00:00:54,000 --> 00:01:01,000
+You'll get best results using images with an aspect ration of about 7:4.
+
+11
+00:01:01,000 --> 00:01:08,000
+This last call may take a second or so. Our fractal generator is simple rather than efficient.
+
+12
+00:01:08,000 --> 00:01:18,000
+We can take a look at the return data structure, a list of lists of integers just as we were promised.
+
+13
+00:01:18,000 --> 00:01:26,000
+Let's write those pixel values to a BMP file. Find the file, and open it in an image viewer, for example by
+
+14
+00:01:26,000 --> 00:59:00,000
+opening it in your web browser.
+

@@ -1,0 +1,60 @@
+1
+00:00:01,000 --> 00:00:08,000
+Up to now, our examples have all followed a pattern. Open a file, work with the file, and close the file.
+
+2
+00:00:08,000 --> 00:00:12,000
+The close is important, because it informs the underlying operating system that you're done working
+
+3
+00:00:12,000 --> 00:00:18,000
+with a file. If you don't close a file when you're done with it, it's possible to lose data.
+
+4
+00:00:18,000 --> 00:00:22,000
+There may be pending rights buffered up, which might not get written completely.
+
+5
+00:00:22,000 --> 00:00:27,000
+Furthermore, if you're opening lots of files, your system may run out of resources.
+
+6
+00:00:27,000 --> 00:00:33,000
+Since we always want to pair every open with a close, we want a mechanism that enforces that and makes sure
+
+7
+00:00:33,000 --> 00:00:37,000
+it happens even if we forget.
+
+8
+00:00:37,000 --> 00:00:41,000
+This need for resource cleanup is common enough that Python implements a specific control flow structure
+
+9
+00:00:41,000 --> 00:00:47,000
+called with-block to support it. With-blocks can be used with any object which supports the context-manager
+
+10
+00:00:47,000 --> 00:00:55,000
+protocol, and that includes the file objects returned by open().
+
+11
+00:00:55,000 --> 00:01:01,000
+Exploiting the context-manager nature of the file object and using a with-block, our read_series function
+
+12
+00:01:01,000 --> 00:01:09,000
+can become very simple. We no longer need to call close explicitly because the with construct will call
+
+13
+00:01:09,000 --> 00:01:16,000
+it for us when and by whatever means execution exits the block.
+
+14
+00:01:16,000 --> 00:01:22,000
+Now we can go back and modify our Recaman series writing program to use a with-block too.
+
+15
+00:01:22,000 --> 00:59:00,000
+This also removes the need for an explicit close.
+

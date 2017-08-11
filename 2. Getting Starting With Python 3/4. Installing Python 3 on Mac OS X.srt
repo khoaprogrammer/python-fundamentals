@@ -1,0 +1,64 @@
+1
+00:00:03,000 --> 00:00:08,000
+Now we'll demonstrate how to install Python 3 on Mac OS X.
+
+2
+00:00:08,000 --> 00:00:19,000
+For Mac OS X, you need to visit the official Python website that's python.org.
+
+3
+00:00:19,000 --> 00:00:32,000
+Head to the Download page by clicking the link on the left. On the Download page, find the Mac OS X installer
+
+4
+00:00:32,000 --> 00:00:45,000
+matching your version of Mac OS X, and click the link to download it.
+
+5
+00:00:45,000 --> 00:00:57,000
+A DMG disk image file downloads, which you open from your download stack or from the finder.
+
+6
+00:00:57,000 --> 00:01:03,000
+In the finder window that opens, you'll see the file Python.mpkg, a multi-package installer file.
+
+7
+00:01:03,000 --> 00:01:07,000
+Use the secondary click action to open the context menu for that file.
+
+8
+00:01:07,000 --> 00:01:14,000
+From that menu select Open. On some version of Mac OS X you'll now be told that the file is from an unidentified
+
+9
+00:01:14,000 --> 00:01:21,000
+developer. Press the Open button on this dialog to continue with the installation.
+
+10
+00:01:21,000 --> 00:01:26,000
+You are now in the Python Installer program. Follow the directions clicking through the wizard.
+
+11
+00:01:26,000 --> 00:01:37,000
+There's no need to customize the install, and you should keep the standard settings.
+
+12
+00:01:37,000 --> 00:01:41,000
+When it's available, click the Install button to install Python.
+
+13
+00:01:41,000 --> 00:01:54,000
+You may be asked for your password to authorize the installation.
+
+14
+00:01:54,000 --> 00:01:59,000
+Once the installation completes, click Close to close the installer.
+
+15
+00:01:59,000 --> 00:02:11,000
+Now that Python 3 is installed, open a Terminal window and verify that you can run Python 3 from the command line.
+
+16
+00:02:11,000 --> 00:59:00,000
+Welcome to Python! The triple arrow prompt shows that Python is waiting for your input.
+

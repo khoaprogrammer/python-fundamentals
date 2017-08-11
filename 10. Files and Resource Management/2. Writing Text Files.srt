@@ -1,0 +1,116 @@
+1
+00:00:01,000 --> 00:00:07,000
+Let's start by writing some text to a file. We'll be explicit about using the UTF-8 encoding because we
+
+2
+00:00:07,000 --> 00:00:14,000
+have no way of knowing what your default encoding is. We'll use keyword arguments to make things clearer still.
+
+3
+00:00:14,000 --> 00:00:21,000
+The first argument is the filename wasteland.txt. The mode argument is a string containing letters with
+
+4
+00:00:21,000 --> 00:00:27,000
+different meanings. In this case, W means write, and T means text.
+
+5
+00:00:27,000 --> 00:00:30,000
+All mode strings should consist of a read, write, or append mode.
+
+6
+00:00:30,000 --> 00:00:37,000
+One of R, W, or A with the optional plus modifier should be combined with a selective text or binary mode
+
+7
+00:00:37,000 --> 00:00:45,000
+T or B. So, typical mode strings might be 'wb', write binary, or 'at', append text.
+
+8
+00:00:45,000 --> 00:00:52,000
+Although both parts of the mode code support defaults, we recommend being explicit for the sake of readability.
+
+9
+00:00:52,000 --> 00:00:58,000
+The exact type of the object returned by open depends on how the file was opened, dynamic typing in action.
+
+10
+00:00:58,000 --> 00:01:03,000
+But for our purposes it's sufficient to know that the object returned is a file-like object, and as such
+
+11
+00:01:03,000 --> 00:01:09,000
+we can expect it to support certain attributes and methods. We've shown previously how we can request
+
+12
+00:01:09,000 --> 00:01:15,000
+help from modules and methods and types, but in fact we can request help on instances too.
+
+13
+00:01:15,000 --> 00:01:19,000
+This makes sense when you remember that everything is an object.
+
+14
+00:01:19,000 --> 00:01:23,000
+Browsing through the help we can see that F supports a method write.
+
+15
+00:01:23,000 --> 00:01:30,000
+Quit the help with Q, and continue at the REPL. The write call returns the number of codepoints or characters
+
+16
+00:01:30,000 --> 00:01:39,000
+written to the file. Let's write a few more lines. It is the caller's responsibility to provide newline
+
+17
+00:01:39,000 --> 00:01:51,000
+characters where they are needed. There is no writeline method. (Typing)
+
+18
+00:01:51,000 --> 00:01:57,000
+When we finish writing, we should remember to close the file by calling the close method, f.close().
+
+19
+00:01:57,000 --> 00:02:01,000
+Note that when we close the file all the contents become visible.
+
+20
+00:02:01,000 --> 00:02:08,000
+Closing files is important. If you now exit the REPL and look in your file system on Unix with ls - l, you should
+
+21
+00:02:08,000 --> 00:02:19,000
+see the wasteland.txt file with 78 bytes. On Windows with dir, you should see wasteland.txt with 79 bytes.
+
+22
+00:02:19,000 --> 00:02:24,000
+This is because Python's universal newline behavior for files has translated the line endings to your
+
+23
+00:02:24,000 --> 00:02:27,000
+system's native endings.
+
+24
+00:02:27,000 --> 00:02:32,000
+The difference is because Python's universal newline behavior for files has translated the line endings
+
+25
+00:02:32,000 --> 00:02:35,000
+to your platform's native endings.
+
+26
+00:02:35,000 --> 00:02:39,000
+The number returned by the write method is the number of codepoints or characters in the string passed
+
+27
+00:02:39,000 --> 00:02:46,000
+to write, not the number of bytes written to the file after encoding a universal newline translation.
+
+28
+00:02:46,000 --> 00:02:52,000
+In general, when working with text files, you cannot sum the quantities returned by write to determine
+
+29
+00:02:52,000 --> 00:59:00,000
+the length of the file in bytes.
+

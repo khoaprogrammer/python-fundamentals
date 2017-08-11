@@ -1,0 +1,160 @@
+1
+00:00:02,000 --> 00:00:07,000
+Python comes with a number of built-in data types. These include primitive scalar types like integers,
+
+2
+00:00:07,000 --> 00:00:13,000
+as well as collection types like dictionaries. These built-in types are powerful enough to be used alone
+
+3
+00:00:13,000 --> 00:00:19,000
+for many programming needs, and they can be used as building blocks for creating more complex data types.
+
+4
+00:00:19,000 --> 00:00:27,000
+In this section we'll cover the basic scalar built-in types int, float, None, and bool.
+
+5
+00:00:27,000 --> 00:00:33,000
+We'll provide basic information about these now showing their literal forms and how to create them.
+
+6
+00:00:33,000 --> 00:00:40,000
+We've already seen quite a lot of Python integers in action. Python integers are signed and have for all
+
+7
+00:00:40,000 --> 00:00:43,000
+practical purposes unlimited precision.
+
+8
+00:00:43,000 --> 00:00:53,000
+Integer literals in Python are specified in decimal, but may also be specified in binary with a 0b prefix,
+
+9
+00:00:53,000 --> 00:01:07,000
+up top with a 0o prefix, or hexadecimal with a 0x prefix. We can also construct integers by a call to the int
+
+10
+00:01:07,000 --> 00:01:16,000
+constructor, which can convert from other numeric types such as floats to integers.
+
+11
+00:01:16,000 --> 00:01:28,000
+Note that rounding is always towards 0. We can also convert strings to integers.
+
+12
+00:01:28,000 --> 00:01:38,000
+To convert from base 3, use int and then 10000 as a string comma 3.
+
+13
+00:01:38,000 --> 00:01:42,000
+Floating point numbers are supported in Python by the float type.
+
+14
+00:01:42,000 --> 00:01:49,000
+Python floats are implemented as IEEE-754 double precision floating point numbers with 53 bits of binary
+
+15
+00:01:49,000 --> 00:01:58,000
+precision. This is equivalent to between 15 and 16 significant digits in decimal.
+
+16
+00:01:58,000 --> 00:02:05,000
+Any literal number containing a decimal point or a letter E is interpreted by Python as a float.
+
+17
+00:02:05,000 --> 00:02:10,000
+Scientific notation can be used. So, for large numbers such as the approximate speed of light in meters
+
+18
+00:02:10,000 --> 00:02:22,000
+per second 3 times 10 to the 8, we can write 3e8. And for small numbers like Planck's constant 1.616 times
+
+19
+00:02:22,000 --> 00:02:34,000
+10 to the -35, we can enter 1.616e-35. Notice how Python automatically switches the display representation
+
+20
+00:02:34,000 --> 00:02:40,000
+to the most readable form. As for integers, we can convert to floats from other numeric or string types
+
+21
+00:02:40,000 --> 00:02:54,000
+using the float constructor from an int and from a string. This is also how we create the special floating-
+
+22
+00:02:54,000 --> 00:03:09,000
+point values nan or not a number and also positive and negative infinity.
+
+23
+00:03:09,000 --> 00:03:15,000
+The result of any calculation involving int and float is promoted to a float.
+
+24
+00:03:15,000 --> 00:03:20,000
+Python has a special null value called None with a capital N.
+
+25
+00:03:20,000 --> 00:03:24,000
+None is frequently used to represent the absence of a value.
+
+26
+00:03:24,000 --> 00:03:30,000
+The Python REPL never prints None results, so typing None into the REPL has no effect.
+
+27
+00:03:30,000 --> 00:03:37,000
+None can be bound to a variable name just like any other object, and we can test whether an object is None
+
+28
+00:03:37,000 --> 00:03:44,000
+by using Python's is operator. We can see here that the response is True, which brings us conveniently
+
+29
+00:03:44,000 --> 00:03:48,000
+onto the bool type.
+
+30
+00:03:48,000 --> 00:03:53,000
+The bool type represents logical states and plays an important role in several of Python's control flow
+
+31
+00:03:53,000 --> 00:03:56,000
+structures as we'll see shortly.
+
+32
+00:03:56,000 --> 00:04:04,000
+As you would expect, there are two bool values, True and False, both with initial capitals, and also a bool
+
+33
+00:04:04,000 --> 00:04:08,000
+constructor, which can be used to convert from other types to bool.
+
+34
+00:04:08,000 --> 00:04:26,000
+Let's look at how it works. For integers, 0 is considered falsey, and all other values truthy. (Typing)
+
+35
+00:04:26,000 --> 00:04:43,000
+We see the same behavior with floats where only 0 is considered falsey. (Typing)
+
+36
+00:04:43,000 --> 00:04:51,000
+When converting from collections such as strings or lists, only empty collections are treated as falsey.
+
+37
+00:04:51,000 --> 00:05:17,000
+Converting from lists, which we'll look at shortly, (Typing) and strings (Typing) in particular, you
+
+38
+00:05:17,000 --> 00:05:22,000
+cannot use the bool constructor to covert from the string representations of True and False because the
+
+39
+00:05:22,000 --> 00:05:28,000
+string False is not empty. These conversions to bool are important because they are widely used in Python
+
+40
+00:05:28,000 --> 00:59:00,000
+if statements and while loops, which accept bool values into the condition.
+

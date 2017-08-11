@@ -1,0 +1,52 @@
+1
+00:00:01,000 --> 00:00:05,000
+Now we'll demonstrate how to install Python 3 on Ubuntu Linux.
+
+2
+00:00:05,000 --> 00:00:09,000
+To install Python on Linux, you'll want to use your system's package manager.
+
+3
+00:00:09,000 --> 00:00:14,000
+For this course, we'll show how to install Python on a recent version of Ubuntu, but the process is very
+
+4
+00:00:14,000 --> 00:00:21,000
+similar on most other modern Linux distributions. On Unbuntu, first start the Ubuntu Software Center.
+
+5
+00:00:21,000 --> 00:00:24,000
+This can usually be run by clicking its icon in the launcher.
+
+6
+00:00:24,000 --> 00:00:29,000
+Alternatively, you can run it from the dashboard by searching on Ubuntu Software Center and clicking
+
+7
+00:00:29,000 --> 00:00:36,000
+the selection. Once you're in the Software Center, enter the search term Python 3.3 in the search bar in
+
+8
+00:00:36,000 --> 00:00:43,000
+the upper right hand corner and press Return. One of the results you get will say Python (v3.3) with Python
+
+9
+00:00:43,000 --> 00:00:53,000
+interpreter at 3.3 in smaller type beneath it. Select this entry, and click the Install button that appears.
+
+10
+00:00:53,000 --> 00:01:00,000
+You may need to enter your password to install the software at this point.
+
+11
+00:01:00,000 --> 00:01:09,000
+You should now see a progress indicator appear, which will disappear when the installation is complete.
+
+12
+00:01:09,000 --> 00:01:17,000
+Open a terminal using Control+Alt+T, and verify that you can run Python 3.3 from the command line.
+
+13
+00:01:17,000 --> 00:59:00,000
+Welcome to Python! The triple arrow prompt shows that Python is waiting for your input.
+

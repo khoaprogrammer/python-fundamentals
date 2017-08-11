@@ -1,0 +1,120 @@
+1
+00:00:01,000 --> 00:00:08,000
+We've covered a lot of ground in this Getting Started module. Let's summarize what we've seen.
+
+2
+00:00:08,000 --> 00:00:15,000
+We started by obtaining and installing Python 3 for Windows, Ubuntu Linux, and Mac OS X.
+
+3
+00:00:15,000 --> 00:00:24,000
+We then looked at the Read-Eval-Print-Loop or REPL, and how it allows us to interactively explore Python code.
+
+4
+00:00:24,000 --> 00:00:31,000
+We learned some simple arithmetic operators with plus, minus, multiply, divide, modulus, and the integer
+
+5
+00:00:31,000 --> 00:00:39,000
+division operator with double slash. We discovered we could give objects names with the assignment operator
+
+6
+00:00:39,000 --> 00:00:47,000
+using the equals symbol. We learned how to print objects, and we showed you how to exit the REPL, which is
+
+7
+00:00:47,000 --> 00:00:52,000
+different on Windows with Control+Z or Linux and Mac with Control+D.
+
+8
+00:00:52,000 --> 00:00:58,000
+We showed how Python uses significant indentation of code to demarcate code blocks.
+
+9
+00:00:58,000 --> 00:01:05,000
+Each indent level is usually four spaces. And we told you about Python Enhancement Proposals, the documents
+
+10
+00:01:05,000 --> 00:01:11,000
+which govern the evolution of the Python language. In particular, we briefly looked at PEP 8, which is
+
+11
+00:01:11,000 --> 00:01:17,000
+the Python Style Guide, which we follow in this course, and PEP 20, The Zen of Python, which gives useful
+
+12
+00:01:17,000 --> 00:01:21,000
+advice on writing Pythonic code.
+
+13
+00:01:21,000 --> 00:01:25,000
+We looked at importing Python's Standard Library modules using the import statement.
+
+14
+00:01:25,000 --> 00:01:32,000
+Import has three forms: Import module, from module import function, and from module import function
+
+15
+00:01:32,000 --> 00:01:38,000
+as alias. We used all three of these forms during this course module.
+
+16
+00:01:38,000 --> 00:01:44,000
+We showed how to find and browse help(), particularly useful for discovering the Standard Library.
+
+17
+00:01:44,000 --> 00:01:52,000
+We looked at the four built-in scalar types int, float, None, and bool and showed how to convert between
+
+18
+00:01:52,000 --> 00:01:59,000
+these types and use their literal forms. We looked at the six relational operators equality, inequality,
+
+19
+00:01:59,000 --> 00:02:04,000
+less-than, greater-than, less-than or equal to, and greater-than or equal to.
+
+20
+00:02:04,000 --> 00:02:10,000
+These are used for equivalence testing and ordering. We demonstrated structuring conditional code
+
+21
+00:02:10,000 --> 00:02:18,000
+with if, elif, else structures. We shared iterating with while loops and how to interrupt execution of
+
+22
+00:02:18,000 --> 00:02:23,000
+infinite loops using Control+C, which generates a keyboard interrupt exception.
+
+23
+00:02:23,000 --> 00:02:29,000
+We gave an example of how to break out of a loop using the break statement, which breaks out of the innermost
+
+24
+00:02:29,000 --> 00:02:34,000
+loop onto the first statement immediately following the loop, and along the way we looked at the augmented
+
+25
+00:02:34,000 --> 00:02:39,000
+assignment operators for modifying objects in place such as counter variables.
+
+26
+00:02:39,000 --> 00:02:45,000
+We also looked at requesting text from the user at the console with the built-in input() function.
+
+27
+00:02:45,000 --> 00:02:51,000
+Next time here on Python Fundamentals we'll continue our exploration of Python's built-in types and
+
+28
+00:02:51,000 --> 00:02:57,000
+control flow structures by looking at strings, lists, dictionaries, and for-loops.
+
+29
+00:02:57,000 --> 00:03:00,000
+We'll even be using Python to fetch some data from the web for processing.
+
+30
+00:03:00,000 --> 00:59:00,000
+Thanks for watching, and we'll see you in the next module.
+

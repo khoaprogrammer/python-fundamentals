@@ -1,0 +1,84 @@
+1
+00:00:02,000 --> 00:00:07,000
+Comprehensions in Python are a concise syntax for describing lists, sets, or dictionaries in a declarative
+
+2
+00:00:07,000 --> 00:00:13,000
+or functional style. This shorthand is readable and expressive meaning that comprehensions are very
+
+3
+00:00:13,000 --> 00:00:20,000
+effective at communicating intent to human readers. Some comprehensions almost read like natural language
+
+4
+00:00:20,000 --> 00:00:24,000
+making them nicely self-documenting.
+
+5
+00:00:24,000 --> 00:00:30,000
+Let's start with list comprehensions. Comprehensions are much easier to demonstrate than they are to
+
+6
+00:00:30,000 --> 00:00:36,000
+explain, so let's bring up a Python REPL. First we'll create a list of words, "Why sometimes I've believed
+
+7
+00:00:36,000 --> 00:00:42,000
+as many as six impossible things before breakfast," by splitting a string.
+
+8
+00:00:42,000 --> 00:00:47,000
+Now comes the list comprehension. The comprehension is enclosed in square brackets just like a literal
+
+9
+00:00:47,000 --> 00:00:53,000
+list, but instead of literal elements it contains a fragment of declarative code, which describes how
+
+10
+00:00:53,000 --> 00:01:00,000
+to construct the elements of the list. Here the new list is formed by binding word to each value in words
+
+11
+00:01:00,000 --> 00:01:08,000
+in turn and evaluating len(word) to create a new value. The general form of list comprehensions is expression
+
+12
+00:01:08,000 --> 00:01:16,000
+of item for item in iterable. That is, for each item in the iterable object on the right, we evaluate the
+
+13
+00:01:16,000 --> 00:01:22,000
+expression on the left, which is almost always, but not necessarily in terms of the item and use that as
+
+14
+00:01:22,000 --> 00:01:28,000
+the next element of this new list. This comprehension is the declarative equivalent of the following
+
+15
+00:01:28,000 --> 00:01:34,000
+imperative code, which uses a for loop and the list to accumulate the lengths found so far.
+
+16
+00:01:34,000 --> 00:01:38,000
+Notice that the source object over which we iterate doesn't need to be a list.
+
+17
+00:01:38,000 --> 00:01:42,000
+It can be any iterable object such as a tuple.
+
+18
+00:01:42,000 --> 00:01:46,000
+The expression which is in terms of the item can be any Python expression.
+
+19
+00:01:46,000 --> 00:01:52,000
+Here we find the number of decimal digits in each of the first 20 factorials using the range function to
+
+20
+00:01:52,000 --> 00:01:59,000
+generate the source sequence. Note also that the type of object produced by list comprehensions is nothing
+
+21
+00:01:59,000 --> 00:59:00,000
+more or less than a regular list.
+

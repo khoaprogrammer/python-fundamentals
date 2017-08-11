@@ -1,0 +1,104 @@
+1
+00:00:01,000 --> 00:00:08,000
+Let's sum up. First, we looked at strings, in particular the various forms of quoting for single- and multi-
+
+2
+00:00:08,000 --> 00:00:13,000
+line strings. We saw how adjacent string literals are implicitly concatenated.
+
+3
+00:00:13,000 --> 00:00:18,000
+Python has support for universal newlines, so no matter what platform you're using, it's sufficient
+
+4
+00:00:18,000 --> 00:00:22,000
+to use a single slash N character safe in the knowledge that it will be appropriately translated to and
+
+5
+00:00:22,000 --> 00:00:28,000
+from the native newline during I/O. Escape sequences provide an alternative means of incorporating
+
+6
+00:00:28,000 --> 00:00:33,000
+newlines and other control characters into literal strings. The backslashes used for escaping can be
+
+7
+00:00:33,000 --> 00:00:39,000
+a hindrance for Windows file system paths or regular expressions, so raw strings with an R prefix can be
+
+8
+00:00:39,000 --> 00:00:45,000
+used to suppress the escaping mechanism. Other types such as integers can be converted to strings using
+
+9
+00:00:45,000 --> 00:00:51,000
+the str() constructor. Individual characters returned as one character strings can be retrieved using
+
+10
+00:00:51,000 --> 00:00:56,000
+square brackets with integer zero-based indices. Strings support a rich variety of operations such
+
+11
+00:00:56,000 --> 00:01:04,000
+as splitting through their methods. In Python 3 literal strings can contain Unicode characters directly
+
+12
+00:01:04,000 --> 00:01:08,000
+in the source. The bytes type has many of the capabilities of strings, but is a sequence of bytes rather
+
+13
+00:01:08,000 --> 00:01:14,000
+than a sequence of Unicode codepoints. Bytes literals are prefixed with a lowercase B.
+
+14
+00:01:14,000 --> 00:01:19,000
+To covert between string and bytes instances, we use the encode() method of str and the decode() method
+
+15
+00:01:19,000 --> 00:01:24,000
+of bytes in both cases passing the encoding, which we must know in advance.
+
+16
+00:01:24,000 --> 00:01:30,000
+Lists are mutable, heterogeneous sequences of objects. List literals are delimited by square brackets,
+
+17
+00:01:30,000 --> 00:01:35,000
+and the items are separated by commas. As with strings, individual elements can be retrieved by indexing
+
+18
+00:01:35,000 --> 00:01:41,000
+into a list with square brackets. In contrast to strings, individual list elements can be replaced by
+
+19
+00:01:41,000 --> 00:01:46,000
+assigning to the indexed item. Lists can be grown by appending to them and can be constructed from other
+
+20
+00:01:46,000 --> 00:01:49,000
+sequences using the list() constructor.
+
+21
+00:01:49,000 --> 00:01:54,000
+Dictionaries associate keys with values. Literal dictionaries are delimited by curly braces.
+
+22
+00:01:54,000 --> 00:01:59,000
+The key value pairs are separated from each other by commas, and each key is associated with its corresponding
+
+23
+00:01:59,000 --> 00:02:01,000
+value with a colon.
+
+24
+00:02:01,000 --> 00:02:08,000
+For-loops take items one-by-one from an iterable object such as a list and bind the name to the current item.
+
+25
+00:02:08,000 --> 00:02:13,000
+For-loops correspond to what are called for-each loops in other languages.
+
+26
+00:02:13,000 --> 00:59:00,000
+Thanks for watching, and we'll see you in the next module.
+

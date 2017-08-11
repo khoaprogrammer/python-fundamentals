@@ -1,0 +1,48 @@
+1
+00:00:01,000 --> 00:00:07,000
+Bool values are commonly produced by Python's relational operators, which can be used for comparing objects.
+
+2
+00:00:07,000 --> 00:00:12,000
+The relational operators are sometimes called the comparison operators.
+
+3
+00:00:12,000 --> 00:00:19,000
+These include value equality and inequality, less-than, greater-than, less-than or equal to, and greater-
+
+4
+00:00:19,000 --> 00:00:27,000
+than or equal to. Two of the most widely used relational operators are Python's equality and inequality
+
+5
+00:00:27,000 --> 00:00:31,000
+tests, which actually test for equivalence or inequivalence of values.
+
+6
+00:00:31,000 --> 00:00:36,000
+That is two objects are equivalent if one could be used in place of the other.
+
+7
+00:00:36,000 --> 00:00:40,000
+We'll learn more about the notion of object equivalence later in the course.
+
+8
+00:00:40,000 --> 00:00:44,000
+For now, we'll simply compare integers.
+
+9
+00:00:44,000 --> 00:00:55,000
+Let's start by assigning or binding a value to a variable g. We test for equality with a double equals operator
+
+10
+00:00:55,000 --> 00:01:05,000
+or for inequality using the not equals operator. We can also compare the order of quantity using the so-
+
+11
+00:01:05,000 --> 00:01:21,000
+called rich comparison operators less-than, greater-than, less-than or equal to, and greater-than
+
+12
+00:01:21,000 --> 00:59:00,000
+or equal to.
+

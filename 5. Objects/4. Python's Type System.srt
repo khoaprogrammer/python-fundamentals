@@ -1,0 +1,60 @@
+1
+00:00:02,000 --> 00:00:06,000
+Programming languages can be distinguished by several characteristics, but one of the most important
+
+2
+00:00:06,000 --> 00:00:13,000
+is the nature of their type systems. Python can be characterized as having a dynamic and strong type system.
+
+3
+00:00:13,000 --> 00:00:15,000
+Let's investigate what that means.
+
+4
+00:00:15,000 --> 00:00:20,000
+Dynamic typing means that the type of an object reference isn't resolved until the program is running
+
+5
+00:00:20,000 --> 00:00:24,000
+and needn't be specified up front when the program is written.
+
+6
+00:00:24,000 --> 00:00:31,000
+Take a look at this simple function for adding two objects. Nowhere in this definition do we mention any types.
+
+7
+00:00:31,000 --> 00:00:38,000
+We can use add with integers, floats, strings, or indeed any type for which the addition operator has been
+
+8
+00:00:38,000 --> 00:00:44,000
+defined. These examples illustrate the dynamism of the type system.
+
+9
+00:00:44,000 --> 00:00:51,000
+The two arguments A and B of the add function can reference any type of object.
+
+10
+00:00:51,000 --> 00:00:56,000
+The term strong type system is less rigorously defined than dynamic, but a common definition is that the
+
+11
+00:00:56,000 --> 00:01:01,000
+language will not in general implicitly convert objects between types.
+
+12
+00:01:01,000 --> 00:01:06,000
+The strength of the Python type system can be demonstrated by attempting to add types for which addition
+
+13
+00:01:06,000 --> 00:01:12,000
+has not been defined such as strings and floats. This produces a type error because Python will not in general
+
+14
+00:01:12,000 --> 00:01:17,000
+perform implicit conversions between object types or otherwise attempt to coerce one type to another,
+
+15
+00:01:17,000 --> 00:59:00,000
+the exception being the conversion to bool used for if statements and while-loop predicates.
+

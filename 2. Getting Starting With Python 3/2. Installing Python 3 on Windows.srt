@@ -1,0 +1,92 @@
+1
+00:00:02,000 --> 00:00:08,000
+Now we'll demonstrate how to install Python 3 on Windows.
+
+2
+00:00:08,000 --> 00:00:16,000
+For Windows you'll need to visit the official Python website at python.org and then head to the Download
+
+3
+00:00:16,000 --> 00:00:26,000
+page by clicking on the link to the left. For Windows you should choose one of the MSI Installers depending
+
+4
+00:00:26,000 --> 00:00:45,000
+on whether you're running on a 32- or 64-bit platform. Download and run the installer.
+
+5
+00:00:45,000 --> 00:00:53,000
+In the installer decide whether you want to install Python only for yourself or for all users, and choose
+
+6
+00:00:53,000 --> 00:01:00,000
+a location for the Python distribution. The defaults will be in Python33 in the root of the C drive.
+
+7
+00:01:00,000 --> 00:01:05,000
+We don't recommend installing Python into program files because the virtualized file store used to isolate
+
+8
+00:01:05,000 --> 00:01:10,000
+applications from each other in Windows Vista and above can interfere with easily installing third-
+
+9
+00:01:10,000 --> 00:01:20,000
+party Python packages. On the Customize Python page of the wizard, we recommend keeping the defaults,
+
+10
+00:01:20,000 --> 00:01:29,000
+which use less than 40 MB of space. In addition to installing the Python runtime standard library, the
+
+11
+00:01:29,000 --> 00:01:38,000
+installer will register various file types such as PY files with the Python interpreter.
+
+12
+00:01:38,000 --> 00:01:43,000
+Once Python has been installed, you'll need to add Python to your system path environment variable.
+
+13
+00:01:43,000 --> 00:01:51,000
+To do this, from the Control Panel choose System and Security and then System.
+
+14
+00:01:51,000 --> 00:01:56,000
+Using the test pane on the left choose advanced system settings to open the advanced tab of the System Properties
+
+15
+00:01:56,000 --> 00:02:01,000
+dialog. Click Environment Variables to open the child dialog.
+
+16
+00:02:01,000 --> 00:02:08,000
+If you have administrative privileges, you should be able to add the path's Python33 and Python33\Scripts
+
+17
+00:02:08,000 --> 00:02:13,000
+to the semicolon separated list of entries associated with the path system variable.
+
+18
+00:02:13,000 --> 00:02:22,000
+If not, you should be able to create or append to a path variable specific to your user containing the same value.
+
+19
+00:02:22,000 --> 00:02:33,000
+Click OK once, twice, and three times to exit the dialogs.
+
+20
+00:02:33,000 --> 00:02:39,000
+Now open a new console window, either PowerShell or CMD will work fine, and verify that you can run Python
+
+21
+00:02:39,000 --> 00:02:46,000
+from the command line. Welcome to Python! The triple arrow prompt shows you that Python is waiting for
+
+22
+00:02:46,000 --> 00:02:52,000
+your input. At this point you might want to skip forward while we show you how to install Python on Linux
+
+23
+00:02:52,000 --> 00:59:00,000
+and Mac.
+

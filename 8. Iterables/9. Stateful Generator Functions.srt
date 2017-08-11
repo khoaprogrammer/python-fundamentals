@@ -1,0 +1,224 @@
+1
+00:00:01,000 --> 00:00:07,000
+Now we'll look at how our generator functions, which resume execution each time the next value is requested,
+
+2
+00:00:07,000 --> 00:00:14,000
+can maintain state in local variables. In the process of doing so, our generators will be both more interesting
+
+3
+00:00:14,000 --> 00:00:20,000
+and useful. The resumable nature of generator functions can result in complex control flow, so we'll
+
+4
+00:00:20,000 --> 00:00:25,000
+be watching the execution of these generators in a graphical Python debugger.
+
+5
+00:00:25,000 --> 00:00:31,000
+I'll be using PyCharm, but you can use any Python debugger to trace generator execution.
+
+6
+00:00:31,000 --> 00:00:36,000
+We'll be showing two generators which demonstrate lazy evaluation, which will then combine into a generator
+
+7
+00:00:36,000 --> 00:00:40,000
+pipeline.
+
+8
+00:00:40,000 --> 00:00:45,000
+The first generator we'll look at is called take, which retrieves a specified number of elements from
+
+9
+00:00:45,000 --> 00:00:51,000
+the front of a sequence. Note that the function defines a generator because it contains at least one yield
+
+10
+00:00:51,000 --> 00:00:57,000
+statement. This particular generator also contains a return statement to terminate the stream of yielded
+
+11
+00:00:57,000 --> 00:01:04,000
+values. The generator simply uses a counter to keep track of how many elements have been yielded so far
+
+12
+00:01:04,000 --> 00:01:11,000
+ending the sequence when we reach a specified count. Since generators are lazy and only produce values
+
+13
+00:01:11,000 --> 00:01:16,000
+on request, we'll drive execution with a for loop and a run_take function.
+
+14
+00:01:16,000 --> 00:01:22,000
+In run_take we create a source list called items, which we pass to our generator function along with a count
+
+15
+00:01:22,000 --> 00:01:28,000
+of 3. Internally the for loop will use the iterator protocol to retrieve values from the take generator
+
+16
+00:01:28,000 --> 00:01:38,000
+until it terminates. Once execution begins, the for loop in run_take requests a value from take, which
+
+17
+00:01:38,000 --> 00:01:45,000
+runs until it encounters the yield statement. At this point control returns to run_take, which prints
+
+18
+00:01:45,000 --> 00:01:51,000
+the value until we get to the next iteration of what is in effect the outer for loop.
+
+19
+00:01:51,000 --> 00:01:56,000
+Each iteration of the outer loop causes execution to be transferred back into run_take just sufficiently
+
+20
+00:01:56,000 --> 00:02:05,000
+to yield the next value. Eventually the counter variable is equal to the counter argument and will literally
+
+21
+00:02:05,000 --> 00:02:12,000
+return from run_take. Behind the scenes this raises a StopIteration exception, which is caught by the
+
+22
+00:02:12,000 --> 00:02:19,000
+internal machinery of the for loop in run_take. This is the signal that take has done its work, so the for
+
+23
+00:02:19,000 --> 00:02:26,000
+loop exits, and the program completes. Now let's bring our second generator into the picture.
+
+24
+00:02:26,000 --> 00:02:32,000
+This generator function called distinct eliminates duplicate items by keeping track of which elements
+
+25
+00:02:32,000 --> 00:02:39,000
+it's already seen in a set. In this generator we also make use of a control flow construct we have not previously
+
+26
+00:02:39,000 --> 00:02:46,000
+seen, the continue keyword. The continue statement finishes the current iteration of the loop and begins
+
+27
+00:02:46,000 --> 00:02:52,000
+the next iteration immediately. When executed in this case, execution will be transferred back to the
+
+28
+00:02:52,000 --> 00:02:58,000
+for statement, but as with break it can also be used with while loops.
+
+29
+00:02:58,000 --> 00:03:06,000
+In this case, the continue is used to skip any values which have already been yielded.
+
+30
+00:03:06,000 --> 00:03:12,000
+As execution starts, the for loop and run_distinct() request a value from distinct.
+
+31
+00:03:12,000 --> 00:03:17,000
+This runs until it reaches yield, which on this iteration simply returns the first item retrieved by this
+
+32
+00:03:17,000 --> 00:03:24,000
+inner for loop form the items list. Control flow transfers to run_distinct, which prints the value and
+
+33
+00:03:24,000 --> 00:03:32,000
+proceeds with its next iteration. Note how when execution of distinct resumes we actually complete the
+
+34
+00:03:32,000 --> 00:03:37,000
+work of the previous iteration by remembering the value just yielded before getting on with the most recently
+
+35
+00:03:37,000 --> 00:03:56,000
+requested value. We can do this because item is not reassigned until we get back to the for statement.
+
+36
+00:03:56,000 --> 00:04:03,000
+On the third iteration, the next item retrieved from the source is already present in the seen set.
+
+37
+00:04:03,000 --> 00:04:08,000
+Control enters the if block, and the continue statement is executed transferring control back to the
+
+38
+00:04:08,000 --> 00:04:19,000
+beginning of the innermost loop. Eventually the items list is exhausted.
+
+39
+00:04:19,000 --> 00:04:27,000
+The generator returns implicitly at the end, the for loop and run_distinct completes, and the program exits.
+
+40
+00:04:27,000 --> 00:04:33,000
+Now we'll arrange both of our generators into a lazy pipeline using take and distinct together to fetch
+
+41
+00:04:33,000 --> 00:04:42,000
+the first three unique items from a collection. A coherent verbal description of step-by-step execution
+
+42
+00:04:42,000 --> 00:04:48,000
+of a generator pipeline may not even be possible, but that's not going to stop us trying.
+
+43
+00:04:48,000 --> 00:04:54,000
+When execution starts, distinct must be called first in order to produce the argument for take.
+
+44
+00:04:54,000 --> 00:04:59,000
+Of course distinct returns the generator object over which take will be iterating.
+
+45
+00:04:59,000 --> 00:05:04,000
+In turn, the generator object returned by take will be iterated over by the for loop in our run_pipline
+
+46
+00:05:04,000 --> 00:05:10,000
+driver function. This part of the process is hidden from the view of the debugger.
+
+47
+00:05:10,000 --> 00:05:16,000
+When the outermost loop in run_pipeline requests its first value, execution is transferred to take.
+
+48
+00:05:16,000 --> 00:05:21,000
+Remember, the iterable over which take is looping is the generator produced by distinct.
+
+49
+00:05:21,000 --> 00:05:27,000
+When the for loop and take request the first value from this generator, control is transferred to distinct.
+
+50
+00:05:27,000 --> 00:05:32,000
+Distinct now runs until it reaches the yield at which point it is returning the first item from the source
+
+51
+00:05:32,000 --> 00:05:40,000
+list, 3. The value is yielded back to the for loop intake, which executes until it in turn yields the value
+
+52
+00:05:40,000 --> 00:05:48,000
+back to the loop in run_pipeline, which only now starts its first iteration printing the first value.
+
+53
+00:05:48,000 --> 00:05:52,000
+Execution continues in this interleaved manner until the first three distinct values have been yielded
+
+54
+00:05:52,000 --> 00:05:59,000
+and printed. The advantage of this approach is that distinct only does just enough work to yield the first
+
+55
+00:05:59,000 --> 00:06:03,000
+three distinct values rather than processing its whole source list.
+
+56
+00:06:03,000 --> 00:59:00,000
+It pays to be lazy.
+

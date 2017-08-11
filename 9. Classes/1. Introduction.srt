@@ -1,0 +1,76 @@
+1
+00:00:02,000 --> 00:00:07,000
+Hello. My name is Austin Bingham. Welcome to the eighth module of the Python Fundamentals course.
+
+2
+00:00:07,000 --> 00:00:11,000
+Here we'll cover classes, Python's tools for creating new types.
+
+3
+00:00:11,000 --> 00:00:15,000
+You can get a long way in Python using the built-in scaler and collection types.
+
+4
+00:00:15,000 --> 00:00:19,000
+For many problems, the built-in types and those available in the Python Standard library are completely
+
+5
+00:00:19,000 --> 00:00:24,000
+sufficient. Sometimes though they aren't quite what's required, and the ability to create custom types
+
+6
+00:00:24,000 --> 00:00:26,000
+is where classes come in.
+
+7
+00:00:26,000 --> 00:00:32,000
+As we've seen, all objects in Python have a type, and when we report that type using the type built-in function,
+
+8
+00:00:32,000 --> 00:00:36,000
+the result is couched in terms of class.
+
+9
+00:00:36,000 --> 00:00:41,000
+Classes are a means of defining the structure and behavior of objects at the time we create the object.
+
+10
+00:00:41,000 --> 00:00:44,000
+Generally speaking, the type of an object is fixed throughout its lifetime.
+
+11
+00:00:44,000 --> 00:00:50,000
+As such, classes act as a sort of template or pattern according to which new objects are constructed.
+
+12
+00:00:50,000 --> 00:00:54,000
+The class of an object controls its initialization in which attributes and methods are available through
+
+13
+00:00:54,000 --> 00:00:59,000
+the object. For example, on a string object the methods we can use on that object such as split are defined
+
+14
+00:00:59,000 --> 00:01:03,000
+in the str class.
+
+15
+00:01:03,000 --> 00:01:07,000
+Classes are a key piece of machinery for object-oriented programming, and although it's often true that
+
+16
+00:01:07,000 --> 00:01:12,000
+OOP is useful for making complex problems more tractable, it also commonly has the effect of making the
+
+17
+00:01:12,000 --> 00:01:18,000
+solution to simple problems unnecessarily complex. A great thing about Python is that it's highly object
+
+18
+00:01:18,000 --> 00:01:21,000
+oriented without forcing you to deal with classes until you really need them.
+
+19
+00:01:21,000 --> 00:59:00,000
+This sets the language starkly apart from Java and C#.
+

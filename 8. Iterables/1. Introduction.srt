@@ -1,0 +1,12 @@
+1
+00:00:01,000 --> 00:00:07,000
+Hello. My name is Robert Smallshire. Welcome to the seventh module of the Python Fundamentals course
+
+2
+00:00:07,000 --> 00:00:13,000
+where we'll cover comprehensions, iterable objects and iterators, lazy evaluation with generators,
+
+3
+00:00:13,000 --> 00:59:00,000
+and various tools included with Python for working with iterable objects.
+

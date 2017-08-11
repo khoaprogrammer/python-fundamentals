@@ -1,0 +1,168 @@
+1
+00:00:01,000 --> 00:00:06,000
+As we have seen, no type declarations are necessary, and variables are essentially just untyped name
+
+2
+00:00:06,000 --> 00:00:13,000
+bindings to objects. As such, they can be rebound or reassigned as often as necessary, even to objects
+
+3
+00:00:13,000 --> 00:00:18,000
+of different types. But when we bind a name to an object, where is that binding stored?
+
+4
+00:00:18,000 --> 00:00:22,000
+To answer that question, we must look at scopes and scoping rules in Python.
+
+5
+00:00:22,000 --> 00:00:25,000
+There are four main types of scope in Python arranged in a hierarchy.
+
+6
+00:00:25,000 --> 00:00:29,000
+Each scope is a context in which names are stored in which they can be looked up.
+
+7
+00:00:29,000 --> 00:00:36,000
+The four scopes from narrowest to broadest are: Local, those names defined inside the current function.
+
+8
+00:00:36,000 --> 00:00:40,000
+Enclosing, those names defined inside any and all enclosing functions.
+
+9
+00:00:40,000 --> 00:00:45,000
+This scope isn't important for the contents of this Python fundamentals course.
+
+10
+00:00:45,000 --> 00:00:50,000
+Global, those names defined at the top level of a module. Each module brings with it a new global scope.
+
+11
+00:00:50,000 --> 00:00:56,000
+And finally Built-in, those names built into the Python language through the special built-ins module.
+
+12
+00:00:56,000 --> 00:01:03,000
+Together these scopes comprise the LEGB rule. Names are looked up in the narrowest relevant context.
+
+13
+00:01:03,000 --> 00:01:08,000
+It's important to note that scopes in Python do not correspond to the source code blocks as demarcated
+
+14
+00:01:08,000 --> 00:01:14,000
+by indentation. For-loops, with-blocks, and the like do not introduce new nested scopes.
+
+15
+00:01:14,000 --> 00:01:19,000
+Consider our words.py module. It contains the following global names:
+
+16
+00:01:19,000 --> 00:01:28,000
+Main bound by the def main statement, sys bound when sys is imported, __name__ provided by the Python runtime,
+
+17
+00:01:28,000 --> 00:01:36,000
+urlopen bound from the urllib request module, fetch_words bound by the def fetch_words statement, and
+
+18
+00:01:36,000 --> 00:01:41,000
+print_items bound by the def print_items statement. Module scope name bindings are typically introduced
+
+19
+00:01:41,000 --> 00:01:46,000
+by import statements and function or class definitions. It is possible to use other objects at module
+
+20
+00:01:46,000 --> 00:01:53,000
+scope, and this is typically used for constants, although it can be used for variables.
+
+21
+00:01:53,000 --> 00:01:59,000
+Within the fetch_words function we have the six local names: Word bound by the inner for-loop, line_words
+
+22
+00:01:59,000 --> 00:02:06,000
+bound by assignment, line bound by the outer for-loop, story_words bound by assignment, url bound by
+
+23
+00:02:06,000 --> 00:02:10,000
+the formal function argument, and story bound by the with statement.
+
+24
+00:02:10,000 --> 00:02:15,000
+Each of these is brought into existence at first use and continues to live within the function scope until
+
+25
+00:02:15,000 --> 00:02:19,000
+the function completes at which point the references will be destroyed.
+
+26
+00:02:19,000 --> 00:02:24,000
+Very occasionally we need to rebind a global name at module scope from within a function.
+
+27
+00:02:24,000 --> 00:02:28,000
+Consider the following simple module.
+
+28
+00:02:28,000 --> 00:02:33,000
+If we save this module in scopes.py, we can import it into the REPL for experimentation.
+
+29
+00:02:33,000 --> 00:02:38,000
+When show_count() is called, Python looks up the count name in the local namespace L, doesn't find it,
+
+30
+00:02:38,000 --> 00:02:44,000
+so it looks in the next most outer namespace, in this case the global module namespace G where it finds the
+
+31
+00:02:44,000 --> 00:02:48,000
+name count and prints the referred object.
+
+32
+00:02:48,000 --> 00:02:53,000
+Now we call set_count with a new value and call show_count again.
+
+33
+00:02:53,000 --> 00:02:57,000
+You might be surprised that show_count displays 0 after the call to set_count, so let's work through what's
+
+34
+00:02:57,000 --> 00:02:59,000
+happening.
+
+35
+00:02:59,000 --> 00:03:04,000
+When we call set_count, the assignment count = c binds the object referred to by the formal argument C to
+
+36
+00:03:04,000 --> 00:03:11,000
+a new name count in the innermost namespace context, which is the scope of the current function.
+
+37
+00:03:11,000 --> 00:03:16,000
+No lookup is performed for the global count at module scope. We have created a new variable which shadows
+
+38
+00:03:16,000 --> 00:03:22,000
+and thereby prevents access to the global of the same name. To avoid this situation, we need to instruct
+
+39
+00:03:22,000 --> 00:03:29,000
+Python to consider use of the count name in the set_count function to resolve to the count in the module namespace.
+
+40
+00:03:29,000 --> 00:03:35,000
+We can do this by using the global keyword. Let's modify set_count to do so.
+
+41
+00:03:35,000 --> 00:03:40,000
+Quit and restart the Python interpreter and exercise our revised module, which now demonstrates the
+
+42
+00:03:40,000 --> 00:59:00,000
+required behavior.
+

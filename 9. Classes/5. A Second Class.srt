@@ -1,0 +1,64 @@
+1
+00:00:01,000 --> 00:00:05,000
+One of the things we'd like to do with our flight is accept seat bookings.
+
+2
+00:00:05,000 --> 00:00:09,000
+To do that, we need to know the seating layout, and for that we need to know the type of aircraft.
+
+3
+00:00:09,000 --> 00:00:14,000
+Let's make another class to model different kinds of aircraft.
+
+4
+00:00:14,000 --> 00:00:19,000
+The initializer creates four attributes for the aircraft: Registration number, a model name, the number
+
+5
+00:00:19,000 --> 00:00:25,000
+of rows of seats, and the number of seats per row. In a production code scenario we would validate these
+
+6
+00:00:25,000 --> 00:00:31,000
+arguments to ensure for example that the number of rows was not negative.
+
+7
+00:00:31,000 --> 00:00:34,000
+This is straightforward enough, but for the seating plan we'd like something a little more inline with
+
+8
+00:00:34,000 --> 00:00:40,000
+our booking system. Rows in aircraft are numbered from 1, and the seats within each row are designated
+
+9
+00:00:40,000 --> 00:00:46,000
+with letters from an alphabet which omits I to avoid confusion with 1.
+
+10
+00:00:46,000 --> 00:00:51,000
+We'll add a seating plan method, which returns the allowed rows and seats as tuples containing a range
+
+11
+00:00:51,000 --> 00:01:00,000
+object and a string of seat letters. It's worth pausing for a second to make sure you understand how this
+
+12
+00:01:00,000 --> 00:01:05,000
+function works. The range call produces an iterable sequence of row numbers up to the number of rows in
+
+13
+00:01:05,000 --> 00:01:11,000
+the plane. The string and its slice method return a string with one character per row.
+
+14
+00:01:11,000 --> 00:01:20,000
+These two objects, the range and the string, are bundled up into a tuple.
+
+15
+00:01:20,000 --> 00:01:28,000
+With that in mind, let's construct a plane. See how we use keyword arguments for the rows and seats for documentary
+
+16
+00:01:28,000 --> 00:59:00,000
+purposes. Also recall that ranges are half open, so 23 is intentionally one beyond the end of the range.
+

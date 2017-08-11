@@ -1,0 +1,80 @@
+1
+00:00:01,000 --> 00:00:06,000
+Now we've examined some basic built-in types. We'll look at two important control flow structures, which
+
+2
+00:00:06,000 --> 00:00:13,000
+depend on conversions to the bool type, while loops, but first if statements.
+
+3
+00:00:13,000 --> 00:00:17,000
+Conditional statements allow us to branch execution based on the value of an expression.
+
+4
+00:00:17,000 --> 00:00:23,000
+The form of the statement is the if keyword followed by an expression terminated by a colon to introduce
+
+5
+00:00:23,000 --> 00:00:30,000
+a new block. The expression is converted to bool as if by the bool constructor.
+
+6
+00:00:30,000 --> 00:00:35,000
+Let's try this at the REPL.
+
+7
+00:00:35,000 --> 00:00:41,000
+Remembering to indent four spaces within the block, we add some code to be executed if the condition is
+
+8
+00:00:41,000 --> 00:00:54,000
+True followed by a blank line to terminate the block at which point the block will execute because self-
+
+9
+00:00:54,000 --> 00:01:12,000
+evidently the condition is true. Conversely, if the condition is False, the code in the block does not execute.
+
+10
+00:01:12,000 --> 00:01:17,000
+Because the expression used with the if statement will be converted to bool just as if the bool constructor
+
+11
+00:01:17,000 --> 00:01:40,000
+had been used, this form (Typing) is exactly equivalent to this form. (Typing)
+
+12
+00:01:40,000 --> 00:01:46,000
+Thanks to this useful shorthand, explicit conversion to bool using the bool constructor is rarely used
+
+13
+00:01:46,000 --> 00:01:53,000
+in Python. The if statement supports an optional else clause, which goes in a block introduced by the else
+
+14
+00:01:53,000 --> 00:02:03,000
+keyword followed by a colon, which is indented to the same level as the if keyword.
+
+15
+00:02:03,000 --> 00:02:25,000
+To start the else block in this case, we just omit the indentation after the three dots. (Typing)
+
+16
+00:02:25,000 --> 00:02:33,000
+For multiple conditions, you might be tempted to do something like this, nesting if statements.
+
+17
+00:02:33,000 --> 00:02:38,000
+Whenever you find yourself with an else block containing a nested if statement like this, you should consider
+
+18
+00:02:38,000 --> 00:02:50,000
+instead using Python's elif keyword, which is a combined else/if.
+
+19
+00:02:50,000 --> 00:03:00,000
+As The Zen of Python reminds us, flat is better than nested. This version is altogether easier to read.
+
+20
+00:03:00,000 --> 00:59:00,000
+We'll quickly demonstrate it at the REPL. (Typing)
+

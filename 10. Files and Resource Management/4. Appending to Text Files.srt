@@ -1,0 +1,36 @@
+1
+00:00:02,000 --> 00:00:07,000
+Sometimes we would like to append to an existing file. We can do that by opening the file with mode A, which
+
+2
+00:00:07,000 --> 00:00:13,000
+opens the file for writing, appending to the end of the file if it already exists.
+
+3
+00:00:13,000 --> 00:00:19,000
+In this example we combine that with T to be explicit about using text mode.
+
+4
+00:00:19,000 --> 00:00:24,000
+Although there is no writeline method in Python, there is a writelines method, which writes an iterable
+
+5
+00:00:24,000 --> 00:00:31,000
+series of strings to a stream. If you want line endings on your strings, you must provide them yourself.
+
+6
+00:00:31,000 --> 00:00:37,000
+This seems odd at first, but it preserves symmetry with readlines whilst also giving us the flexibility
+
+7
+00:00:37,000 --> 00:00:42,000
+of using writelines to write any iterable series of strings to a file.
+
+8
+00:00:42,000 --> 00:00:48,000
+Notice that only three lines are completed in this example. I say completed because the file we're appending
+
+9
+00:00:48,000 --> 00:59:00,000
+to doesn't end with a newline.
+

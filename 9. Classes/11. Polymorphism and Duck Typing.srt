@@ -1,0 +1,104 @@
+1
+00:00:01,000 --> 00:00:06,000
+Polymorphism is a programing language feature which allows us to use objects of different types through
+
+2
+00:00:06,000 --> 00:00:12,000
+a uniform interface. The concept of polymorphism applies to functions and more complex objects.
+
+3
+00:00:12,000 --> 00:00:16,000
+We've just seen an example of polymorphism with the card printing example.
+
+4
+00:00:16,000 --> 00:00:21,000
+The make_boarding_card method didn't need to know about an actual or as we say concrete card printing
+
+5
+00:00:21,000 --> 00:00:28,000
+type, only the abstract details of its interface, essentially just the order of its arguments.
+
+6
+00:00:28,000 --> 00:00:35,000
+Replacing our console card printer with the putative HTML card printer would exercise polymorphism.
+
+7
+00:00:35,000 --> 00:00:41,000
+Polymorphism in Python is achieved through duck typing. Duck typing is in turn named after the duck test
+
+8
+00:00:41,000 --> 00:00:47,000
+attributed to James William Riley the American poet. "When I see a bird that walks like a duck and swims
+
+9
+00:00:47,000 --> 00:00:51,000
+like a duck and quacks like a duck, I call that bird a duck."
+
+10
+00:00:51,000 --> 00:00:56,000
+Duck typing where an object's fitness for a particular use is only determined at runtime is the cornerstone
+
+11
+00:00:56,000 --> 00:01:02,000
+of Python's object system. This is in contrast to statically typed languages where a compiler determines
+
+12
+00:01:02,000 --> 00:01:07,000
+if an object can be used. And in particular, it means that an object's suitability is not based on inheritance
+
+13
+00:01:07,000 --> 00:01:15,000
+hierarchies, base classes, or anything except the attributes an object has at the time of use.
+
+14
+00:01:15,000 --> 00:01:21,000
+Let's return to our aircraft class. The design of this class is somewhat flawed in that objects instantiated
+
+15
+00:01:21,000 --> 00:01:26,000
+using it depend on being supplied with a seating configuration that matches the aircraft model, which
+
+16
+00:01:26,000 --> 00:01:31,000
+for the purposes of this exercise we assumed is fixed per model.
+
+17
+00:01:31,000 --> 00:01:36,000
+Better and simpler perhaps to get rid of the Aircraft class entirely and make separate classes for each
+
+18
+00:01:36,000 --> 00:01:39,000
+specific model of aircraft with a fixed seating configuration.
+
+19
+00:01:39,000 --> 00:01:48,000
+Here is an AirbusA319, and here's a Boeing777. These two aircraft classes have no explicit relationship
+
+20
+00:01:48,000 --> 00:01:53,000
+to each other or to our original aircraft class beyond having identical interfaces to each other with
+
+21
+00:01:53,000 --> 00:01:57,000
+the exception of the initializer, which now takes fewer arguments.
+
+22
+00:01:57,000 --> 00:02:03,000
+As such, we can use these new types in place of each other. Let's change our make_flight() method into
+
+23
+00:02:03,000 --> 00:02:09,000
+make_flights() to use them. The different types of aircraft work fine when used with flight because they
+
+24
+00:02:09,000 --> 00:02:19,000
+both quack like ducks or fly like planes or something. Duck typing and polymorphism is very important
+
+25
+00:02:19,000 --> 00:02:24,000
+in Python. In fact, it's the basis for the collection protocols we discussed such as iterator, iterable,
+
+26
+00:02:24,000 --> 00:59:00,000
+and sequence.
+

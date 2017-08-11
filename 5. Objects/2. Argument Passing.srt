@@ -1,0 +1,128 @@
+1
+00:00:02,000 --> 00:00:06,000
+Let's look at how all of this relates to function arguments and return values.
+
+2
+00:00:06,000 --> 00:00:11,000
+Let's define a function at the REPL, which appends a value to a list and prints the modified list.
+
+3
+00:00:11,000 --> 00:00:16,000
+First the list and then a function modify, which appends to and prints the list.
+
+4
+00:00:16,000 --> 00:00:23,000
+The function accepts a single formal argument named K. We call modify passing our list M as a the actual
+
+5
+00:00:23,000 --> 00:00:27,000
+argument, which indeed prints the modified list with four elements.
+
+6
+00:00:27,000 --> 00:00:31,000
+But what does our list reference outside the function now refer to?
+
+7
+00:00:31,000 --> 00:00:39,000
+The list referred to by M has been modified because it is the self-same list referred to by K inside the function.
+
+8
+00:00:39,000 --> 00:00:43,000
+When we pass an object reference to a function, we're essentially assigning from the actual argument
+
+9
+00:00:43,000 --> 00:00:48,000
+reference, in this case M, to the formal argument reference, in this case K.
+
+10
+00:00:48,000 --> 00:00:53,000
+As we have seen, assignment causes the reference being assigned to refer to the same object as the reference
+
+11
+00:00:53,000 --> 00:01:00,000
+being assigned from. This is exactly what's going on here. If you want a function to modify a copy of an object,
+
+12
+00:01:00,000 --> 00:01:06,000
+it's the responsibility of the function to do the copying.
+
+13
+00:01:06,000 --> 00:01:11,000
+Let's look at another example, first a new list F that refers the three elements, then a function which
+
+14
+00:01:11,000 --> 00:01:18,000
+replaces the list, which we now call with the actual argument F.
+
+15
+00:01:18,000 --> 00:01:25,000
+This is much as we'd expect; however, what's the value of F? F still refers to the original unmodified list.
+
+16
+00:01:25,000 --> 00:01:28,000
+This time the function did not modify the object that was passed in.
+
+17
+00:01:28,000 --> 00:01:30,000
+What's going on?
+
+18
+00:01:30,000 --> 00:01:36,000
+Well, the object reference named F was assigned to the formal argument named G, so G and F did indeed refer
+
+19
+00:01:36,000 --> 00:01:42,000
+to the same object just as in the previous example. However, on the first line of the function we reassigned
+
+20
+00:01:42,000 --> 00:01:49,000
+the reference G to point it to a newly constructed list 17, 28, 45, so within the function the reference
+
+21
+00:01:49,000 --> 00:01:56,000
+to the original 14, 23, 37 list was overwritten, although the unmodified object itself was still pointed
+
+22
+00:01:56,000 --> 00:02:02,000
+to by the F reference outside the function. So, we see that it's quite possible to modify the objects through
+
+23
+00:02:02,000 --> 00:02:08,000
+function argument references, but also possible to rebind the argument reference to new values.
+
+24
+00:02:08,000 --> 00:02:13,000
+If you wanted to change the contents of the list and have the changes seen outside the function, you could
+
+25
+00:02:13,000 --> 00:02:24,000
+modify the contents of the list like this, (Typing) and indeed the contents of F have been modified.
+
+26
+00:02:24,000 --> 00:02:28,000
+Function arguments are transferred by what is called pass by object reference.
+
+27
+00:02:28,000 --> 00:02:32,000
+This means that the value of the reference is copied into the function argument, not the value of the referred
+
+28
+00:02:32,000 --> 00:02:37,000
+object. No objects are copied.
+
+29
+00:02:37,000 --> 00:02:42,000
+The return statement uses the same pass by object reference semantics as function arguments.
+
+30
+00:02:42,000 --> 00:02:46,000
+We can demonstrate this simply by writing a simple function which returns its only argument.
+
+31
+00:02:46,000 --> 00:02:51,000
+Creating an object such as a list and passing it through this simple function returns the very same object
+
+32
+00:02:51,000 --> 00:59:00,000
+we passed in showing that no copies of the list were made.
+

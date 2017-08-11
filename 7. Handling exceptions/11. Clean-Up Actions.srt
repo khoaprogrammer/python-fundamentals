@@ -1,0 +1,64 @@
+1
+00:00:01,000 --> 00:00:06,000
+Sometimes you need to perform a cleanup action irrespective of whether an operation succeeds.
+
+2
+00:00:06,000 --> 00:00:11,000
+In a later module we'll introduce context managers, which are the modern solution to this common situation,
+
+3
+00:00:11,000 --> 00:00:16,000
+but here we'll introduce the try…finally construct since creating a context manager can be overkill
+
+4
+00:00:16,000 --> 00:00:24,000
+in simple cases. And in any case, an understanding of try…finally is useful for making your own context managers.
+
+5
+00:00:24,000 --> 00:00:29,000
+Consider this function, which uses various facilities of the Standard Library's OS module to change
+
+6
+00:00:29,000 --> 00:00:33,000
+the current working directory, create a new directory at that location, and then restore to the original
+
+7
+00:00:33,000 --> 00:00:39,000
+working directory. At first sight this seems reasonable, but should the call to os.mkdir fail for some
+
+8
+00:00:39,000 --> 00:00:44,000
+reason, the current working directory of the Python process won't be restored to its original value,
+
+9
+00:00:44,000 --> 00:00:49,000
+and the make_at function will have had an unintended side effect.
+
+10
+00:00:49,000 --> 00:00:54,000
+To fix this, we'd like the function to restore the original current working directory under all circumstances.
+
+11
+00:00:54,000 --> 00:00:59,000
+We can achieve this with a try…finally block. Code in the finally-block is executed whether execution
+
+12
+00:00:59,000 --> 00:01:06,000
+leaves the try-block normally by reaching the end of the block or exceptionally by an exception being raised.
+
+13
+00:01:06,000 --> 00:01:12,000
+This construct can be combined with except blocks, here used to add a simple further logging facility.
+
+14
+00:01:12,000 --> 00:01:18,000
+Now if the os.mkdir call raises an OSError, the OS handler will be run, and the exception will be re-raised.
+
+15
+00:01:18,000 --> 00:01:23,000
+But since the finally block is always run no matter how the try block ends, we can be sure that the final directory
+
+16
+00:01:23,000 --> 00:59:00,000
+change will take place in all circumstances.
+

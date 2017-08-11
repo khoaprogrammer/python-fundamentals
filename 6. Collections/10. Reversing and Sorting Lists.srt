@@ -1,0 +1,108 @@
+1
+00:00:01,000 --> 00:00:06,000
+Before we move on from lists, let's look at two operations which rearrange the elements in place, reversing
+
+2
+00:00:06,000 --> 00:00:13,000
+and sorting. A list can be reversed in place simply by calling its reverse() method.
+
+3
+00:00:13,000 --> 00:00:19,000
+Similarly, a list can be sorted in place using the sort() method.
+
+4
+00:00:19,000 --> 00:00:24,000
+The sort() method accepts two optional arguments, key and reverse.
+
+5
+00:00:24,000 --> 00:00:29,000
+The latter is self-explanatory, and when set to true gives a descending sort.
+
+6
+00:00:29,000 --> 00:00:35,000
+The key parameter is more interesting. It accepts any callable object, which is then used to extract a
+
+7
+00:00:35,000 --> 00:00:40,000
+key from each item. The items will then be sorted according to the relative ordering of these keys.
+
+8
+00:00:40,000 --> 00:00:45,000
+There are several types of callable objects in Python, although the only one we have encountered so far
+
+9
+00:00:45,000 --> 00:00:51,000
+is the humble function. For example, the built-in len function is a callable object, which is used to determine
+
+10
+00:00:51,000 --> 00:00:56,000
+the length of the collection such as a string. Consider the following list of words:
+
+11
+00:00:56,000 --> 00:01:03,000
+Not perplexing do handwriting family where I illegibly know doctors.
+
+12
+00:01:03,000 --> 00:01:08,000
+By passing a reference to the len function as the key argument to the sort() method of the H list, we can order
+
+13
+00:01:08,000 --> 00:01:15,000
+these words in order of length. Again, we can join the list of words back together with a call to the join
+
+14
+00:01:15,000 --> 00:01:21,000
+operator on a space separator giving the almost sentence I do not know where family doctors illegibly
+
+15
+00:01:21,000 --> 00:01:24,000
+perplexing handwriting.
+
+16
+00:01:24,000 --> 00:01:31,000
+Sometimes an insitu sort or reversal is not what is required. For example, it may cause a function argument
+
+17
+00:01:31,000 --> 00:01:36,000
+to be modified giving the function confusing side effects, which it would not otherwise have.
+
+18
+00:01:36,000 --> 00:01:42,000
+For out of place equivalence of the reverse and sort list methods, you can use the reversed and sorted built-
+
+19
+00:01:42,000 --> 00:01:48,000
+in functions, which return a reverse iterator and a new sorted list respectively.
+
+20
+00:01:48,000 --> 00:01:53,000
+Here we use sorted() to sort a list of numbers, X, which returns a new list, Y.
+
+21
+00:01:53,000 --> 00:02:03,000
+Notice that the original list X is unmodified. Here we use reversed() to reverse a list of numbers, P.
+
+22
+00:02:03,000 --> 00:02:08,000
+Notice how we need to use the list constructor to evaluate the result of reversed.
+
+23
+00:02:08,000 --> 00:02:13,000
+This is because reversed returns an iterator, a topic we will cover in much more detail later.
+
+24
+00:02:13,000 --> 00:02:20,000
+These two functions have the advantage that they'll work on any finite length iterable source object.
+
+25
+00:02:20,000 --> 00:02:24,000
+We've learned a lot about lists in this section together with some more general techniques such as slicing
+
+26
+00:02:24,000 --> 00:02:28,000
+that can be used with other sequences including tuples and strings.
+
+27
+00:02:28,000 --> 00:59:00,000
+Let's move on and look at the next collection type.
+

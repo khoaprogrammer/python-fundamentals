@@ -1,0 +1,204 @@
+1
+00:00:01,000 --> 00:00:05,000
+So, what is Python? Simply put, Python is a programming language.
+
+2
+00:00:05,000 --> 00:00:09,000
+It was initially developed by Guido Van Rossom in the late 1980's in the Netherlands.
+
+3
+00:00:09,000 --> 00:00:14,000
+Guido continues to be actively involved in guiding the development and evolution of the language so much
+
+4
+00:00:14,000 --> 00:00:20,000
+so that he's been given the title Benevolent Dictator for Life, or more commonly BDFL.
+
+5
+00:00:20,000 --> 00:00:25,000
+Python is developed as an open source project and is free to download and use as you wish.
+
+6
+00:00:25,000 --> 00:00:30,000
+The non-profit Python Software Foundation manages Python's intellectual property and plays a strong
+
+7
+00:00:30,000 --> 00:00:35,000
+role in promoting the language and in some cases funding its development.
+
+8
+00:00:35,000 --> 00:00:40,000
+On a technical level, Python is a strongly typed language in the sense that every object in the language
+
+9
+00:00:40,000 --> 00:00:44,000
+has a definite type, and there's generally no way to circumvent that type.
+
+10
+00:00:44,000 --> 00:00:49,000
+At the same time, Python is dynamically typed meaning that there's no type checking of your code prior
+
+11
+00:00:49,000 --> 00:00:54,000
+to running it. This is in contrast to statically typed languages like C++ or Java where a compiler does
+
+12
+00:00:54,000 --> 00:01:00,000
+a lot of type checking for you rejecting programs, which misuse objects.
+
+13
+00:01:00,000 --> 00:01:05,000
+Ultimately, the best description of the Python type system is that it uses duck typing where an object's
+
+14
+00:01:05,000 --> 00:01:13,000
+suitability for a context is only determined at runtime. We'll cover this in more detail in Module 8.
+
+15
+00:01:13,000 --> 00:01:18,000
+Python is a general purpose programming language. It's not intended for use in any particular
+
+16
+00:01:18,000 --> 00:01:22,000
+domain or environment, but instead can be fruitfully used in a wide variety of tasks.
+
+17
+00:01:22,000 --> 00:01:27,000
+There are of course some areas where it's less suitable than others, for example, in extremely time sensitive
+
+18
+00:01:27,000 --> 00:01:33,000
+or memory constrained environments, but for the most part Python is as flexible and adaptable as many
+
+19
+00:01:33,000 --> 00:01:37,000
+modern languages and more so than most.
+
+20
+00:01:37,000 --> 00:01:42,000
+Python is an interpreted language. This is a bit of a myth statement technically because Python is normally
+
+21
+00:01:42,000 --> 00:01:48,000
+compiled into a form of byte code before it's executed. However, this compilation happens invisibly,
+
+22
+00:01:48,000 --> 00:01:53,000
+and the experience of using Python is one of immediately executing code without a noticeable compilation phase.
+
+23
+00:01:53,000 --> 00:01:58,000
+This lack of an interruption between editing and running is one of the great joys of working with Python.
+
+24
+00:01:58,000 --> 00:02:04,000
+What we see here is the development of a simple Hello World program that goes from being a very simple print
+
+25
+00:02:04,000 --> 00:02:08,000
+statement to being a function, to being a function that takes a parameter, to being a function that takes
+
+26
+00:02:08,000 --> 00:02:13,000
+a parameter that's drawn from the command line.
+
+27
+00:02:13,000 --> 00:02:17,000
+The syntax of Python is designed to be clear, readable, and expressive.
+
+28
+00:02:17,000 --> 00:02:22,000
+Unlike many popular languages, Python uses whitespace to delimit code blocks and in the process does
+
+29
+00:02:22,000 --> 00:02:26,000
+away with reams of unnecessary parentheses while enforcing a universal layout.
+
+30
+00:02:26,000 --> 00:02:31,000
+This means that all Python looks alike in important ways, and you can learn to read Python very quickly.
+
+31
+00:02:31,000 --> 00:02:37,000
+At the same time, Python's expressive syntax means that you get a lot of meaning into a single line of code.
+
+32
+00:02:37,000 --> 00:02:42,000
+This expressive, highly readable code means that Python maintenance is relatively easy.
+
+33
+00:02:42,000 --> 00:02:46,000
+What we're watching here is the development of a simple word counting function.
+
+34
+00:02:46,000 --> 00:02:55,000
+As you can see, the function is easy to read even if you don't know the specifics of Python syntax.
+
+35
+00:02:55,000 --> 00:03:00,000
+There are multiple implementations of the Python language. The original, and still by far the most common
+
+36
+00:03:00,000 --> 00:03:04,000
+implementation, is written in C. This version is commonly referred to as C Python.
+
+37
+00:03:04,000 --> 00:03:09,000
+When someone talks about running Python, it's normally safe to assume that they are talking about C Python,
+
+38
+00:03:09,000 --> 00:03:13,000
+and this is the implementation that we'll be using for this course.
+
+39
+00:03:13,000 --> 00:03:18,000
+Other implementations of Python include Jython, which is written to target the Java virtual machine;
+
+40
+00:03:18,000 --> 00:03:24,000
+Iron Python, which targets the .NET runtime; and pypy, which is written in a specialized subset of Python
+
+41
+00:03:24,000 --> 00:03:30,000
+called RPython. These implementations generally trail behind C Python, which is considered to the standard
+
+42
+00:03:30,000 --> 00:03:37,000
+for the language. Much of what you will learn in this course will apply to all of these implementations.
+
+43
+00:03:37,000 --> 00:03:42,000
+There are two important versions of the Python language in common use right now, Python 2 and Python 3.
+
+44
+00:03:42,000 --> 00:03:46,000
+These two versions represent changes in some key elements of the language, and code written for one will
+
+45
+00:03:46,000 --> 00:03:50,000
+not generally work for the other unless you take special precautions.
+
+46
+00:03:50,000 --> 00:03:55,000
+Python 2 is older and more well established than Python 3, but Python 3 addresses some known shortcomings
+
+47
+00:03:55,000 --> 00:04:01,000
+in the older version. Python 3 is the definite future of Python, and you should use it if at all possible.
+
+48
+00:04:01,000 --> 00:04:06,000
+While there are some critical differences between Python 2 and 3, most of the fundamentals of the two versions
+
+49
+00:04:06,000 --> 00:04:10,000
+are the same. If you learn one, most of what you know transfers cleanly to the other.
+
+50
+00:04:10,000 --> 00:04:15,000
+In this course we'll be teaching Python 3, but we'll point out important differences between the versions
+
+51
+00:04:15,000 --> 00:59:00,000
+when necessary.
+

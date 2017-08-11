@@ -1,0 +1,16 @@
+1
+00:00:01,000 --> 00:00:07,000
+Concatenating lists using the addition operator results in a new list without modification of the operands
+
+2
+00:00:07,000 --> 00:00:13,000
+whereas the augmented assignment operator += modifies the assignee in place.
+
+3
+00:00:13,000 --> 00:00:19,000
+This can also be achieved using the extend() list method. All of these techniques work with any iterable
+
+4
+00:00:19,000 --> 00:59:00,000
+series, not just lists on the right hand side.
+

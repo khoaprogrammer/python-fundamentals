@@ -1,0 +1,24 @@
+1
+00:00:01,000 --> 00:00:06,000
+Instead of returning an unpythonic error code, we can simply omit our error message and re-raise the exception
+
+2
+00:00:06,000 --> 00:00:12,000
+object we're currently handling. This can be done by replacing the return -1 with raise at the end of our
+
+3
+00:00:12,000 --> 00:00:18,000
+exception handling block. Without a parameter, raise simply re-raises the exception that is being currently
+
+4
+00:00:18,000 --> 00:00:20,000
+handled.
+
+5
+00:00:20,000 --> 00:00:25,000
+Testing in the REPL, we can see that the original exception type is re-raised whether it's a ValueError
+
+6
+00:00:25,000 --> 00:59:00,000
+or a TypeError, but our conversion error message has printed a standard error along the way.
+

@@ -1,0 +1,256 @@
+1
+00:00:01,000 --> 00:00:04,000
+We'll now return to dictionaries, which lie at the heart
+
+2
+00:00:04,000 --> 00:00:09,000
+of many Python programs including the Python interpreter itself.
+
+3
+00:00:09,000 --> 00:00:14,000
+We briefly looked at literal dictionaries previously seeing how they are delimited with curly braces
+
+4
+00:00:14,000 --> 00:00:21,000
+and contain comma separated key-value pairs with each pair tied together by a colon.
+
+5
+00:00:21,000 --> 00:00:27,000
+The values are accessible via the keys. The keys must be unique within any single dictionary, although
+
+6
+00:00:27,000 --> 00:00:34,000
+it's fine to have duplicate values so long as they're associated with different keys.
+
+7
+00:00:34,000 --> 00:00:40,000
+Internally the dictionary maintains pairs of references to the key objects and the value objects.
+
+8
+00:00:40,000 --> 00:00:46,000
+The key objects must be immutable, so strings, numbers, and tuples are fine, but lists are not.
+
+9
+00:00:46,000 --> 00:00:53,000
+The value objects can be mutable, and in practice often are. Our example URL map uses strings for both keys
+
+10
+00:00:53,000 --> 00:00:59,000
+and values, which is fine. You should never rely on the order of items in the dictionary.
+
+11
+00:00:59,000 --> 00:01:06,000
+It's essentially random and may even vary between different runs of the same program.
+
+12
+00:01:06,000 --> 00:01:11,000
+As for the other collections, there's also a named constructor, dict(), which can covert other types
+
+13
+00:01:11,000 --> 00:01:17,000
+to the dictionaries. We can use the constructor to copy from an iterable series of key-value pairs stored
+
+14
+00:01:17,000 --> 00:01:26,000
+in tuples like this. Recall that the items in a dictionary are not stored in any particular order.
+
+15
+00:01:26,000 --> 00:01:31,000
+So long as the keys are legitimate Python identifiers, it's even possible to create a dictionary directly
+
+16
+00:01:31,000 --> 00:01:36,000
+from keyword arguments passed the dict.
+
+17
+00:01:36,000 --> 00:01:42,000
+As with lists, dictionary copying is shallow by default copying only the references to the key and value
+
+18
+00:01:42,000 --> 00:01:48,000
+objects, not the value objects themselves. There are two means of copying a dictionary of which we most
+
+19
+00:01:48,000 --> 00:01:53,000
+commonly see the second. The first technique is to use the copy() method.
+
+20
+00:01:53,000 --> 00:01:58,000
+Here we copy a dictionary of color codes. Note that we supply them in hexadecimal, but they're echoed back
+
+21
+00:01:58,000 --> 00:02:09,000
+to us in decimal. The second means of copying is simply to pass an existing dictionary to the dict constructor.
+
+22
+00:02:09,000 --> 00:02:16,000
+If you need to extend a dictionary with definitions from another dictionary, you can use the update() method.
+
+23
+00:02:16,000 --> 00:02:21,000
+This is called on the dictionary to be updated and passed the contents of the dictionary, which is to be
+
+24
+00:02:21,000 --> 00:02:30,000
+merged in. Here we merge in some additional color codes into our existing dictionary.
+
+25
+00:02:30,000 --> 00:02:35,000
+If the argument to update includes keys which are already present in the target dictionary, the values
+
+26
+00:02:35,000 --> 00:02:42,000
+associated with these keys are replaced in the target by the corresponding values from the source.
+
+27
+00:02:42,000 --> 00:02:47,000
+As we have seen in an earlier module, dictionaries are iterable, so they can be used with for loops.
+
+28
+00:02:47,000 --> 00:02:52,000
+The dictionary yields the next key on each iteration, and we retrieve the corresponding value by lookup
+
+29
+00:02:52,000 --> 00:02:58,000
+using the square brackets operator. Notice that the keys are returned in an arbitrary order, which is
+
+30
+00:02:58,000 --> 00:03:05,000
+neither the order in which they were specified nor any other meaningful sort order.
+
+31
+00:03:05,000 --> 00:03:10,000
+If we want to iterate over only the values, we can use the values() dictionary method.
+
+32
+00:03:10,000 --> 00:03:15,000
+This returns an object which provides an iterable view onto the dictionary values without causing the
+
+33
+00:03:15,000 --> 00:03:22,000
+values to be copied. There is no efficient or convenient way to retrieve the corresponding key from a value,
+
+34
+00:03:22,000 --> 00:03:28,000
+so we only print the values here in this example. In the interest of symmetry, there's also a keys() method
+
+35
+00:03:28,000 --> 00:03:33,000
+which provides a view onto the keys of the dictionary, although it's not often used because default iteration
+
+36
+00:03:33,000 --> 00:03:37,000
+of dictionaries is by key.
+
+37
+00:03:37,000 --> 00:03:42,000
+Often though we want to iterate over the keys and values in tandem.
+
+38
+00:03:42,000 --> 00:03:47,000
+Each key-value pair in a dictionary is called an item, and we can get ahold of an iterable view of the items
+
+39
+00:03:47,000 --> 00:03:55,000
+using the items() dictionary method. When iterated over, the items view yields each key-value pair as
+
+40
+00:03:55,000 --> 00:04:01,000
+a tuple. By using tuple unpacking in the for statement, we can get both the key and value in one operation
+
+41
+00:04:01,000 --> 00:04:05,000
+without the extra lookup.
+
+42
+00:04:05,000 --> 00:04:10,000
+The membership test for dictionaries use the in and not in operators and work only on the keys.
+
+43
+00:04:10,000 --> 00:04:17,000
+Here we create a dictionary mapping ISO currency codes to Unicode currency symbols.
+
+44
+00:04:17,000 --> 00:04:22,000
+We use the membership testing operators to show that the New Zealand dollar is in the list of symbols whereas
+
+45
+00:04:22,000 --> 00:04:28,000
+the Macedonian Denar is not in the list of symbols.
+
+46
+00:04:28,000 --> 00:04:35,000
+Here we use the del keyword to remove the fictional element unobtainium from our periodic table.
+
+47
+00:04:35,000 --> 00:04:40,000
+The keys in a dictionary should be immutable, although the values can be modified.
+
+48
+00:04:40,000 --> 00:04:45,000
+Here's a dictionary which maps the element symbol to a list of mass numbers for different isotopes of that
+
+49
+00:04:45,000 --> 00:04:51,000
+element. See how we split the dictionary literal over multiple lines.
+
+50
+00:04:51,000 --> 00:04:57,000
+That's allowed because the curly braces for the dictionary literal are open at the point of the line break
+
+51
+00:04:57,000 --> 00:05:01,000
+as string keys are immutable, which is a good thing for the correct functioning of the dictionary, but
+
+52
+00:05:01,000 --> 00:05:07,000
+there's no problem with modifying the dictionary values in the event that we discover some new isotopes.
+
+53
+00:05:07,000 --> 00:05:14,000
+Here the augmented assignment operator is applied to the list object accessed through the H for hydrogen key.
+
+54
+00:05:14,000 --> 00:05:20,000
+The dictionary is not being modified at all here, but the list is being extended.
+
+55
+00:05:20,000 --> 00:05:25,000
+Of course the dictionary itself is mutable. We know we can add new items.
+
+56
+00:05:25,000 --> 00:05:32,000
+Here we add three isotopes of nitrogen.
+
+57
+00:05:32,000 --> 00:05:36,000
+With compound data structures such as our table of isotopes, it can be helpful to have them printed out
+
+58
+00:05:36,000 --> 00:05:42,000
+in a much more readable form. We can do this with the Python Standard Library pretty printing module called
+
+59
+00:05:42,000 --> 00:05:48,000
+pprint, which contains a function called pprint. To use it, it's best to do something like from pprint
+
+60
+00:05:48,000 --> 00:05:55,000
+import pprint as pp. If we didn't bind the pprint function to a different name pp, the function reference
+
+61
+00:05:55,000 --> 00:06:01,000
+would overwrite the module reference preventing further access to the contents of the module.
+
+62
+00:06:01,000 --> 00:06:06,000
+Arguably it's poor design to have a module containing functions of the same name because of this issue.
+
+63
+00:06:06,000 --> 00:06:14,000
+Anyway, by using pp(m) we get a much more comprehensible display of our table of isotopes.
+
+64
+00:06:14,000 --> 00:59:00,000
+Let's move on from dictionaries and look at a new built-in data structure we have not yet met, the set.
+

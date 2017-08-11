@@ -1,0 +1,88 @@
+1
+00:00:01,000 --> 00:00:05,000
+As for strings and tuples, lists support repetition using the multiplication operator.
+
+2
+00:00:05,000 --> 00:00:12,000
+It's simple enough to use. Here we repeat a list containing the integers 21 and 37 four times.
+
+3
+00:00:12,000 --> 00:00:18,000
+This form is rarely spotted in the wild. It's most often used for initializing a list of size known in advance
+
+4
+00:00:18,000 --> 00:00:24,000
+to a constant value such as 0. Here we create a list initialized with nine 0 elements.
+
+5
+00:00:24,000 --> 00:00:29,000
+Be aware though that in the case of mutable elements the same trap for the unwary that occurred with list
+
+6
+00:00:29,000 --> 00:00:36,000
+copying lurks here since repetition will repeat the reference without copying the value.
+
+7
+00:00:36,000 --> 00:00:41,000
+Let's demonstrate using nested lists as our mutable elements again.
+
+8
+00:00:41,000 --> 00:00:46,000
+We'll repeat a list five times. The mutable element it contains will be another list containing elements,
+
+9
+00:00:46,000 --> 00:00:53,000
+two -1 and +1. Let's see what Python needs to do to construct this data structure.
+
+10
+00:00:53,000 --> 00:01:00,000
+First, two integer objects are created containing the values -1 and +1 respectively.
+
+11
+00:01:00,000 --> 00:01:06,000
+These are referred to by the two elements of the inner list. Python then creates the outer list and the ranges
+
+12
+00:01:06,000 --> 00:01:11,000
+for its single element to contain a reference to the inner list.
+
+13
+00:01:11,000 --> 00:01:17,000
+Now the repetition operation is applied. A new list is created containing five elements, each of which
+
+14
+00:01:17,000 --> 00:01:22,000
+contains a copy of the single element in the original outer list.
+
+15
+00:01:22,000 --> 00:01:27,000
+All of these elements contain references to the same inner list object.
+
+16
+00:01:27,000 --> 00:01:32,000
+Now the temporary single element outer list can be disposed of.
+
+17
+00:01:32,000 --> 00:01:37,000
+Finally, this whole data structure is bound to a new named reference, S.
+
+18
+00:01:37,000 --> 00:01:44,000
+As expected, S contains five elements, each of which is the -1, +1 in a list.
+
+19
+00:01:44,000 --> 00:01:51,000
+Now let's append the integer 7 to the fourth inner list at index 3 in the outer list.
+
+20
+00:01:51,000 --> 00:01:56,000
+This creates a new integer object and a new element on the inner list containing a reference to that integer
+
+21
+00:01:56,000 --> 00:02:02,000
+object. We can see that all of the elements of the outer list have been modified because they do in fact all
+
+22
+00:02:02,000 --> 00:59:00,000
+refer to the same inner list.
+

@@ -1,0 +1,176 @@
+1
+00:00:01,000 --> 00:00:06,000
+In this last section before we summarize, we're going to write a longer snippet at the REPL and briefly
+
+2
+00:00:06,000 --> 00:00:11,000
+introduce the with-statement. We're going to fetch some text data for some classic literature from the
+
+3
+00:00:11,000 --> 00:00:15,000
+web using a Python Standard Library function called the urlopen.
+
+4
+00:00:15,000 --> 00:00:18,000
+To get access to urlopen, we need to import the function
+
+5
+00:00:18,000 --> 00:00:24,000
+from the request module within the standard library urllib package.
+
+6
+00:00:24,000 --> 00:00:29,000
+Next we're going to call urlopen with a URL to our story. We'll be using a Python construct called a with
+
+7
+00:00:29,000 --> 00:00:35,000
+block to manage the resource returned by the URL since under the hood fetching the resource from the web
+
+8
+00:00:35,000 --> 00:00:41,000
+requires operating system sockets and such like. We'll be talking more about with-statements in a later module,
+
+9
+00:00:41,000 --> 00:00:46,000
+but for now it's enough to know that using a with-statement with objects which use external resources
+
+10
+00:00:46,000 --> 00:00:49,000
+such as this is very good practice to avoid resource leaks.
+
+11
+00:00:49,000 --> 00:00:56,000
+The with-statement calls the urlopen function and binds the response to a variable named story.
+
+12
+00:00:56,000 --> 00:01:01,000
+Notice that the with-statement is terminated by a colon introducing a new block, so we indent four spaces
+
+13
+00:01:01,000 --> 00:01:03,000
+and create an empty list, which ultimately will
+
+14
+00:01:03,000 --> 00:01:06,000
+hold all of the words from the text.
+
+15
+00:01:06,000 --> 00:01:11,000
+Next we open a for-loop, which will work through the story. Recall that for-loops request items one-by-
+
+16
+00:01:11,000 --> 00:01:17,000
+one from the term on the right of the in keyword, in this case story, and assign them in turn to the name on
+
+17
+00:01:17,000 --> 00:01:25,000
+the left, in this case line. It so happens that the type of HTTP response represented by story yields successive
+
+18
+00:01:25,000 --> 00:01:28,000
+lines of text when iterated over in this way.
+
+19
+00:01:28,000 --> 00:01:32,000
+So, the for-loop retrieves one line of text at a time from Dickens' classic.
+
+20
+00:01:32,000 --> 00:01:37,000
+Note also that the for-statement is terminated by a colon because it introduces the body of the for-loop,
+
+21
+00:01:37,000 --> 00:01:41,000
+which is a new block and hence a further level of indentation.
+
+22
+00:01:41,000 --> 00:01:46,000
+For each line of text we use the split method to divide it into words on whitespace boundaries
+
+23
+00:01:46,000 --> 00:01:50,000
+resulting in a list of words we call line words.
+
+24
+00:01:50,000 --> 00:01:55,000
+Now we use a second for-loop nested inside the first to iterate over this list of words appending each in
+
+25
+00:01:55,000 --> 00:02:01,000
+turn to the accumulating story_words list. Finally, we enter a blank line at the three dots prompt to close
+
+26
+00:02:01,000 --> 00:02:07,000
+all open blocks. In this case, the inner for-loop, the outer for-loop, and the with-block will all be terminated.
+
+27
+00:02:07,000 --> 00:02:14,000
+The block will be executed, and after a short delay Python now returns us to the regular triple arrow prompt.
+
+28
+00:02:14,000 --> 00:02:18,000
+At this point, if Python gives you an error such as a syntax error or indentation error, you should go back,
+
+29
+00:02:18,000 --> 00:02:24,000
+review what you have entered, and carefully reenter the code until Python accepts the whole block without
+
+30
+00:02:24,000 --> 00:02:28,000
+complaint. If you get an HTTP error, then you were unable to fetch the resource over the internet, and you
+
+31
+00:02:28,000 --> 00:02:33,000
+should try again later, although it's worth checking that you have typed the URL correctly.
+
+32
+00:02:33,000 --> 00:02:40,000
+We can now look at those words simply by asking Python to evaluate the value of story_words.
+
+33
+00:02:40,000 --> 00:02:46,000
+Here we can see the list of words. Notice that each of the single quoted words is prefixed by a lowercase B
+
+34
+00:02:46,000 --> 00:02:50,000
+meaning that we have a list of bytes objects where we would have preferred a list of strings.
+
+35
+00:02:50,000 --> 00:02:54,000
+This is because the HTTP request transferred raw bytes to us over the network.
+
+36
+00:02:54,000 --> 00:02:59,000
+To get a list of strings, we should decode the byte stream in each line into UTF-8 Unicode strings.
+
+37
+00:02:59,000 --> 00:03:05,000
+We can do this by inserting a call to the decode method of the bytes object and then operating on the resulting
+
+38
+00:03:05,000 --> 00:03:11,000
+Unicode string. The Python REPL supports a simple command line history, and by careful use of the up and
+
+39
+00:03:11,000 --> 00:03:16,000
+down arrows we can reenter our snippet. When we get to the line which needs to be changed, we can edit it using
+
+40
+00:03:16,000 --> 00:03:20,000
+the left and right arrow keys to insert the requisite call to decode.
+
+41
+00:03:20,000 --> 00:03:27,000
+Then when we rerun the block and take a fresh look at story_words we should see we have a list of strings.
+
+42
+00:03:27,000 --> 00:03:31,000
+We've just about reached the limit of what's possible to comfortably edit at the Python REPL, so in the
+
+43
+00:03:31,000 --> 00:03:35,000
+next course module we'll look at how to move this code into a Python module where it can be more easily worked
+
+44
+00:03:35,000 --> 00:59:00,000
+within a text editor.
+

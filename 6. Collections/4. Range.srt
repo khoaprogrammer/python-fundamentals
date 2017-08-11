@@ -1,0 +1,104 @@
+1
+00:00:01,000 --> 00:00:07,000
+Let's move on and look at range, which really is a collection rather than a container.
+
+2
+00:00:07,000 --> 00:00:13,000
+A range is a type of sequence used for representing an arithmetic progression of integers.
+
+3
+00:00:13,000 --> 00:00:19,000
+Ranges are created by calls to the range constructor, and there is no literal form.
+
+4
+00:00:19,000 --> 00:00:26,000
+Most typically we supply only the stop value. In this case we create a range from 0 to 5 simply by supplying
+
+5
+00:00:26,000 --> 00:00:34,000
+the stop value of 5. Ranges are sometimes used to create consecutive integers for use as loop counters.
+
+6
+00:00:34,000 --> 00:00:39,000
+Note that the stop value supplied to range is one past the end of the sequence, which is why the previous
+
+7
+00:00:39,000 --> 00:00:48,000
+loop terminated at 4 and didn't print 5. We can also supply a starting value if we wish such as in this call
+
+8
+00:00:48,000 --> 00:00:58,000
+range 5, 10. Wrapping this in a call to the list constructor is a handy way to force production of each item.
+
+9
+00:00:58,000 --> 00:01:03,000
+The so-called half-open range convention with a stop value not being included in the sequence at first
+
+10
+00:01:03,000 --> 00:01:09,000
+seems strange, but actually makes a lot of sense if you're dealing with consecutive ranges because the
+
+11
+00:01:09,000 --> 00:01:17,000
+end specified by one range is the start of the next range. Range also supports a step argument, which controls
+
+12
+00:01:17,000 --> 00:01:23,000
+the interval between successive numbers. Note that in order to use the step argument we must supply all
+
+13
+00:01:23,000 --> 00:01:28,000
+three arguments. Range is curious in that it determines what its arguments mean by
+
+14
+00:01:28,000 --> 00:01:35,000
+counting them. Providing only one argument means it is the stop value, two arguments are start and stop,
+
+15
+00:01:35,000 --> 00:01:42,000
+and three arguments are start, stop, and step. Python's range works this way so the first argument start
+
+16
+00:01:42,000 --> 00:01:46,000
+can be made optional, something which isn't normally possible.
+
+17
+00:01:46,000 --> 00:01:53,000
+Furthermore, range doesn't support keyword arguments. You might almost describe it as unpythonic.
+
+18
+00:01:53,000 --> 00:01:59,000
+At this point, we're going to show you another example of poorly styled Python code, one you can and should avoid.
+
+19
+00:01:59,000 --> 00:02:07,000
+Here's a poor way to print the elements in a list using range, len, and list indexing.
+
+20
+00:02:07,000 --> 00:02:17,000
+Although this works, it's most definitely unpythonic. Always prefer to use iteration over objects themselves.
+
+21
+00:02:17,000 --> 00:02:22,000
+If for some reason you need a counter, you should use the built-in enumerate() function, which returns
+
+22
+00:02:22,000 --> 00:02:28,000
+an iterable series of pairs, each pair being a tuple. The first element of the pair is the index of the current
+
+23
+00:02:28,000 --> 00:02:36,000
+item, and the second element of the pair is the item itself. We can improve this even further by using tuple
+
+24
+00:02:36,000 --> 00:02:42,000
+unpacking and avoiding having to deal directly with the tuple.
+
+25
+00:02:42,000 --> 00:02:49,000
+Because of the strong iteration primitives built into Python, ranges aren't widely used in modern Python code.
+
+26
+00:02:49,000 --> 00:59:00,000
+Let's move on and look at the next collection type.
+

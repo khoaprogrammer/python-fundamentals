@@ -1,0 +1,124 @@
+1
+00:00:01,000 --> 00:00:06,000
+Beyond being a programming language, Python comes with a powerful and broad standard library.
+
+2
+00:00:06,000 --> 00:00:11,000
+Part of the Python philosophy is batteries included meaning that you can use Python for many complex real
+
+3
+00:00:11,000 --> 00:00:16,000
+world tasks out-of-the-box with no need to install third-party packages.
+
+4
+00:00:16,000 --> 00:00:21,000
+This is not only extremely convenient, but it means that it's easier to get started using Python using
+
+5
+00:00:21,000 --> 00:00:25,000
+interesting engaging examples, something we aim for in this course.
+
+6
+00:00:25,000 --> 00:00:30,000
+Another great effect of the batteries included approach is that it means that many scripts, even non-
+
+7
+00:00:30,000 --> 00:00:33,000
+trivial ones, can be run immediately on any Python installation.
+
+8
+00:00:33,000 --> 00:00:39,000
+This removes the common annoying barrier to installing software that you face with some languages.
+
+9
+00:00:39,000 --> 00:00:43,000
+The standard library has a generally high level of good documentation.
+
+10
+00:00:43,000 --> 00:00:47,000
+APIs are well documented, and the modules often have good narrative descriptions with quick start guides,
+
+11
+00:00:47,000 --> 00:00:53,000
+best practice information, and so forth. The standard library documentation is always available online
+
+12
+00:00:53,000 --> 00:00:57,000
+at python.org, and you can also install it locally if you need to.
+
+13
+00:00:57,000 --> 00:01:02,000
+As the standard library is such an important part of Python, we'll be covering parts of it throughout this course.
+
+14
+00:01:02,000 --> 00:01:07,000
+Even so, we won't be covering more than a small fraction of it, so you're encouraged to explore it on your own.
+
+15
+00:01:07,000 --> 00:01:13,000
+Finally, no description of Python would be complete without mentioning that to many people Python represents
+
+16
+00:01:13,000 --> 00:01:18,000
+a philosophy for writing code. Principles of clarity and readability are part of what it means to write
+
+17
+00:01:18,000 --> 00:01:24,000
+correct or pythonic code. It's not always what pythonic means in all circumstances, and sometimes there
+
+18
+00:01:24,000 --> 00:01:29,000
+may be no single correct way to write something. But the fact that the Python community is concerned about
+
+19
+00:01:29,000 --> 00:01:36,000
+issues like simplicity, readability, and explicitness means that Python code tends to be more-- well, beautiful.
+
+20
+00:01:36,000 --> 00:01:40,000
+Many of Python's principles are embodied in the so-called Zen of Python.
+
+21
+00:01:40,000 --> 00:01:46,000
+The Zen isn't a hard and fast set of rules, but rather a set of guidelines or touchstones to keep in mind when coding.
+
+22
+00:01:46,000 --> 00:01:50,000
+When you find yourself trying to decide between several courses of action, these principles can often
+
+23
+00:01:50,000 --> 00:01:54,000
+give you a nudge in the right direction. We'll be highlighting elements of The Zen of Python throughout
+
+24
+00:01:54,000 --> 00:01:55,000
+this course.
+
+25
+00:01:55,000 --> 00:01:59,000
+We think Python is a great language, and we're excited to help you get started with it.
+
+26
+00:01:59,000 --> 00:02:03,000
+By the time you get through this course, you'll be able to write substantial Python programs, and you'll
+
+27
+00:02:03,000 --> 00:02:08,000
+be able to read even more complex ones. More importantly, you'll have the foundation you need to go out
+
+28
+00:02:08,000 --> 00:02:12,000
+and discover all the more advanced topics in the language, and hopefully we'll get you excited enough
+
+29
+00:02:12,000 --> 00:02:17,000
+about Python to do so. Python is a big language with a huge ecosystem of software built in and around it,
+
+30
+00:02:17,000 --> 00:02:20,000
+and it can be a real adventure to discover everything it has to offer.
+
+31
+00:02:20,000 --> 00:59:00,000
+So, welcome to Python! We'll see you in the next module.
+

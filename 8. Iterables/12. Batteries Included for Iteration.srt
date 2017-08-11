@@ -1,0 +1,180 @@
+1
+00:00:01,000 --> 00:00:06,000
+So far we've covered the many ways Python offers for creating iterable objects.
+
+2
+00:00:06,000 --> 00:00:11,000
+Comprehensions, generators, and any object that follows the iterable or iterator protocols can be used
+
+3
+00:00:11,000 --> 00:00:17,000
+for iteration, so it should be clear that iteration is a central feature of Python.
+
+4
+00:00:17,000 --> 00:00:22,000
+Python provides a number of built-in functions for performing common iterator operations.
+
+5
+00:00:22,000 --> 00:00:27,000
+These functions form the call of a sort of vocabulary for working with iterators, and they can be combined
+
+6
+00:00:27,000 --> 00:00:32,000
+to produce powerful statements in very concise, readable code.
+
+7
+00:00:32,000 --> 00:00:37,000
+We've met some of these functions already including enumerate for producing integer indices and sum
+
+8
+00:00:37,000 --> 00:00:39,000
+for computing summation of numbers.
+
+9
+00:00:39,000 --> 00:00:44,000
+In addition to the built-in functions, the itertools module contains a wealth of useful functions and
+
+10
+00:00:44,000 --> 00:00:51,000
+generators for processing iterable streams of data. We'll start demonstrating these functions by solving
+
+11
+00:00:51,000 --> 00:00:57,000
+the first thousand primes problem using the built-in sum function with two generator functions from
+
+12
+00:00:57,000 --> 00:01:02,000
+itertools, islice() and count().
+
+13
+00:01:02,000 --> 00:01:08,000
+Earlier we made our own take generator function for lazily retrieving the start of a sequence.
+
+14
+00:01:08,000 --> 00:01:13,000
+We needn't have bothered, however, because islice allows us to perform lazy slicing similar to the built-in
+
+15
+00:01:13,000 --> 00:01:20,000
+list slicing functionality. Once we've imported the itertools module, to get the first 1000 primes we
+
+16
+00:01:20,000 --> 00:01:26,000
+need to do something like this. Itertools.islice(all_primes, 1000).
+
+17
+00:01:26,000 --> 00:01:32,000
+But how to generate all_primes? Previously we've been using range to create the raw sequences of integers
+
+18
+00:01:32,000 --> 00:01:40,000
+to feed into our primality test, but ranges must always be finite, that is banded at both ends.
+
+19
+00:01:40,000 --> 00:01:48,000
+What we'd like is an open-ended version of range, and that is exactly what itertools count() provides.
+
+20
+00:01:48,000 --> 00:01:55,000
+This returns a special islice object, which is iterable. We can covert it to a list using the list constructor.
+
+21
+00:01:55,000 --> 00:02:01,000
+Answering our question about the sum of the first 1000 primes is now easy so long as we remember to recreate
+
+22
+00:02:01,000 --> 00:02:11,000
+the generator when we pass it to sum. The answer is 3,682,913.
+
+23
+00:02:11,000 --> 00:02:17,000
+Two other very useful built-ins which facilitate elegant programs are any and all.
+
+24
+00:02:17,000 --> 00:02:23,000
+They're equivalent to the logical operators and or, but for iterable series of bool values.
+
+25
+00:02:23,000 --> 00:02:30,000
+Any returns true of any of the series it's passed are true, and all returns true if all of the series passed
+
+26
+00:02:30,000 --> 00:02:37,000
+to it are true. Here we use any together with a generator expression to answer the question of whether there
+
+27
+00:02:37,000 --> 00:02:48,000
+are any prime numbers in the range 1328 to 1360 inclusive, and remarkably the answer is false.
+
+28
+00:02:48,000 --> 00:02:52,000
+For a completely different type of problem, we can check that all of the city names are proper nouns with
+
+29
+00:02:52,000 --> 00:03:01,000
+initial uppercase letters.
+
+30
+00:03:01,000 --> 00:03:06,000
+The last built-in we'll look at is zip, which as its name suggests gives us a way to synchronize iterations
+
+31
+00:03:06,000 --> 00:03:14,000
+over two iterable series. For example, if we have two columns of temperature data, one from Sunday and
+
+32
+00:03:14,000 --> 00:03:22,000
+one from Monday, we can combine them together into pairs of corresponding readings.
+
+33
+00:03:22,000 --> 00:03:28,000
+We can see that zip yields tuples when iterated. This in turn means we can use it with tuple unpacking in
+
+34
+00:03:28,000 --> 00:03:39,000
+the for loop. In fact, zip can accept any number of iterable arguments.
+
+35
+00:03:39,000 --> 00:03:46,000
+Let's add a third time series and use other built-ins to calculate statistics for corresponding times.
+
+36
+00:03:46,000 --> 00:03:52,000
+Here we use the min and max built-ins for the minimum and maximum temperatures and the sum and len built-ins
+
+37
+00:03:52,000 --> 00:03:56,000
+to compute the average temperature.
+
+38
+00:03:56,000 --> 00:04:01,000
+Perhaps though we'd like one long temperature series for Sunday, Monday, and Tuesday.
+
+39
+00:04:01,000 --> 00:04:08,000
+We can then lazily concatenate iterables using itertools chain, so this is different from simply concatenating
+
+40
+00:04:08,000 --> 00:04:14,000
+the three lists into a new list. We can now check that all of those temperatures are above freezing point
+
+41
+00:04:14,000 --> 00:04:23,000
+without the memory impact of data duplication. Before we summarize, we'd like to pull a few pieces of what
+
+42
+00:04:23,000 --> 00:04:29,000
+we have made together and leave your computer computing the lucas primes.
+
+43
+00:04:29,000 --> 00:04:35,000
+This shows the beautiful composability of generator functions, generator expressions, pure predicate
+
+44
+00:04:35,000 --> 00:04:43,000
+functions, and for loops. When you've seen enough or broken some records, we recommend you spend some
+
+45
+00:04:43,000 --> 00:59:00,000
+time exploring the itertools module.
+

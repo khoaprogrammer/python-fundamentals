@@ -1,0 +1,96 @@
+1
+00:00:01,000 --> 00:00:09,000
+Let's review what we've covered in this module. Python code is placed in .py files called modules.
+
+2
+00:00:09,000 --> 00:00:14,000
+Modules can be executed directly by passing them as the first argument to the Python interpreter.
+
+3
+00:00:14,000 --> 00:00:19,000
+Modules can also be imported into the REPL, at which point all top-level statements in the module are
+
+4
+00:00:19,000 --> 00:00:26,000
+executed in order. Named functions are defined using the def keyword followed by the function name and the
+
+5
+00:00:26,000 --> 00:00:32,000
+argument list in parentheses. We can return objects from functions using the return statement, and return
+
+6
+00:00:32,000 --> 00:00:39,000
+statements without a parameter return None, as does the implicit return at the end of every function body.
+
+7
+00:00:39,000 --> 00:00:44,000
+We can detect whether a module has been imported or executed by examining the value of the special double
+
+8
+00:00:44,000 --> 00:00:52,000
+underscore name variable. If it is equal to the string double underscore main, our module has been executed
+
+9
+00:00:52,000 --> 00:00:59,000
+directly as a program. By executing a function if this condition is met using the top-level
+
+10
+00:00:59,000 --> 00:01:05,000
+if __name__ == __main__ idiom at the end of our module, we can make our module both usefully importable and
+
+11
+00:01:05,000 --> 00:01:14,000
+executable, an important technique even for short scripts. Module code is only executed once on first import.
+
+12
+00:01:14,000 --> 00:01:20,000
+The def keyword is a statement, which binds executable code to a function name.
+
+13
+00:01:20,000 --> 00:01:27,000
+Command line arguments can be accessed as a list of strings accessible through the argv attribute of the sys module.
+
+14
+00:01:27,000 --> 00:01:34,000
+The 0th command line argument is the script filename, so the item at index 1 is the first true argument.
+
+15
+00:01:34,000 --> 00:01:40,000
+Literal strings is the first line of a function definition from the function's docstring.
+
+16
+00:01:40,000 --> 00:01:45,000
+They are typically triple quoted multiline strings containing usage information.
+
+17
+00:01:45,000 --> 00:01:51,000
+Function documentation provided in docstrings can be retrieved using the Help function in the REPL.
+
+18
+00:01:51,000 --> 00:01:56,000
+Module docstrings should be placed near the beginning of the module prior to any Python statements,
+
+19
+00:01:56,000 --> 00:02:02,000
+such as import statements. Comments in Python commence with the hash character and continue to the end of
+
+20
+00:02:02,000 --> 00:02:08,000
+the line. The first line of the module can contain a special comment called a shebang allowing the
+
+21
+00:02:08,000 --> 00:02:14,000
+program loader to launch the correct Python interpreter on all major platforms.
+
+22
+00:02:14,000 --> 00:02:21,000
+Next time here on Python Fundamentals, we'll dig into Python's object model, looking at how values are passed
+
+23
+00:02:21,000 --> 00:02:27,000
+to and returned from functions. We investigate the nature of dynamic typing in Python and focus on the rules
+
+24
+00:02:27,000 --> 00:59:00,000
+of variable scope. Thanks for watching, and we'll see you in the next module.
+

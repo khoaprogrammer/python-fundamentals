@@ -1,0 +1,140 @@
+1
+00:00:01,000 --> 00:00:07,000
+Now, we'll look at setting up a main function with a command line argument.
+
+2
+00:00:07,000 --> 00:00:14,000
+We'll start by refining our word fetching module a little further. First, we'll perform a small refactoring
+
+3
+00:00:14,000 --> 00:00:20,000
+and separate the word retrieval and collection on the one hand from the word printing on the other.
+
+4
+00:00:20,000 --> 00:00:25,000
+This is because when importing, we'd rather get the words as a list, but when running directly,
+
+5
+00:00:25,000 --> 00:00:35,000
+we'd prefer the words to be printed. Next, we'll extract a function from our if __name__ equals __main__
+
+6
+00:00:35,000 --> 00:00:42,000
+block called main. By moving this code into a function, we can test it from the REPL, which isn't possible
+
+7
+00:00:42,000 --> 00:00:52,000
+while it's in the module scope if block. We can now try these functions from the REPL.
+
+8
+00:00:52,000 --> 00:00:56,000
+We'll use this opportunity to introduce a couple of new forms of the import statement.
+
+9
+00:00:56,000 --> 00:01:03,000
+The first new form imports multiple objects from a module using a comma-separated list.
+
+10
+00:01:03,000 --> 00:01:10,000
+The parentheses are optional, but they do allow you to break this list over multiple lines if it gets long.
+
+11
+00:01:10,000 --> 00:01:14,000
+This form is perhaps the most widely used form of the import statement.
+
+12
+00:01:14,000 --> 00:01:21,000
+The second new form imports everything from a module using an asterisk wildcard.
+
+13
+00:01:21,000 --> 00:01:27,000
+This latter form is recommended only for casual use at the REPL. It can wreak havoc in programs since what
+
+14
+00:01:27,000 --> 00:01:35,000
+is imported is now potentially beyond your control, opening yourself up to namespace clashes at some future time.
+
+15
+00:01:35,000 --> 00:01:47,000
+Having done this, we can fetch words from the URL, print any list of words, or indeed run the main program.
+
+16
+00:01:47,000 --> 00:01:52,000
+Notice that the print words function isn't fussy about the type of items in the list.
+
+17
+00:01:52,000 --> 00:01:58,000
+It's perfectly happy to print a list of numbers. So, perhaps print_words isn't the best name.
+
+18
+00:01:58,000 --> 00:02:03,000
+In fact, the function doesn't mention lists either. It will happily print any collection that the for loop
+
+19
+00:02:03,000 --> 00:02:08,000
+is capable of iterating over, such as a string.
+
+20
+00:02:08,000 --> 00:02:15,000
+Given this, we'll perform a minor refactoring and rename this function to print_items, changing the variable
+
+21
+00:02:15,000 --> 00:02:20,000
+names within the function to suit. We'll talk more about the dynamic typing in Python, which allows this
+
+22
+00:02:20,000 --> 00:02:27,000
+degree of flexibility, in the next module. One obvious improvement to our module would be to replace the
+
+23
+00:02:27,000 --> 00:02:34,000
+hard-coded URL with a value we can pass in. Let's extract that value into an argument of the fetch_words
+
+24
+00:02:34,000 --> 00:02:41,000
+function called URL. When running our module as a standalone program, we need to accept the URL as a command
+
+25
+00:02:41,000 --> 00:02:48,000
+line argument. Access to command line arguments in Python is through an attribute of the sys module called
+
+26
+00:02:48,000 --> 00:02:55,000
+argv, which is a list of strings. To use it, we must import sys at the top of our program and then get the
+
+27
+00:02:55,000 --> 00:03:02,000
+second argument with an index of 1 from the list.
+
+28
+00:03:02,000 --> 00:03:09,000
+This works as expected when we pass a URL from the command line.
+
+29
+00:03:09,000 --> 00:03:15,000
+This all looks fine until we realize that we can't usefully test the main function any longer from the REPL
+
+30
+00:03:15,000 --> 00:03:23,000
+because it refers to sys.argv
+
+31
+00:03:23,000 --> 00:03:28,000
+The solution is to allow the argument list to be passed as a formal argument to the main function using
+
+32
+00:03:28,000 --> 00:03:36,000
+sys.argv as the actual parameter in the if __name__ == __main__ block.
+
+33
+00:03:36,000 --> 00:03:41,000
+Testing from the REPL again, we show that main is also usable from here.
+
+34
+00:03:41,000 --> 00:03:46,000
+For more sophisticated command line processing, we recommend you look at the Python standard library argparse
+
+35
+00:03:46,000 --> 00:59:00,000
+module or the inspired third-party docopt module.
+

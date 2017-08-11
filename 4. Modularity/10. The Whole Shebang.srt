@@ -1,0 +1,80 @@
+1
+00:00:02,000 --> 00:00:07,000
+And now the whole shebang. It's common on Unix-like systems to have the first line of a script
+
+2
+00:00:07,000 --> 00:00:15,000
+include a special comment called a shebang. This begins with the usual hash as for any other comment
+
+3
+00:00:15,000 --> 00:00:22,000
+followed by an exclamation mark. The shebang allows the program loader to identify which interpreter should
+
+4
+00:00:22,000 --> 00:00:29,000
+be used to run the program. Shebangs have an additional purpose of conveniently documenting at the top of a
+
+5
+00:00:29,000 --> 00:00:36,000
+file whether the Python code they're in is Python 2 or Python 3. The exact details of your shebang command
+
+6
+00:00:36,000 --> 00:00:42,000
+depend on the location of Python on your system. Typical Python 3 shebangs use the Unix env program to
+
+7
+00:00:42,000 --> 00:00:49,000
+locate Python 3 on your path environment variable, which importantly is compatible with Python virtual environments.
+
+8
+00:00:49,000 --> 00:00:55,000
+A standard Python 3 shebang passes Python 3 to the user bin/env program.
+
+9
+00:00:55,000 --> 00:01:01,000
+Don't worry if you're on Windows. Python includes machinery to make this work on Windows too.
+
+10
+00:01:01,000 --> 00:01:07,000
+On Mac or Linux, we must mark our script as executable using the chmod command before the shebang will have
+
+11
+00:01:07,000 --> 00:01:13,000
+any effect. Having done that, we can now run our script directly.
+
+12
+00:01:13,000 --> 00:01:19,000
+Since Python 3.3, Python on Windows also supports the use of the shebang to make Python scripts directly
+
+13
+00:01:19,000 --> 00:01:25,000
+executable with a correct version of the Python interpreter, even to the extent that shebangs that look like
+
+14
+00:01:25,000 --> 00:01:29,000
+they should only work on Unix-like systems will work as expected on Windows.
+
+15
+00:01:29,000 --> 00:01:34,000
+This works because Windows Python distributions now use a program called PyLauncher.
+
+16
+00:01:34,000 --> 00:01:40,000
+PyLauncher, the executable for which is simply py.exe, will pass the shebang and locate the appropriate
+
+17
+00:01:40,000 --> 00:01:43,000
+version of Python on your system.
+
+18
+00:01:43,000 --> 00:01:49,000
+For example, on Windows in cmd shell, simply words.py followed by the URL as the command line argument will
+
+19
+00:01:49,000 --> 00:01:55,000
+be sufficient to run your script with Python 3, even if you also have Python 2 installed.
+
+20
+00:01:55,000 --> 00:59:00,000
+You can read more about PyLauncher on windows in PEP 397.
+

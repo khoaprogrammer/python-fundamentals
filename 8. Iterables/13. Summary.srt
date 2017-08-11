@@ -1,0 +1,92 @@
+1
+00:00:02,000 --> 00:00:07,000
+In this module we've covered the techniques that we'll run through some of the most elegant Python code
+
+2
+00:00:07,000 --> 00:00:14,000
+you'll produce. Let's recap what we've learned. Comprehensions are a concise and readable syntax for
+
+3
+00:00:14,000 --> 00:00:19,000
+describing lists, sets, and dictionaries in a declarative way.
+
+4
+00:00:19,000 --> 00:00:24,000
+These comprehensions iterate on an iterable source object and apply an optional predicate filter and
+
+5
+00:00:24,000 --> 00:00:32,000
+a mandatory expression. Both filter and expression are usually in terms of the current item.
+
+6
+00:00:32,000 --> 00:00:37,000
+Iterable objects are objects over which we can iterate item-by-item.
+
+7
+00:00:37,000 --> 00:00:43,000
+We retrieve an iterate all from an iterable using the built-in iter() function.
+
+8
+00:00:43,000 --> 00:00:48,000
+Iterators produce items one-by-one from the underlying iterable series each time they are passed to
+
+9
+00:00:48,000 --> 00:00:57,000
+the built-in next() function. When the series is exhausted, iterators raise a StopIteration exception.
+
+10
+00:00:57,000 --> 00:01:03,000
+Generator functions allow us to describe sequences using imperative code.
+
+11
+00:01:03,000 --> 00:01:08,000
+Generator functions look just like regular functions and have all the same facilities, but they must
+
+12
+00:01:08,000 --> 00:01:14,000
+contain at least one instance of the yield keyword. The generator is produced when you call a generator
+
+13
+00:01:14,000 --> 00:01:21,000
+function are iterators. When the iterator is advanced with next(), the generator starts or resumes execution
+
+14
+00:01:21,000 --> 00:01:29,000
+up to and including the next yield statement. Although generators can't be reused, generator functions can.
+
+15
+00:01:29,000 --> 00:01:34,000
+Each call to a generator function creates a new generator object.
+
+16
+00:01:34,000 --> 00:01:42,000
+Generators can maintain state between calls in local variables and because they are lazy can model infinite
+
+17
+00:01:42,000 --> 00:01:51,000
+series of data. Generator expressions are a sort of hybrid of generator functions and list comprehensions.
+
+18
+00:01:51,000 --> 00:01:57,000
+These allow for a more declarative and concise way of creating generator objects.
+
+19
+00:01:57,000 --> 00:02:03,000
+Python includes a rich set of tools for dealing with iterable series both in the form of built-in functions
+
+20
+00:02:03,000 --> 00:02:10,000
+such as sum(), any(), and zip(), but also in the itertools module.
+
+21
+00:02:10,000 --> 00:02:14,000
+We've given you some powerful tools in this module for writing functional style programs.
+
+22
+00:02:14,000 --> 00:02:19,000
+In the next module we'll experience a paradigm shift as we get to grips with object-oriented programming
+
+23
+00:02:19,000 --> 00:59:00,000
+with classes. See you there.
+

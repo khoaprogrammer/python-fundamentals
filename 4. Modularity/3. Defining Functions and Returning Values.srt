@@ -1,0 +1,36 @@
+1
+00:00:01,000 --> 00:00:07,000
+Let's quickly define a few functions at the REPL to get the idea. Functions are defined using the def
+
+2
+00:00:07,000 --> 00:00:13,000
+keyword followed by the function name, an argument list in parentheses, and a colon to start a new block.
+
+3
+00:00:13,000 --> 00:00:19,000
+We use the return keyword to return a value form the function. As we've seen previously, we call functions
+
+4
+00:00:19,000 --> 00:00:26,000
+by providing the actual arguments in parentheses, if there are any, after the function name.
+
+5
+00:00:26,000 --> 00:00:36,000
+Functions aren't required to explicitly return a value though. Perhaps they produce side effects.
+
+6
+00:00:36,000 --> 00:00:42,000
+You can return early from a function by using the return keyword with no parameter.
+
+7
+00:00:42,000 --> 00:00:47,000
+A return keyword without a parameter, or the implicit return at the end of a function, actually causes the
+
+8
+00:00:47,000 --> 00:00:56,000
+function to return None, although remember that the REPL doesn't display None results, so we don't see them.
+
+9
+00:00:56,000 --> 00:59:00,000
+By capturing the returned object into a named variable, we can test for None.
+

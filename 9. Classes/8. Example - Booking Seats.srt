@@ -1,0 +1,188 @@
+1
+00:00:01,000 --> 00:00:05,000
+Now we can proceed with implementing a simple booking system.
+
+2
+00:00:05,000 --> 00:00:09,000
+For each flight we simply need to keep track of who is sitting in each seat.
+
+3
+00:00:09,000 --> 00:00:12,000
+We'll represent the seat allocations using a list of dictionaries.
+
+4
+00:00:12,000 --> 00:00:16,000
+The list will contain one entry for each seat row, and each entry will be a dictionary from seat letter to
+
+5
+00:00:16,000 --> 00:00:21,000
+occupant name. If the seat is unoccupied, it will contain None.
+
+6
+00:00:21,000 --> 00:00:25,000
+We initialize the seating plan in the flight initializer using this fragment.
+
+7
+00:00:25,000 --> 00:00:30,000
+In the first line we retrieve the seating plan for the aircraft and use tuple unpacking to put the row and
+
+8
+00:00:30,000 --> 00:00:35,000
+seat identifiers into local variables. In the second line we create a list for the seat allocations.
+
+9
+00:00:35,000 --> 00:00:40,000
+Rather than continually deal with the fact that row indices are one-based whereas Python lists are zero-
+
+10
+00:00:40,000 --> 00:00:43,000
+based, we choose to waste one entry at the beginning of the list.
+
+11
+00:00:43,000 --> 00:00:47,000
+This first wasted entry is the single element list containing None.
+
+12
+00:00:47,000 --> 00:00:53,000
+To this single element list we concatenate another list containing one entry for each real row in the aircraft.
+
+13
+00:00:53,000 --> 00:00:57,000
+This list is constructed by a list comprehension which iterates over the rows object, which is the range
+
+14
+00:00:57,000 --> 00:01:02,000
+of row numbers retrieved from the aircraft in the previous line.
+
+15
+00:01:02,000 --> 00:01:06,000
+We're not actually interested in the row number since we know it will match up with the list index in the
+
+16
+00:01:06,000 --> 00:01:11,000
+final index, so we discard it by using the dummy underscore variable.
+
+17
+00:01:11,000 --> 00:01:15,000
+The item expression part of the list comprehension is itself a comprehension, specifically a dictionary
+
+18
+00:01:15,000 --> 00:01:20,000
+comprehension. This iterates over each letter for the row and creates a mapping from the single character
+
+19
+00:01:20,000 --> 00:01:26,000
+string to None to indicate an empty seat. We use a list comprehension rather than list replication with
+
+20
+00:01:26,000 --> 00:01:32,000
+the multiplication operator because we want a distinct dictionary object to be created for each row.
+
+21
+00:01:32,000 --> 00:01:43,000
+Here's the code after we put it into the initializer. Before we go further, let's test our code in the REPL.
+
+22
+00:01:43,000 --> 00:01:47,000
+Thanks to the fact that everything is public, we can access implementation details during development,
+
+23
+00:01:47,000 --> 00:01:53,000
+and it's clear enough that we're doing so since the leading underscores remind us what's public and what's not.
+
+24
+00:01:53,000 --> 00:02:01,000
+That's accurate, but not particularly beautiful. Let's try again with pretty print.
+
+25
+00:02:01,000 --> 00:02:11,000
+Perfect. Now we'll add behavior to flight to allocate seats to passengers.
+
+26
+00:02:11,000 --> 00:02:15,000
+To keep this simple, a passenger will simply be a string name.
+
+27
+00:02:15,000 --> 00:02:19,000
+Most of this code is validation of the seat designator and contains some interesting snippets.
+
+28
+00:02:19,000 --> 00:02:24,000
+Methods are functions so deserve docstrings too. We get the seat letter by using negative indexing into
+
+29
+00:02:24,000 --> 00:02:29,000
+the seat string. We test that the seat letter is valid by checking for membership of seat letters using
+
+30
+00:02:29,000 --> 00:02:36,000
+the in membership testing operator. We extract the row number using string slicing to take all but the
+
+31
+00:02:36,000 --> 00:02:41,000
+last character. We try to convert the row number substring to an integer using the int constructor.
+
+32
+00:02:41,000 --> 00:02:46,000
+If this fails, we catch the ValueError and in the handler raise a new ValueError with a more appropriate
+
+33
+00:02:46,000 --> 00:02:51,000
+message payload. We conveniently validate the row number by using the in operator against the rows object,
+
+34
+00:02:51,000 --> 00:02:57,000
+which is a range. We can do this because range objects support the container protocol.
+
+35
+00:02:57,000 --> 00:03:01,000
+We check that the requested seat is unoccupied using an identity test with None.
+
+36
+00:03:01,000 --> 00:03:06,000
+If it's occupied, we raise a ValueError. If we get this far, everything is in good shape, and we can assign
+
+37
+00:03:06,000 --> 00:03:11,000
+the seat. It also contains a bug, but we'll discover that soon enough.
+
+38
+00:03:11,000 --> 00:03:27,000
+Let's try our seat allocator at the REPL. Doing so, we see that we get a TypeError in allocate_seat.
+
+39
+00:03:27,000 --> 00:03:32,000
+Early on in your object-oriented Python career you're likely to see TypeError messages like this quite often.
+
+40
+00:03:32,000 --> 00:03:37,000
+The problem has occurred because we forgot to include the self argument in the definition of the allocate_seat
+
+41
+00:03:37,000 --> 00:03:57,000
+method. Once we fix that, we can try again. If we create our flight object as normal, we then allocate_seat
+
+42
+00:03:57,000 --> 00:04:06,000
+12A, but if we try to allocate_seat 12A a second time we get a ValueError.
+
+43
+00:04:06,000 --> 00:04:19,000
+Now we allocate 15F and 15E, but if we try to allocate E27 we get a ValueError because E27 is obviously not
+
+44
+00:04:19,000 --> 00:04:30,000
+a seat. We now allocate 1C and 1D, but if we try to seat Larry Wall in seat DD we get yet another ValueError
+
+45
+00:04:30,000 --> 00:04:38,000
+because of course DD is not a valid seat. After that we pretty print to see how things look.
+
+46
+00:04:38,000 --> 00:04:43,000
+The Dutchman is quite lonely there in row 12, so we'd like to move him back to row 15 with the Danes.
+
+47
+00:04:43,000 --> 00:59:00,000
+To do so, we'll need a relocate passenger method.
+

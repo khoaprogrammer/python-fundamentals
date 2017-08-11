@@ -1,0 +1,60 @@
+1
+00:00:02,000 --> 00:00:07,000
+Hi. My name is Robert Smallshire. Welcome to the fifth module of the Python Fundamentals course where
+
+2
+00:00:07,000 --> 00:00:13,000
+we look in more depth at the built-in collection types of the Python language and explore the various protocols
+
+3
+00:00:13,000 --> 00:00:14,000
+that unite them.
+
+4
+00:00:14,000 --> 00:00:19,000
+In this module we'll revisit some collection types we've already explored:
+
+5
+00:00:19,000 --> 00:00:26,000
+Str or string, the immutable sequence of Unicode codepoints; list, the mutable sequence of objects;
+
+6
+00:00:26,000 --> 00:00:31,000
+and dict, the mutable mapping from immutable keys to mutable objects.
+
+7
+00:00:31,000 --> 00:00:37,000
+We'll also cover some new ones: Tuple, the immutable sequence of objects; range for arithmetic progressions
+
+8
+00:00:37,000 --> 00:00:43,000
+of integers; and set, a mutable collection of unique immutable objects.
+
+9
+00:00:43,000 --> 00:00:48,000
+We won't cover the bytes type further here. We've already discussed its essential differences with str,
+
+10
+00:00:48,000 --> 00:00:52,000
+and most of what we learned about str can also be applied to bytes.
+
+11
+00:00:52,000 --> 00:00:58,000
+This is not an exhaustive list of Python collection types, but it's completely sufficient for the overwhelming
+
+12
+00:00:58,000 --> 00:01:03,000
+majority of Python 3 programs you'll encounter in the wild or are likely to write yourself.
+
+13
+00:01:03,000 --> 00:01:07,000
+In this module we'll be covering these collections in this order, and then round off with an overview of
+
+14
+00:01:07,000 --> 00:01:14,000
+the protocols that unite these collections, which allow them to be used in consistent and predictable ways.
+
+15
+00:01:14,000 --> 00:59:00,000
+First up is tuple.
+

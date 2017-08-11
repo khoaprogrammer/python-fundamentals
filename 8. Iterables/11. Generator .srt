@@ -1,0 +1,108 @@
+1
+00:00:01,000 --> 00:00:06,000
+Generator expressions are a cross between comprehensions and generator functions.
+
+2
+00:00:06,000 --> 00:00:12,000
+They use a similar syntax as comprehensions, but they result in the creation of a generator object, which
+
+3
+00:00:12,000 --> 00:00:17,000
+produces the specified sequence lazily.
+
+4
+00:00:17,000 --> 00:00:23,000
+The syntax for generator expressions is very similar to list comprehensions, the expression of item for
+
+5
+00:00:23,000 --> 00:00:31,000
+item in iterable delimited by parentheses instead of the brackets used for list comprehensions.
+
+6
+00:00:31,000 --> 00:00:35,000
+Generator expressions are useful for situations where you want the lazy evaluation of generators with
+
+7
+00:00:35,000 --> 00:00:42,000
+the declarative concision of comprehensions. For example, this generator expression yields a list
+
+8
+00:00:42,000 --> 00:00:50,000
+of the first one million square numbers. At this point, none of the squares have been created.
+
+9
+00:00:50,000 --> 00:00:55,000
+We've just captured the specification of the sequence into a generator object.
+
+10
+00:00:55,000 --> 00:01:02,000
+We can force evaluation of the generator by using it to create a long list.
+
+11
+00:01:02,000 --> 00:01:08,000
+This list obviously consumes a significant chunk of memory, in this case about 40 megabytes for the list
+
+12
+00:01:08,000 --> 00:01:16,000
+object and the integer contained therein. Also notice that a generator object is just an interator and
+
+13
+00:01:16,000 --> 00:01:22,000
+once run exhaustively in this way will yield no more items. Repeating the previous statement returns
+
+14
+00:01:22,000 --> 00:01:31,000
+an empty list. Generators are single-use objects. Each time we call a generator function, we create a
+
+15
+00:01:31,000 --> 00:01:37,000
+new generator object. To recreate a generator from a generator expression, we must execute the expression
+
+16
+00:01:37,000 --> 00:01:40,000
+itself once more.
+
+17
+00:01:40,000 --> 00:01:46,000
+Let's raise the stakes by computing the sum of the first 10 million squares using the built-in sum function,
+
+18
+00:01:46,000 --> 00:01:52,000
+which accepts an interable series of numbers. If we were to use a list comprehension, we could expect this
+
+19
+00:01:52,000 --> 00:01:59,000
+to consume around 400 megabytes of memory. Using a generator expression, memory usage will be insignificant.
+
+20
+00:01:59,000 --> 00:02:05,000
+This produces a result in a second or so and uses almost no memory.
+
+21
+00:02:05,000 --> 00:02:09,000
+Looking carefully, you'll seen that in this case we didn't supply separate enclosing parentheses for
+
+22
+00:02:09,000 --> 00:02:14,000
+the generator expression in addition to those needed for the sum function call.
+
+23
+00:02:14,000 --> 00:02:19,000
+This elegant ability to have the parentheses used for the function call also serve for the generator expression
+
+24
+00:02:19,000 --> 00:02:27,000
+aids readability. You can include the second set of parentheses if you wish, but it's not required.
+
+25
+00:02:27,000 --> 00:02:34,000
+As with comprehensions, you can include an if clause at the end of the generator expression.
+
+26
+00:02:34,000 --> 00:02:39,000
+Reusing an admittedly inefficient is_prime predicate, we can determine the sum of those integers from
+
+27
+00:02:39,000 --> 00:59:00,000
+the first 1000, which are prime, like this.
+

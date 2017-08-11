@@ -1,0 +1,44 @@
+1
+00:00:01,000 --> 00:00:07,000
+To make this interesting, we'll first define a primality testing predicate function.
+
+2
+00:00:07,000 --> 00:00:12,000
+This function for identifying prime numbers won't win any prizes for efficiency, but it's reliable,
+
+3
+00:00:12,000 --> 00:00:18,000
+simple to understand, and doesn't use any features of Python we haven't yet encountered.
+
+4
+00:00:18,000 --> 00:00:23,000
+All three types of collection comprehension support an optional filtering clause, which allows us to
+
+5
+00:00:23,000 --> 00:00:28,000
+choose which items of the source are evaluated by the expression on the left.
+
+6
+00:00:28,000 --> 00:00:33,000
+We can use our new is_prime function as the filtering clause of a list comprehension to produce all the
+
+7
+00:00:33,000 --> 00:00:42,000
+primes less than 100 with the numbers up to and including 100 being produced by a call to the range constructor.
+
+8
+00:00:42,000 --> 00:00:47,000
+We have a slightly odd looking X for X construct here because we're not applying any transformation to
+
+9
+00:00:47,000 --> 00:00:54,000
+the filtered values. The expression in terms of X is simply X itself.
+
+10
+00:00:54,000 --> 00:00:59,000
+There's nothing to stop us combining a filtering predicate with a transforming expression.
+
+11
+00:00:59,000 --> 00:59:00,000
+Here's a dictionary comprehension, which maps numbers with exactly three divisors to a tuple of those divisors.
+

@@ -1,0 +1,160 @@
+1
+00:00:02,000 --> 00:00:07,000
+Start your Python 3 interpreter using the Python or Python 3 command for Windows or Unix-like systems
+
+2
+00:00:07,000 --> 00:00:14,000
+respectively. The control flow structures of Python such as for loops, while loops, and if statements
+
+3
+00:00:14,000 --> 00:00:19,000
+are all introduced by statements which are terminated by a colon indicating that the body of the construct
+
+4
+00:00:19,000 --> 00:00:27,000
+is to follow. For example, for loops require a body. So, if you enter for i in range(5), Python will change
+
+5
+00:00:27,000 --> 00:00:36,000
+the prompt to three dots to request you provide the body. One distinctive and sometimes controversial
+
+6
+00:00:36,000 --> 00:00:41,000
+aspect of Python is that leading whitespace is syntactically significant.
+
+7
+00:00:41,000 --> 00:00:46,000
+What this means is that Python uses indentation levels rather than the braces used by other languages
+
+8
+00:00:46,000 --> 00:00:53,000
+to demarcate code blocks. By convention, contemporary Python code is indented by four spaces for each
+
+9
+00:00:53,000 --> 00:01:02,000
+level, so we provide those four spaces and a statement to form the body of our loop, x = i * 10.
+
+10
+00:01:02,000 --> 00:01:06,000
+Our loop body will contain a second statement. So, after pressing Return, at the next three dot prompt
+
+11
+00:01:06,000 --> 00:01:13,000
+we enter another four spaces followed by a call to the built-in print function.
+
+12
+00:01:13,000 --> 00:01:18,000
+To terminate our block, we must enter a blank line into the REPL.
+
+13
+00:01:18,000 --> 00:01:25,000
+With the block complete, Python executes the pending code printing out the multiples of 10 less than 50.
+
+14
+00:01:25,000 --> 00:01:30,000
+Looking at a screen full of Python code, we can see how the indentation clearly matches, and in fact must
+
+15
+00:01:30,000 --> 00:01:36,000
+match the structure of the program. Even if we replace the code by gray lines, the structure of the program
+
+16
+00:01:36,000 --> 00:01:43,000
+is clear. Each statement terminates by a colon, starts a new line, and introduces an additional level
+
+17
+00:01:43,000 --> 00:01:49,000
+of indentation, which continues until a dedent restores the indentation to a previous level.
+
+18
+00:01:49,000 --> 00:01:56,000
+Each level of indent is typically four spaces, although we'll cover the rules in more detail in a moment.
+
+19
+00:01:56,000 --> 00:02:00,000
+Python's approach to significant whitespace has three great advantages.
+
+20
+00:02:00,000 --> 00:02:04,000
+First, it forces developers to use a single level of indentation in a code block.
+
+21
+00:02:04,000 --> 00:02:10,000
+This is generally considered good practice in any language because it makes code much more readable.
+
+22
+00:02:10,000 --> 00:02:15,000
+Second, code with a significant whitespace doesn't need to be cluttered with unnecessary braces, and
+
+23
+00:02:15,000 --> 00:02:20,000
+you never need to have a code standard debate about where the braces should go.
+
+24
+00:02:20,000 --> 00:02:26,000
+All code blocks in Python code are easily identifiable, and everyone writes them the same way.
+
+25
+00:02:26,000 --> 00:02:30,000
+Third, significant whitespace requires that a consistent interpretation must be given to the structure
+
+26
+00:02:30,000 --> 00:02:36,000
+of the code by the author, the Python runtime system, and future maintainers who need to read the code,
+
+27
+00:02:36,000 --> 00:02:40,000
+so you can never have code that contains a block from Python's point of view, but which doesn't look like
+
+28
+00:02:40,000 --> 00:02:44,000
+it from a cursory human perspective.
+
+29
+00:02:44,000 --> 00:02:50,000
+The rules for Python indentation can seem complex, but are straightforward in practice.
+
+30
+00:02:50,000 --> 00:02:55,000
+The whitespace you use can either be spaces or tabs. The general consensus is that spaces are preferable
+
+31
+00:02:55,000 --> 00:03:00,000
+to tabs, and four spaces has become standard in the Python community.
+
+32
+00:03:00,000 --> 00:03:06,000
+One essential rule is never to mix spaces and tabs. The Python interpreter will complain, and your colleagues
+
+33
+00:03:06,000 --> 00:03:13,000
+will hunt you down. You are allowed to use different amounts of indentation at different times if you wish.
+
+34
+00:03:13,000 --> 00:03:17,000
+The essential rule is that consecutive lines of code at the same indentation level are considered to be
+
+35
+00:03:17,000 --> 00:03:23,000
+part of the same code block. There are some exceptions to these rules, but they almost always have to do
+
+36
+00:03:23,000 --> 00:03:29,000
+with improving code readability in other ways, for example, by breaking up necessarily long statements
+
+37
+00:03:29,000 --> 00:03:33,000
+over multiple lines.
+
+38
+00:03:33,000 --> 00:03:40,000
+This vigorous approach to code formatting is programming as Guido indented it.
+
+39
+00:03:40,000 --> 00:03:45,000
+The philosophy of placing a high value on code quality such as readability gets to the very heart of Python
+
+40
+00:03:45,000 --> 00:59:00,000
+culture, something we'll take a short look at now.
+

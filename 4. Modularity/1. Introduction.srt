@@ -1,0 +1,56 @@
+1
+00:00:01,000 --> 00:00:08,000
+Hello. My name is Robert Smallshire. Welcome to the third module of the Python Fundamentals course,
+
+2
+00:00:08,000 --> 00:00:14,000
+which is about the structure and organization, or modularity, of Python programs.
+
+3
+00:00:14,000 --> 00:00:19,000
+Modularity is an important property for anything but trivial software systems as it gives us the power to
+
+4
+00:00:19,000 --> 00:00:26,000
+make self-contained, reusable pieces, which can be combined in new ways to solve different problems.
+
+5
+00:00:26,000 --> 00:00:30,000
+As with most programming languages, the most fine-grained modularization facility is the definition of
+
+6
+00:00:30,000 --> 00:00:39,000
+reusable functions. Collections of related functions are typically grouped into source code files called modules.
+
+7
+00:00:39,000 --> 00:00:45,000
+Modules can be used from other modules, so long as we take care not to introduce a circular dependency.
+
+8
+00:00:45,000 --> 00:00:51,000
+As we have seen already, we can import modules into the REPL, and we'll show you how modules can be executed
+
+9
+00:00:51,000 --> 00:00:58,000
+directly as programs or scripts. Along the way, we'll investigate the Python execution model to ensure you
+
+10
+00:00:58,000 --> 00:01:03,000
+have a good understanding of exactly when code is evaluated and executed.
+
+11
+00:01:03,000 --> 00:01:08,000
+We'll round off by showing you how to use command line arguments to get basic configuration data into your
+
+12
+00:01:08,000 --> 00:01:14,000
+program and make your program executable. To illustrate this module, we'll be taking the code snippet for
+
+13
+00:01:14,000 --> 00:01:19,000
+retrieving words from a web-hosted text document we developed at the end of the previous session and
+
+14
+00:01:19,000 --> 00:59:00,000
+organizing it into a fully-fledged Python module.
+

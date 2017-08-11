@@ -1,0 +1,64 @@
+1
+00:00:01,000 --> 00:00:07,000
+We're not going to write a full-blown BMP reader, although that would be an interesting exercise.
+
+2
+00:00:07,000 --> 00:00:12,000
+We'll just make a simple function to determine the image dimension and pixels from a BMP file.
+
+3
+00:00:12,000 --> 00:00:20,000
+We'll add the code into bmp.py. Of course we use a with statement to manage the file so we don't have to worry
+
+4
+00:00:20,000 --> 00:00:26,000
+about it being properly closed. Inside the with-block we perform a simple validation check by looking
+
+5
+00:00:26,000 --> 00:00:33,000
+at the first two magic bytes that we expect in a bmp file. If they're not present, we raise a ValueError,
+
+6
+00:00:33,000 --> 00:00:37,000
+which will of course cause the context manager to close the file.
+
+7
+00:00:37,000 --> 00:00:43,000
+Looking back at our BMP writer we can determine that the image dimensions are stored exactly 18 bytes from
+
+8
+00:00:43,000 --> 00:00:50,000
+the beginning of the file. We seek to that location and use the read method to read two chunks of 4 bytes each
+
+9
+00:00:50,000 --> 00:00:57,000
+for the two 32-bit integers, which represent the dimensions. Because we opened the file in binary mode,
+
+10
+00:00:57,000 --> 00:01:03,000
+read returns a bytes object. We pass each of these two bytes objects to another implementation detail
+
+11
+00:01:03,000 --> 00:01:09,000
+method _bytes_to_int32, which assembles them back into an integer.
+
+12
+00:01:09,000 --> 00:01:16,000
+The two integers representing image width and height are returned as a tuple.
+
+13
+00:01:16,000 --> 00:01:22,000
+The _bytes_to_int32 function uses bitwise left shift and bitwise all, which is the vertical bar or the
+
+14
+00:01:22,000 --> 00:01:28,000
+pipe symbol together with indexing of the bytes object to reassemble the integer.
+
+15
+00:01:28,000 --> 00:01:33,000
+Notice that indexing into a bytes object returns an integer.
+
+16
+00:01:33,000 --> 00:59:00,000
+Let's try our new BMP dimensions function on the mandel.bmp file.
+

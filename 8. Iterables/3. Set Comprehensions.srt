@@ -1,0 +1,16 @@
+1
+00:00:01,000 --> 00:00:06,000
+Set support is similar comprehension syntax using, as you might expect,
+
+2
+00:00:06,000 --> 00:00:14,000
+curly braces instead of square brackets, and number of digits in factorial's result contain duplicates.
+
+3
+00:00:14,000 --> 00:00:20,000
+By building a set instead, we can eliminate them, although note that the resulting set is not necessarily
+
+4
+00:00:20,000 --> 00:59:00,000
+stored in a meaningful order since sets are unordered containers.
+

@@ -1,0 +1,36 @@
+1
+00:00:01,000 --> 00:00:07,000
+The Law of Demeter is an object-oriented design principle that says you should never call methods on objects
+
+2
+00:00:07,000 --> 00:00:14,000
+you receive from other calls, or put another way, only talk to your friends.
+
+3
+00:00:14,000 --> 00:00:24,000
+We'll modify our flight class to accept an aircraft object when it's constructed, and we'll follow the
+
+4
+00:00:24,000 --> 00:00:28,000
+Law of Demeter by adding a method to report the aircraft model.
+
+5
+00:00:28,000 --> 00:00:32,000
+This method will delegate to aircraft on behalf of the client rather than allowing the client to reach
+
+6
+00:00:32,000 --> 00:00:36,000
+through the flight and interrogate the aircraft object directly.
+
+7
+00:00:36,000 --> 00:00:43,000
+We also add a docstring to the class. These work just like function and module docstrings.
+
+8
+00:00:43,000 --> 00:00:53,000
+We can now construct a flight with a specific aircraft. Notice that we construct the aircraft object and
+
+9
+00:00:53,000 --> 00:59:00,000
+directly pass it to the flight constructor without needing an intermediate named reference for it.
+

@@ -1,0 +1,112 @@
+1
+00:00:01,000 --> 00:00:08,000
+Inheritance is a mechanism whereby one class can be derived from a base-class allowing us to make behavior
+
+2
+00:00:08,000 --> 00:00:14,000
+more specific in the sub-class. In nominally typed languages such as Java, class-based inheritance
+
+3
+00:00:14,000 --> 00:00:19,000
+is the means by which runtime polymorphism is achieved. Not so in Python as we have just demonstrated.
+
+4
+00:00:19,000 --> 00:00:24,000
+The fact that no Python method calls or attribute lookups are bound to actual objects until the point at
+
+5
+00:00:24,000 --> 00:00:29,000
+which they are called known as late binding means we can attempt polymorphism with any object, and we'll
+
+6
+00:00:29,000 --> 00:00:36,000
+succeed if the object fits. Although inheritance in Python can be used to facilitate polymorphism, after
+
+7
+00:00:36,000 --> 00:00:41,000
+all derived classes will have the same interfaces as the base classes, inheritance in Python is most useful
+
+8
+00:00:41,000 --> 00:00:49,000
+for sharing implementation between classes. As usual, this will make much more sense with an example.
+
+9
+00:00:49,000 --> 00:00:56,000
+We would like our aircraft class's AirbusA319 and Boeing777 to provide a way of returning the total number
+
+10
+00:00:56,000 --> 00:01:13,000
+of seats. We'll add a method called num_seats to both classes to do this.
+
+11
+00:01:13,000 --> 00:01:18,000
+Unfortunately, we now have duplicate code across two classes, and as we add more aircraft types, the code
+
+12
+00:01:18,000 --> 00:01:24,000
+duplication will worsen. The solution we look at here is to extract the common elements of AirbusA319
+
+13
+00:01:24,000 --> 00:01:29,000
+and Boeing777 into a base class from which both aircraft types will derive.
+
+14
+00:01:29,000 --> 00:01:34,000
+Let's recreate the class Aircraft, this time with the goal of using it as a base class.
+
+15
+00:01:34,000 --> 00:01:38,000
+It contains just the method we want to inherit into the derived classes.
+
+16
+00:01:38,000 --> 00:01:43,000
+This class isn't usable on its own because it depends on a method called seating_plan, which isn't available
+
+17
+00:01:43,000 --> 00:01:50,000
+at this level. Any attempt to use it standalone will fail. The class is abstract in so far as it is never useful
+
+18
+00:01:50,000 --> 00:02:00,000
+to instantiate it alone. Now the derived classes. We specify inheritance in Python using parentheses
+
+19
+00:02:00,000 --> 00:02:05,000
+containing the base class name immediately after the class name in the class statement.
+
+20
+00:02:05,000 --> 00:02:24,000
+Here's the Airbus class, and this is the Boeing class. Let's exercise them at the REPL.
+
+21
+00:02:24,000 --> 00:02:30,000
+We can see that both subtype aircraft inherited the num_seats() method, which now works as expected because
+
+22
+00:02:30,000 --> 00:02:36,000
+the call to seating_plan is successfully resolved on the self object at runtime.
+
+23
+00:02:36,000 --> 00:02:40,000
+Now that we have the base Aircraft class, we can hoist other common functionality into it.
+
+24
+00:02:40,000 --> 00:02:51,000
+In this case, initializer and registration methods are identical between the two subtypes.
+
+25
+00:02:51,000 --> 00:02:55,000
+Now the derived classes only contain the specifics for that aircraft type.
+
+26
+00:02:55,000 --> 00:03:02,000
+All shared functionality is inherited from the base class.
+
+27
+00:03:02,000 --> 00:03:06,000
+Thanks to duck typing, inheritance is less used in Python than in other languages.
+
+28
+00:03:06,000 --> 00:59:00,000
+This is generally seen as a good thing because inheritance is a very tight coupling between classes.
+

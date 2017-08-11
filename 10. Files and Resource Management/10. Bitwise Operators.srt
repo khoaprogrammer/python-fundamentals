@@ -1,0 +1,40 @@
+1
+00:00:01,000 --> 00:00:08,000
+Dealing with binary files often requires pulling apart or assembling data at the byte level.
+
+2
+00:00:08,000 --> 00:00:15,000
+This is exactly what our _int32_to_bytes function is doing. We'll take a quick look at it because it shows
+
+3
+00:00:15,000 --> 00:00:22,000
+some features of Python we haven't seen before. The function uses the bitwise shift and bitwise and operators
+
+4
+00:00:22,000 --> 00:00:30,000
+to extract individual bytes from the integer value. Notice that bitwise and uses the ampersand symbol
+
+5
+00:00:30,000 --> 00:00:34,000
+to distinguish it from the logical and, which is the spelled out word.
+
+6
+00:00:34,000 --> 00:00:40,000
+The double arrow is the right shift operator, which shifts the binary representation of the integer right
+
+7
+00:00:40,000 --> 00:00:47,000
+by the specified number of bits. The routine shifts the integer 1, 2, and 3 bytes to the right before extracting
+
+8
+00:00:47,000 --> 00:00:51,000
+the least significant byte with the bitwise and at each position.
+
+9
+00:00:51,000 --> 00:00:56,000
+The four resulting integers are used to construct a tuple, which is then passed to the bytes constructor
+
+10
+00:00:56,000 --> 00:59:00,000
+to produce a 4-byte sequence.
+

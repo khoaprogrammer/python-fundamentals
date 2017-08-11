@@ -1,0 +1,124 @@
+1
+00:00:01,000 --> 00:00:05,000
+We've covered a lot of ground in this module. Let's try to summarize.
+
+2
+00:00:05,000 --> 00:00:11,000
+Tuples are immutable sequence types. They have a literal syntax, which is optional parentheses, around
+
+3
+00:00:11,000 --> 00:00:18,000
+a comma separated list. Notably, the optional trailing comma must be used for single element tuples to
+
+4
+00:00:18,000 --> 00:00:25,000
+disambiguate them from parenthesized integers. Tuples are particularly useful for multiple return
+
+5
+00:00:25,000 --> 00:00:30,000
+values from functions, and tuple unpacking useful for destructuring those return values.
+
+6
+00:00:30,000 --> 00:00:37,000
+Tuple unpacking also has an interesting idiomatic use for swapping variables.
+
+7
+00:00:37,000 --> 00:00:44,000
+Strings are also immutable sequence types, but specifically of Unicode codepoints.
+
+8
+00:00:44,000 --> 00:00:48,000
+String concatenation is most efficiently performed with the join() method rather than with the addition
+
+9
+00:00:48,000 --> 00:00:56,000
+or augmented assignment operators. The partition() method is a useful and elegant string parsing tool,
+
+10
+00:00:56,000 --> 00:01:03,000
+and the format() method provides a powerful means of replacing placeholders with stringified values.
+
+11
+00:01:03,000 --> 00:01:08,000
+Range objects are immutable sequence types which represent arithmetic progressions of evenly spaced
+
+12
+00:01:08,000 --> 00:01:14,000
+integer values. Range is sometimes used to generate counters in loops, although the enumerate() built-in
+
+13
+00:01:14,000 --> 00:01:18,000
+function is often a superior alternative.
+
+14
+00:01:18,000 --> 00:01:23,000
+Lists are the only mutable sequence type we have seen and are very widely used.
+
+15
+00:01:23,000 --> 00:01:30,000
+Lists support indexing forward using positive or 0 integers and the indexing from the end with negative indices.
+
+16
+00:01:30,000 --> 00:01:37,000
+The slice syntax allows us to copy all or part of a list. The full slice is a common Python idiom for copying
+
+17
+00:01:37,000 --> 00:01:42,000
+lists, although the copy() method and the list() constructor are less obscure.
+
+18
+00:01:42,000 --> 00:01:46,000
+List and other collection copies in Python are shallow copies.
+
+19
+00:01:46,000 --> 00:01:54,000
+References are copied, but objects are not. Dictionaries are mapping types, which map from keys to values.
+
+20
+00:01:54,000 --> 00:01:59,000
+The keys must be immutable objects whereas the values may be mutable.
+
+21
+00:01:59,000 --> 00:02:04,000
+Iteration and membership testing with dictionaries is done with respect to the keys.
+
+22
+00:02:04,000 --> 00:02:09,000
+The keys(), values(), and items() methods provide views onto the different aspects of a dictionary allowing
+
+23
+00:02:09,000 --> 00:02:16,000
+convenient iteration. Sets store an unordered collection of unique elements.
+
+24
+00:02:16,000 --> 00:02:24,000
+Sets support powerful set algebra operations and predicates. The built-in collections are organized
+
+25
+00:02:24,000 --> 00:02:30,000
+according to which protocols they support such as iterable, sequence, and mapping.
+
+26
+00:02:30,000 --> 00:02:36,000
+In passing we have also found out that underscore is in common usage used for dummy or superfluous variables
+
+27
+00:02:36,000 --> 00:02:41,000
+and that the pprint module supports pretty printing of compound data structures.
+
+28
+00:02:41,000 --> 00:02:45,000
+Well, that just about wraps it up for this module on Python's collections.
+
+29
+00:02:45,000 --> 00:02:50,000
+Next time we'll look at exception handling so we can deal with those occasional value and key errors we've
+
+30
+00:02:50,000 --> 00:02:56,000
+encountered, learn the error of our ways with respect to return codes, and see that it's always easier
+
+31
+00:02:56,000 --> 00:59:00,000
+to ask for forgiveness than for permission. Thanks for watching, and we'll see you in the next module.
+

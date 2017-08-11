@@ -1,0 +1,64 @@
+1
+00:00:02,000 --> 00:00:08,000
+In Python it's important to remember that everything is an object, primitive objects, functions, modules,
+
+2
+00:00:08,000 --> 00:00:14,000
+and on and on. It's easy to see that when you start to explore even simple pieces of code.
+
+3
+00:00:14,000 --> 00:00:17,000
+Let's go back to our words module and experiment with it further at the REPL.
+
+4
+00:00:17,000 --> 00:00:23,000
+On this occasion we'll import just the module. The import statement binds a module object to the name words
+
+5
+00:00:23,000 --> 00:00:29,000
+in the current namespace. We can determine the type of any object by using the type built-in function.
+
+6
+00:00:29,000 --> 00:00:33,000
+If we want to see the attributes of an object, we can use the dir built-in function in a Python interactive
+
+7
+00:00:33,000 --> 00:00:39,000
+session to introspect an object. The dir function returns a sorted list of the module attributes including
+
+8
+00:00:39,000 --> 00:00:45,000
+the ones we defined such as the function fetch words, any imported names such as sys and urlopen, and various
+
+9
+00:00:45,000 --> 00:00:50,000
+special attributes delimited by double underscores such as double underscore name and double underscore
+
+10
+00:00:50,000 --> 00:00:56,000
+doc, which reveal the inner workings of Python. We can use the type function on any of these attributes
+
+11
+00:00:56,000 --> 00:01:01,000
+to learn more about them. For instance, we can see that fetch_words is a function object.
+
+12
+00:01:01,000 --> 00:01:06,000
+We can in turn call dir on the function to reveal its attributes, and we see that function objects have many
+
+13
+00:01:06,000 --> 00:01:10,000
+special attributes to do with how Python functions are implemented behind the scenes.
+
+14
+00:01:10,000 --> 00:01:16,000
+For now, we'll just look at a couple of simple attributes. As you might expect, this is the name of the function
+
+15
+00:01:16,000 --> 00:01:25,000
+object as a string, and this is the docstring we provided. These give us some clues as to how the built-in
+
+16
+00:01:25,000 --> 00:59:00,000
+help function might be implemented.
+
